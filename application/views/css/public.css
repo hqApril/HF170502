@@ -1,0 +1,11 @@
+/* -------------公共样式-------------------- */
+
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+

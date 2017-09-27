@@ -21,7 +21,7 @@
                 maxlength="16" required><br/>
             <div class="showError" ng-show="loginForm.loginPwd.$error.required && loginForm.loginPwd.$dirty">*您尚未输入密码</div>
             <span>验证码：</span><img src="./application/views/images/login_bg.jpg" id="captchaImg">
-            <input type="text" id="loginCaptcha"><br/>
+            <input type="text" id="loginCaptcha" maxlength="4"><br/>
             <input type="reset" value="重&nbsp;置">
             <input type="button" value="登&nbsp;录" id="loginBtn">
         </form>

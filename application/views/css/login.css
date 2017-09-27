@@ -55,6 +55,7 @@ body {
 
 #loginBox span {
     color: white;
+    line-height: 40px;
 }
 
 #loginCaptcha {

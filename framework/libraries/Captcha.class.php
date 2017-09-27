@@ -86,7 +86,7 @@ class Captcha {
 
     session_start();
 
-    $captcha = new Captcha(4, 100, 40);
+    $captcha = new Captcha(4, 90, 44);
     $captcha -> getImg();
-    $_SESSION['loginCapcha'] = $captcha -> getCode();
+    $_SESSION['loginCaptcha'] = $captcha -> getCode();
 ?>

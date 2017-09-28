@@ -2,6 +2,8 @@ var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http) {
     $scope.addRoleIf = false;
+    $scope.changeRoleIf = false;
+    $scope.changeRolePowerIf = false;
 
     $scope.getRole = function () {
         $http({
@@ -13,12 +15,35 @@ app.controller("myCtrl", function ($scope, $http) {
                 $scope.roleArr = data;
             },
             function (res) {
-
+                alert("未知错误");
             }
         );
     }
 
     $scope.getRole();
+
+    $scope.getPower = function () {
+        $http({
+            url: "./index.php?c=Main&a=getPower",
+            method: "get"
+        }).then(
+            function (res) {
+                var data = res.data;
+
+
+                for (var i = 0; i < data.length; i++) {
+                    data[i].got = false;
+                }
+
+                $scope.powerArr = data;
+            },
+            function (res) {
+                alert("未知错误");
+            }
+        );
+    }
+
+    $scope.getPower();
 
     $scope.addRole = function () {
         $http({
@@ -48,7 +73,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
-    $scope.deleteRole = function(id) {
+    $scope.deleteRole = function (id) {
         $http({
             url: "./index.php?c=Main&a=deleteRole",
             method: "post",
@@ -72,6 +97,73 @@ app.controller("myCtrl", function ($scope, $http) {
             function (res) {
                 alert("未知错误");
             }
-            );
+        );
     }
+
+    $scope.showChangeRoleIf = function (id, name, describe) {
+        $scope.changeRoleId = id;
+        $scope.cName = name;
+        $scope.cDescribe = describe;
+        $scope.changeRoleIf = !$scope.changeRoleIf;
+    }
+
+    $scope.changeRole = function () {
+        $http({
+            url: "./index.php?c=Main&a=changeRole",
+            method: "post",
+            data: {
+                id: $scope.changeRoleId,
+                name: $scope.cName,
+                describe: $scope.cDescribe
+            }
+        }).then(
+            function (res) {
+                var data = res.data;
+
+                if (data == 0) {
+                    alert("该角色名已存在，更改失败");
+                } else if (data == 1) {
+                    alert("更改成功");
+
+                    window.location.reload();
+                } else if (data == 2) {
+                    alert("更改失败");
+                }
+            },
+            function (res) {
+                alert("未知错误");
+            }
+        );
+    }
+
+    $scope.showChangeRolePowerIf = function (id) {
+        $scope.changeRolePowerIf = !$scope.changeRolePowerIf;
+
+        if ($scope.changeRolePowerIf == true) {
+            $http({
+                url: "./index.php?c=Main&a=getRolePower",
+                method: "post",
+                data: {
+                    id: id
+                }
+            }).then(
+                function (res) {
+                    var data = res.data;
+
+                    for (var i = 0; i < $scope.powerArr.length; i++) {
+                        $scope.powerArr[i].got = false;
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        $scope.powerArr[data[i].menu_id - 1].got = true;
+                    }
+                },
+                function (res) {
+                    alert("未知错误");
+                }
+            );
+        }
+    }
+
+
 })

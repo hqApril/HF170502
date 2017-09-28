@@ -62,5 +62,37 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function checkRoleName($id, $name) {
+        $query = "select * from role where role_id != {$id} and role_name = '{$name}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function changeRole($id, $name, $describe) {
+        $query = "update role set role_name = '{$name}', role_describe = '$describe' where role_id = {$id}";
+
+        $res = $this -> _link -> update($query);
+
+        return $res;
+    }
+
+    public function getPower() {
+        $query = "select * from menu";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getRolePower($id) {
+        $query = "select * from menu, role_menu where menu.menu_id = role_menu.menu_id and menu.menu_fid != 0 and role_menu.role_id = {$id}";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
 }
 ?>

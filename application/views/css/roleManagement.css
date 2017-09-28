@@ -46,7 +46,8 @@
     margin: 0 5px;
 }
 
-#addRoleIf {
+#addRoleIf,
+#changeRoleIf {
     width: 300px;
     height: 170px;
     background-color: #FFFFFF;
@@ -58,7 +59,8 @@
     text-align: center;
 }
 
-#addRoleIf input[type="text"] {
+#addRoleIf input[type="text"],
+#changeRoleIf input[type="text"] {
     width: 200px;
     height: 40px;
     border: 1px solid grey;
@@ -67,11 +69,31 @@
     font-size: 15px;
 }
 
-#addRoleIf input[type="button"] {
+#addRoleIf input[type="button"],
+#changeRoleIf input[type="button"] {
     width: 50px;
     height: 25px;
     border-radius: 4px;
     background-color: #036B03;
     color: white;
     border: 1px solid #818181;
+}
+
+#changeRolePowerIf {
+    width: 300px;
+    height: 250px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 209px;
+    left: 314px;
+    border: 1px solid grey;
+    padding: 30px;
+}
+
+#changeRolePowerIf > div {
+    margin-left: 15px;
+}
+
+#changeRolePowerIf li {
+    padding-left: 15px;
 }

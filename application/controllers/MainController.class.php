@@ -90,5 +90,39 @@
                 }
             }
         }
+
+        public function changeRole() {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $describe = $_POST['describe'];
+
+            $res = $this -> _model -> checkRoleName($id, $name);
+
+            if (count($res)) {
+                echo 0;
+            } else {
+                $res = $this -> _model -> changeRole($id, $name, $describe);
+
+                if ($res) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            }
+        }
+
+        public function getPower() {
+            $res = $this -> _model -> getPower();
+
+            echo json_encode($res);
+        }
+
+        public function getRolePower() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> getRolePower($id);
+
+            echo json_encode($res);
+        }
     }
 ?>

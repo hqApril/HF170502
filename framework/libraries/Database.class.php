@@ -73,5 +73,11 @@
 
             return $this -> _res;
         }
+
+        public function update($query) {
+            $this -> dealQuery($query);
+
+            return $this -> _res;
+        }
     }
 ?>

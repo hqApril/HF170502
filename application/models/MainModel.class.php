@@ -94,5 +94,27 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function deleteRolePower($id) {
+        $query = "delete from role_menu where role_id = {$id}";
+
+        $this -> _link -> delete($query);
+    }
+
+    public function addRolePower($id, $menuId) {
+        $query = "insert into role_menu values ({$id}, {$menuId})";
+
+        $res = $this -> _link -> insert($query);
+
+        return $res;
+    }
+
+    public function getFRolePower($menuId) {
+        $query = "select menu_fid from menu where menu_id = {$menuId}";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
 }
 ?>

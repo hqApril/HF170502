@@ -124,5 +124,19 @@
 
             echo json_encode($res);
         }
+
+        public function changeRolePower() {
+            $id = $_POST['id'];
+            $arr = $_POST['arr'];
+
+            $this -> _model -> deleteRolePower($id);
+
+            for ($i = 0; $i < count($arr); $i++) {
+                $this -> _model -> addRolePower($id, $arr[$i]);
+
+                $res = $this -> _model -> getFRolePower($arr[$i]);
+                $this -> _model -> addRolePower($id, $res[0]['menu_fid']);
+            }
+        }
     }
 ?>

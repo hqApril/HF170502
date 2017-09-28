@@ -59,12 +59,14 @@
 
     <div id="changeRolePowerIf" ng-show="changeRolePowerIf">
         <input type="checkbox">总权限<br/>
-        <div ng-repeat="x_0 in powerArr" ng-if="x_0.menu_fid == 0">
-            <input type="checkbox"><span ng-bind="x_0.menu_name"></span><br/>
+        <div ng-repeat="(y_0, x_0) in powerArr" ng-if="x_0.menu_fid == 0">
+            <input type="checkbox" ng-model="x_0.got"><span ng-bind="x_0.menu_name"></span><br/>
             <ul>
                 <li ng-repeat="x_1 in powerArr" ng-if="x_1.menu_fid == x_0.menu_id"><input type="checkbox" ng-model="x_1.got"><span ng-bind="x_1.menu_name"></span></li>
             </ul>
         </div>
+
+        <input type="button" value="提交" ng-click="changeRolePower()">
         
     </div>
 

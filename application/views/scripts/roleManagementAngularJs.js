@@ -138,6 +138,7 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.showChangeRolePowerIf = function (id) {
         $scope.changeRolePowerIf = !$scope.changeRolePowerIf;
+        $scope.changeRolePowerId = id;
 
         if ($scope.changeRolePowerIf == true) {
             $http({
@@ -165,5 +166,31 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    $scope.changeRolePower = function () {
+        var arr = [];
 
+        for (var i = 0; i < $scope.powerArr.length; i++) {
+            if ($scope.powerArr[i].got == true) {
+                arr.push($scope.powerArr[i].menu_id);
+            }
+        }
+
+        $http({
+            url: "./index.php?c=Main&a=changeRolePower",
+            method: "post",
+            data: {
+                id: $scope.changeRolePowerId,
+                arr: arr
+            }
+        }).then(
+            function (res) {
+                var data = res.data;
+
+                console.log(res.data);
+            },
+            function (res) {
+                alert("未知错误");
+            }
+        );
+    }
 })

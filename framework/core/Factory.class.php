@@ -6,7 +6,7 @@
             require_once("./framework/core/controller.class.php");
             require_once("./framework/core/model.class.php");
 
-            spl_autoload_register([__CLASS__, 'loadController']);
+            spl_autoload_register([__CLASS__, 'load']);
         }
 
         public function __clone() {
@@ -21,11 +21,16 @@
             return self::$_instance;
         }
 
-        public function loadController ($c_name) {  
+        public function load ($c_name) {  
             $c_path = './application/controllers/'.$c_name.'.class.php';
+            $m_path = './application/models/'.$c_name.'.class.php';
             
             if (file_exists($c_path)) {
-                 require($c_path);
+                 require_once($c_path);
+            }
+
+            if (file_exists($m_path)) {
+                require_once($m_path);
             }
         }
 

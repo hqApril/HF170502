@@ -5,7 +5,7 @@ class LoginController extends Controller {
     public function __construct() {
         session_start();
         $_POST = json_decode(file_get_contents('php://input'),true);
-        require_once('./application/models/LoginModel.class.php');
+        //require_once('./application/models/LoginModel.class.php');
 
         $this -> _model = new LoginModel();
     }
@@ -16,7 +16,6 @@ class LoginController extends Controller {
         } else {
             include_once('./application/views/login.html');
         }
-        
     }
 
     public function login() {

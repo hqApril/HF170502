@@ -4,7 +4,7 @@
 
         public function __construct() {
             parent::__construct();
-            $this -> _link = Database::getInstance($this -> getConfig());
+            $this -> _link = Database::getInstance($this -> _config);
         }
 
         public function loginValidation($id, $pwd) {

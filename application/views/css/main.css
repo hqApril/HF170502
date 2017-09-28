@@ -1,7 +1,7 @@
 nav {
     width: 100%;
     height: 100px;
-    background-color: #217DA4;
+    background-color: rgb(11, 65, 83);
 }
 
 nav > div {
@@ -10,18 +10,39 @@ nav > div {
     margin: 0 auto;
 }
 
-#userName, #userRole {
-    font-size: 18px;
-    color: white;
-    margin-left: 20px;
+#navLogo {
+    margin-right: 150px;
 }
 
-#content {
-    width: 1190px;
-    height: 700px;
-    margin: 50px auto;
-    background-color: gray;
+#headImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 27px;
+    border: 2px solid white;
 }
+
+.hint {
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 120px;
+}
+
+#userName,
+#userRole {
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+}
+
+#exitLogin {
+    color: red;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+]
 
 #contentLeft {
     float: left;

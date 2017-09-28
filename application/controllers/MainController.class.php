@@ -5,13 +5,15 @@
         public function __construct() {
             session_start();
             $_POST = json_decode(file_get_contents('php://input'),true);
-            require_once('./application/models/MainModel.class.php');
-
-            //$this -> _model = new LoginModel();
+            $this -> _model = new MainModel();
         }
 
         public function toMainView() {
-            include_once('./application/views/main.html');
+            if (isset($_SESSION['loginNow'])) {
+                include_once('./application/views/main.html');
+            } else {
+                echo '<script>alert("非法登录");window.location.href="./index.php";</script>';
+            }
         }
     }
 ?>

@@ -1,1 +1,5 @@
 ﻿
+{"time":"2017-09-28 10:09:32","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345')"}
+{"time":"2017-09-28 10:09:55","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345')"}
+{"time":"2017-09-28 10:09:11","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-09-28 10:09:19","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}

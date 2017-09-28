@@ -23,7 +23,8 @@
             <span>验证码：</span><img ng-src="{{srcUrl}}" ng-click="flushCode()" id="captchaImg">
             <input type="text" id="loginCaptcha" maxlength="4" ng-model="loginCaptcha"><br/>
             <input type="reset" value="重&nbsp;置">
-            <input type="button" value="登&nbsp;录" id="loginBtn" ng-disabled="loginForm.loginPwd.$error.required || loginForm.loginId.$error.required" ng-click="login()">
+            <input type="button" value="登&nbsp;录" id="loginBtn" ng-disabled="loginForm.loginPwd.$error.required || loginForm.loginId.$error.required"
+                ng-click="login()">
         </form>
     </div>
 

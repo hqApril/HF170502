@@ -14,5 +14,53 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function getMenu($id) {
+        $query = "select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = {$id}";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getRole() {
+        $query = "select * from role";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getOneRole($name) {
+        $query = "select * from role where role_name = '{$name}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function addRole($name, $describe) {
+        $query = "insert into role values (null, '{$name}', '$describe')";
+
+        $res = $this -> _link -> insert($query);
+
+        return $res;
+    }
+
+    public function checkRole($id) {
+        $query = "select * from employee_role where role_id = {$id}";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function deleteRole($id) {
+        $query = "delete from role where role_id = {$id}";
+
+        $res = $this -> _link -> delete($query);
+
+        return $res;
+    }
 }
 ?>

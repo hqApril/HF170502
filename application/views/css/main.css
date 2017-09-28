@@ -47,13 +47,48 @@ nav>div {
     height: 650px;
     background-color: grey;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 #contentLeft {
     float: left;
     width: 200px;
     height: inherit;
-    background-color: red;
+    background-color: rgb(13, 81, 104);
+    
+}
+
+.fMenu {
+    display: block;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    background-color: rgb(22, 55, 66);
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+}
+
+.sMenu {
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #eeeeee;
+    cursor: pointer;
+}
+
+.fMenu:hover {
+    background-color: rgb(39, 96, 116);
+}
+
+.sMenu:hover {
+    background-color: rgb(39, 96, 116);
 }
 
 iframe {

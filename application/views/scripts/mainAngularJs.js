@@ -1,6 +1,6 @@
 var app = angular.module("myApp", []);
 
-app.controller("myCtrl", function ($scope, $http) {
+app.controller("myCtrl", function ($scope, $http, $element) {
     $scope.getInfo = function () {
         $http({
             url: "./index.php?c=Main&a=getInfo",
@@ -26,13 +26,24 @@ app.controller("myCtrl", function ($scope, $http) {
             method: "get"
         }).then(
             function (res) {
+                var data = res.data;
+                $scope.menuArr = data;
 
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].menu_fid != 0) {
+                        break;
+                    }
+                }
+
+                $scope.iframeUrl = data[i].url;
             },
             function () {
 
             }
         );
     }
+
+    $scope.getMenu();
 
     $scope.exitLogin = function () {
         $http({
@@ -48,5 +59,13 @@ app.controller("myCtrl", function ($scope, $http) {
                 alert("退出发生未知错误");
             }
         );
+    }
+
+    $scope.fMenuClick = function (event) {
+        $(event.target).next().toggle(200);
+    }
+
+    $scope.sMenuClick = function (url) {
+        $scope.iframeUrl = url;
     }
 });

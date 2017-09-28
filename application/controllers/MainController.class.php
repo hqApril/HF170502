@@ -29,5 +29,66 @@
 
             echo 1;
         }
+
+        public function getMenu() {
+            $id = $_SESSION['loginNow'];
+
+            $res = $this -> _model -> getMenu($id);
+
+            echo json_encode($res);
+        }
+
+        public function iframeHtml() {
+            $u_name = $_GET['n'];
+
+            $u_path = './application/views/'.$u_name.'.html';
+
+            if (file_exists($u_path)) {
+                include_once($u_path);
+            }
+        }
+
+        public function getRole() {
+            $res = $this -> _model -> getRole();
+
+            echo json_encode($res);
+        }
+
+        public function addRole() {
+            $name = $_POST['name'];
+            $describe = $_POST['describe'];
+
+            $res = $this -> _model -> getOneRole($name);
+
+            if (count($res)) {
+                echo 0;
+            } else {
+                $res = $this -> _model -> addRole($name, $describe);
+
+                if ($res) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            }
+        }
+
+        public function deleteRole() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> checkRole($id);
+
+            if (count($res)) {
+                echo 0;
+            } else {
+                $res = $this -> _model -> deleteRole($id);
+
+                if ($res) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            }
+        }
     }
 ?>

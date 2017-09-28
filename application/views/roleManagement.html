@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/roleManagement.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div id="content">
+        <p>当前位置： 系统管理 / 角色管理</p>
+        <input type="button" id="addRole" value="+添加" ng-click="addRoleIf = !addRoleIf">
+
+        <div id="tbTitle">
+            角色列表
+        </div>
+
+        <table id="roleTb">
+            <tr>
+                <th>角色ID</th>
+                <th>角色名称</th>
+                <th>角色描述</th>
+                <th>操作</th>
+            </tr>
+
+            <tr ng-repeat="(x, y) in roleArr">
+                <td ng-bind="y.role_id"></td>
+                <td ng-bind="y.role_name"></td>
+                <td ng-bind="y.role_describe"></td>
+                <td>
+                    <a href="#">修改</a>
+                    <a href="#" ng-click="deleteRole(y.role_id)">删除</a>
+                    <a href="#">权限修改</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="addRoleIf" ng-show="addRoleIf">
+        <form name="addRoleForm">
+            角色名称：<input type="text" maxlength="5" placeholder="不超过5个字" name="name" ng-model="name" required><br/> 
+            角色描述：<input type="text" maxlength="10" placeholder="不超过10个字" name="describe" ng-model ="describe" required><br/>
+            <input type="button" value="提交" ng-disabled="addRoleForm.name.$error.required || addRoleForm.describe.$error.required" ng-click="addRole()">
+        </form>
+
+    </div>
+
+    <script src="./application/views/scripts/roleManagementAngularJs.js" type="text/javascript"></script>
+</body>
+
+</html>

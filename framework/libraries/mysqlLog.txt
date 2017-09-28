@@ -1,3 +1,262 @@
 ﻿
 
 {"time":"2017-09-28 16:09:03","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:25","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-09-28 16:09:29","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:02","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:02","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:30","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:30","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:35","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:35","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:19","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:20","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:33","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:34","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:44","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:45","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:21","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:22","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:02","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:03","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:32","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:33","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:27","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:28","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:43","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:43","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:23","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:23","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:43","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:43","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:47","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:47","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:48","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:49","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:12","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:13","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:30","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:30","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:57","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:58","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:03","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:04","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:00","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:00","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:08","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:08","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:20","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:20","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:47","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:48","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:24","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:24","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:05","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:06","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:26","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:27","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:38","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:38","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 16:09:48","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 16:09:49","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:14","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:14","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:47","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:48","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:51","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:52","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:11","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:12","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:50","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:50","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:52","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:53","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:22","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:23","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:57","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:58","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:31","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:31","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:44","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:45","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:11","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:12","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:44","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:44","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:56","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:56","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:16","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:16","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:35","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:36","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:05","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:05","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:23","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:24","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:14","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:14","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:09","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:09","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:29","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:30","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:08","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:09","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:53","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:54","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:08","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:08","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:38","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:38","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:39","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:39","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:10","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:10","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:11","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:11","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:36","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:37","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:37","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:37","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:00","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:00","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:01","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:01","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:23","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:24","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:24","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:25","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:39","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:39","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:40","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:40","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:55","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:55","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:56","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:56","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:46","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:47","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:47","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:48","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:40","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:40","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:40","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:41","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:29","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:29","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:30","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:30","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:54","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:54","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:54","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:55","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:04","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:04","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:05","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:05","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:18","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:18","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:19","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:19","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:38","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:38","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:39","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:39","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:54","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:54","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:55","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:55","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:03","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:04","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:15","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:15","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:54","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:54","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:26","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:26","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:19","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:20","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:44","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:44","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 17:09:58","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 17:09:58","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:41","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 19:09:42","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:44","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 19:09:45","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:52","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 19:09:53","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:32","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 19:09:33","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:00","query":"select * from role"}
+{"time":"2017-09-28 19:09:06","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 19:09:07","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 19:09:10","query":"select * from role"}
+{"time":"2017-09-28 19:09:08","query":"select * from role"}
+{"time":"2017-09-28 19:09:54","query":"select * from role"}
+{"time":"2017-09-28 19:09:04","query":"select * from role"}
+{"time":"2017-09-28 19:09:48","query":"select * from role"}
+{"time":"2017-09-28 19:09:10","query":"select * from role"}
+{"time":"2017-09-28 19:09:27","query":"select * from role"}
+{"time":"2017-09-28 19:09:47","query":"select * from role"}
+{"time":"2017-09-28 19:09:04","query":"select * from role"}
+{"time":"2017-09-28 19:09:03","query":"select * from role"}
+{"time":"2017-09-28 19:09:12","query":"select * from role"}
+{"time":"2017-09-28 19:09:23","query":"select * from role"}
+{"time":"2017-09-28 19:09:09","query":"select * from role"}
+{"time":"2017-09-28 19:09:21","query":"select * from role"}
+{"time":"2017-09-28 19:09:56","query":"select * from role"}
+{"time":"2017-09-28 19:09:09","query":"select * from role"}
+{"time":"2017-09-28 19:09:38","query":"select * from role"}
+{"time":"2017-09-28 19:09:38","query":"select * from role"}
+{"time":"2017-09-28 19:09:53","query":"select * from role"}
+{"time":"2017-09-28 20:09:13","query":"select * from role"}
+{"time":"2017-09-28 20:09:44","query":"select * from role"}
+{"time":"2017-09-28 20:09:54","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = 10001"}
+{"time":"2017-09-28 20:09:55","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-09-28 20:09:57","query":"select * from role"}
+{"time":"2017-09-28 20:09:30","query":"select * from role"}
+{"time":"2017-09-28 20:09:21","query":"select * from role"}
+{"time":"2017-09-28 20:09:36","query":"select * from role"}
+{"time":"2017-09-28 20:09:03","query":"select * from role"}
+{"time":"2017-09-28 20:09:08","query":"select * from role"}
+{"time":"2017-09-28 20:09:36","query":"select * from role"}
+{"time":"2017-09-28 20:09:52","query":"select * from role"}
+{"time":"2017-09-28 20:09:24","query":"select * from role"}
+{"time":"2017-09-28 20:09:48","query":"select * from role"}
+{"time":"2017-09-28 20:09:43","query":"select * from role"}
+{"time":"2017-09-28 20:09:14","query":"select * from role"}
+{"time":"2017-09-28 20:09:24","query":"select * from role"}
+{"time":"2017-09-28 20:09:48","query":"select * from role"}
+{"time":"2017-09-28 20:09:14","query":"select * from role"}
+{"time":"2017-09-28 20:09:26","query":"select * from role"}
+{"time":"2017-09-28 20:09:39","query":"select * from role"}
+{"time":"2017-09-28 20:09:13","query":"select * from role"}
+{"time":"2017-09-28 20:09:20","query":"select * from role"}
+{"time":"2017-09-28 20:09:19","query":"select * from role"}
+{"time":"2017-09-28 20:09:42","query":"select * from role"}
+{"time":"2017-09-28 20:09:14","query":"select * from role"}
+{"time":"2017-09-28 20:09:06","query":"select * from role"}
+{"time":"2017-09-28 20:09:46","query":"select * from role"}
+{"time":"2017-09-28 20:09:07","query":"select * from role"}
+{"time":"2017-09-28 20:09:24","query":"select * from role"}
+{"time":"2017-09-28 20:09:42","query":"select * from role where role_name = '\u7ecf\u7406'"}
+{"time":"2017-09-28 20:09:28","query":"select * from role where role_name = '\u7ecf\u7406'"}
+{"time":"2017-09-28 20:09:38","query":"select * from role where role_name = '\u7ecf\u74061'"}
+{"time":"2017-09-28 20:09:42","query":"select * from role where role_name = '\u7ecf\u7406'"}
+{"time":"2017-09-28 20:09:29","query":"select * from role where role_name = '\u7ecf\u74061'"}
+{"time":"2017-09-28 20:09:30","query":"insert into role values (null, '\u7ecf\u74061', '\u4e30\u5bcc\u7684')"}
+{"time":"2017-09-28 20:09:46","query":"select * from role"}
+{"time":"2017-09-28 20:09:57","query":"select * from role where role_name = '\u7ecf\u7406'"}
+{"time":"2017-09-28 20:09:03","query":"select * from role where role_name = '\u7ecf\u74062'"}
+{"time":"2017-09-28 20:09:03","query":"insert into role values (null, '\u7ecf\u74062', '1222')"}
+{"time":"2017-09-28 20:09:06","query":"select * from role"}
+{"time":"2017-09-28 20:09:33","query":"select * from role"}
+{"time":"2017-09-28 20:09:14","query":"select * from role"}
+{"time":"2017-09-28 20:09:35","query":"select * from role"}
+{"time":"2017-09-28 20:09:36","query":"select * from role"}
+{"time":"2017-09-28 20:09:59","query":"select * from role"}
+{"time":"2017-09-28 21:09:59","query":"select * from role"}
+{"time":"2017-09-28 21:09:02","query":"select * from employee_role where role_id = 6"}
+{"time":"2017-09-28 21:09:02","query":"delete from role where role_id = 6"}
+{"time":"2017-09-28 21:09:05","query":"select * from role"}
+{"time":"2017-09-28 21:09:09","query":"select * from employee_role where role_id = 1"}

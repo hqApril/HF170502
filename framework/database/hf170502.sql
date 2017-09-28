@@ -59,15 +59,15 @@ create table if not exists menu
 #菜单表插入数据
 insert into menu
 values
-(1, '系统管理', 0, ''),
-(2, '商品管理', 0, ''),
-(3, '订单管理', 0, ''),
-(4, '用户管理', 1, ''),
-(5, '角色管理', 1, ''),
-(6, '商品录入', 2, ''),
-(7, '商品信息', 2, ''),
-(8, '未支付订单', 3, ''),
-(9, '已支付订单', 3, '');
+(1, '系统管理', 0, '#'),
+(2, '商品管理', 0, '#'),
+(3, '订单管理', 0, '#'),
+(4, '用户管理', 1, './index.php?c=Main&a=iframeHtml&n=userManagement'),
+(5, '角色管理', 1, './index.php?c=Main&a=iframeHtml&n=roleManagement'),
+(6, '商品录入', 2, './index.php?c=Main&a=iframeHtml&n=addGood'),
+(7, '商品信息', 2, './index.php?c=Main&a=iframeHtml&n=goodInfo'),
+(8, '未支付订单', 3, './index.php?c=Main&a=iframeHtml&n=unpayedOrder'),
+(9, '已支付订单', 3, './index.php?c=Main&a=iframeHtml&n=payedOrder');
 
 #角色菜单表
 create table if not exists role_menu
@@ -82,6 +82,8 @@ create table if not exists role_menu
 #角色菜单表插入数据
 insert into role_menu
 values
+(1, 1),
+(1, 2),
 (1, 3),
 (1, 4),
 (1, 5),
@@ -89,16 +91,22 @@ values
 (1, 7),
 (1, 8),
 (1, 9),
+(2, 1),
+(2, 2),
 (2, 3),
 (2, 5),
 (2, 6),
 (2, 7),
 (2, 8),
 (2, 9),
+(3, 2),
+(3, 3),
 (3, 6),
 (3, 7),
 (3, 8),
 (3, 9),
+(4, 2),
+(4, 3),
 (4, 7),
 (4, 8),
 (4, 9);

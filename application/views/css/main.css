@@ -4,7 +4,7 @@ nav {
     background-color: rgb(11, 65, 83);
 }
 
-nav > div {
+nav>div {
     width: 1190px;
     height: inherit;
     margin: 0 auto;
@@ -42,7 +42,12 @@ nav > div {
     margin-left: 30px;
 }
 
-]
+#content {
+    width: 1190px;
+    height: 650px;
+    background-color: grey;
+    margin: 0 auto;
+}
 
 #contentLeft {
     float: left;

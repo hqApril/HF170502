@@ -15,5 +15,19 @@
                 echo '<script>alert("非法登录");window.location.href="./index.php";</script>';
             }
         }
+
+        public function getInfo() {
+            $id = $_SESSION['loginNow'];
+
+            $res = $this -> _model -> getInfo($id);
+
+            echo json_encode($res);
+        }
+
+        public function exitLogin() {
+            unset($_SESSION['loginNow']);
+
+            echo 1;
+        }
     }
 ?>

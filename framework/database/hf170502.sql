@@ -14,7 +14,7 @@ create table if not exists employee
 #员工表插入数据
 insert into employee
 values
-(null, '25d55ad283aa400af464c76d713c07ad', '张伟', '123.img');
+(null, '25d55ad283aa400af464c76d713c07ad', '张伟', './application/views/images/default_head_img.jpg');
 
 #创建角色表
 create table if not exists role 
@@ -37,7 +37,9 @@ create table if not exists employee_role
 (
     employee_id int unsigned not null,
     role_id int unsigned not null,
-    primary key (employee_id, role_id)
+    primary key (employee_id, role_id),
+    foreign key (employee_id) references employee (employee_id),
+    foreign key (role_id) references role (role_id)
 )ENGINE=INNODB;
 
 #员工角色表
@@ -72,7 +74,9 @@ create table if not exists role_menu
 (
     role_id int unsigned not null,
     menu_id int unsigned not null,
-    primary key (role_id, menu_id)
+    primary key (role_id, menu_id),
+    foreign key (role_id) references role (role_id),
+    foreign key (menu_id) references menu (menu_id)
 );
 
 #角色菜单表插入数据

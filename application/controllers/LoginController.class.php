@@ -24,7 +24,7 @@ class LoginController extends Controller {
         $loginCaptcha = isset($_POST['loginCaptcha']) ? $_POST['loginCaptcha'] : '';
         $captcha = $_SESSION['loginCaptcha'];
 
-        if ($loginCaptcha != strtolower($captcha)) {
+        if (strtolower($loginCaptcha) != $captcha) {
             echo 0;
         } else {
             $res = $this -> _model -> loginValidation($employeeId, $employeePwd);

@@ -62,19 +62,7 @@
             return 'error';
         }
 
-        public function insert($query) {
-            $this -> dealQuery($query);
-
-            return $this -> _res;
-        }
-
-        public function delete($query) {
-            $this -> dealQuery($query);
-
-            return $this -> _res;
-        }
-
-        public function update($query) {
+        public function change($query) {
             $this -> dealQuery($query);
 
             return $this -> _res;

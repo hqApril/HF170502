@@ -42,7 +42,7 @@ class MainModel extends Model {
     public function addRole($name, $describe) {
         $query = "insert into role values (null, '{$name}', '$describe')";
 
-        $res = $this -> _link -> insert($query);
+        $res = $this -> _link -> change($query);
 
         return $res;
     }
@@ -58,7 +58,7 @@ class MainModel extends Model {
     public function deleteRole($id) {
         $query = "delete from role where role_id = {$id}";
 
-        $res = $this -> _link -> delete($query);
+        $res = $this -> _link -> change($query);
 
         return $res;
     }
@@ -74,7 +74,7 @@ class MainModel extends Model {
     public function changeRole($id, $name, $describe) {
         $query = "update role set role_name = '{$name}', role_describe = '$describe' where role_id = {$id}";
 
-        $res = $this -> _link -> update($query);
+        $res = $this -> _link -> change($query);
 
         return $res;
     }
@@ -98,13 +98,13 @@ class MainModel extends Model {
     public function deleteRolePower($id) {
         $query = "delete from role_menu where role_id = {$id}";
 
-        $this -> _link -> delete($query);
+        $this -> _link -> change($query);
     }
 
     public function addRolePower($id, $menuId) {
         $query = "insert into role_menu values ({$id}, {$menuId})";
 
-        $res = $this -> _link -> insert($query);
+        $res = $this -> _link -> change($query);
 
         return $res;
     }
@@ -113,6 +113,36 @@ class MainModel extends Model {
         $query = "select menu_fid from menu where menu_id = {$menuId}";
 
         $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getEmployee() {
+        $query = "select employee.employee_id, employee.employee_name, role.role_name, employee.employee_status from employee, employee_role, role where employee.employee_id = employee_role.employee_id and employee_role.role_id = role.role_id";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function changeStatus($id, $status) {
+        $query = "update employee set employee_status = '{$status}' where employee_id = {$id}";
+
+        $this -> _link -> change($query);
+    }
+
+    public function deleteEmployee($id) {
+        $query = "delete from employee_role where employee_id = {$id}";
+
+        $res = $this -> _link -> change($query);
+
+        if ($res) {
+            $query = "delete from employee where employee_id = {$id}";
+
+            $res = $this -> _link -> change($query);
+
+            return $res;
+        }
 
         return $res;
     }

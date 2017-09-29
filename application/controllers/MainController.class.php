@@ -137,6 +137,37 @@
                 $res = $this -> _model -> getFRolePower($arr[$i]);
                 $this -> _model -> addRolePower($id, $res[0]['menu_fid']);
             }
+
+            echo 1;
+        }
+
+        public function getEmployee() {
+            $res = $this -> _model -> getEmployee();
+
+            echo json_encode($res);
+        }
+
+        public function changeStatus() {
+            $arr = $_POST['arr'];
+            $status = $_POST['status'];
+
+            for ($i = 0; $i < count($arr); $i++) {
+                $this -> _model -> changeStatus($arr[$i], $status);
+            }
+
+            echo 1;
+        }
+
+        public function deleteEmployee() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> deleteEmployee($id);
+
+            if ($res) {
+                echo 0;
+            } else {
+                echo 1;
+            }
         }
     }
 ?>

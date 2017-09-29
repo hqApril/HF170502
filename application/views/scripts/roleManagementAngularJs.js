@@ -185,8 +185,14 @@ app.controller("myCtrl", function ($scope, $http) {
         }).then(
             function (res) {
                 var data = res.data;
+                
+                if (data == 1) {
+                    alert("修改成功");
 
-                console.log(res.data);
+                    window.location.reload();
+                } else {
+                    alert("修改失败");
+                }
             },
             function (res) {
                 alert("未知错误");

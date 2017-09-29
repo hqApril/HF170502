@@ -169,5 +169,73 @@
                 echo 1;
             }
         }
+
+        public function getOneEmployee() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> getOneEmployee($id);
+
+            echo json_encode($res);
+        }
+
+        public function changeEmployeeName() {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+
+            $res = $this -> _model -> changeEmployeeName($id, $name);
+
+            if ($res) {
+                echo 0;
+            } else {
+                echo 1;
+            }
+        }
+
+        public function changeEmployeePwd() {
+            $id = $_POST['id'];
+            $pwd = $_POST['pwd'];
+
+            $res = $this -> _model -> changeEmployeePwd($id, $pwd);
+
+            if ($res) {
+                echo 0;
+            } else {
+                echo 1;
+            }
+        }
+
+        public function changeEmployeeRole() {
+            $id = $_POST['id'];
+            $roleId = $_POST['roleId'];
+
+            $res = $this -> _model -> changeEmployeeRole($id, $roleId);
+
+            if ($res) {
+                echo 0;
+            } else {
+                echo 1;
+            }
+        }
+
+        public function addEmployee() {
+            $id = $_POST['id'];
+            $pwd = $_POST['pwd'];
+            $name = $_POST['name'];
+            $roleId = $_POST['roleId'];
+            
+            $res = $this -> _model -> checkEmployeeId($id);
+
+            if (count($res)) {
+                echo 0;
+            } else {
+                $res = $this -> _model -> addEmployee($id, $pwd, $name, $roleId);
+
+                if ($res) {
+                    echo 1;
+                } else {
+                    echo 2;
+                }
+            }
+        }
     }
 ?>

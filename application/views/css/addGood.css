@@ -1,0 +1,17 @@
+#content {
+    width: 890px;
+    height: 550px;
+    background: #D9DBD4;
+    padding: 50px;
+}
+
+#headTitle {
+    width: 890px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid grey;
+}
+
+#goodTb {
+    height: 400px;
+}

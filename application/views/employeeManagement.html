@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="myCtrl">
     <div id="content">
         <p>当前位置： 系统管理 / 员工管理</p>
-        <input type="button" id="addEmployee" value="+添加" ng-click="addRoleIf = !addRoleIf">
+        <input type="button" id="addEmployee" value="+添加" ng-click="showAddEmployeeIf()">
         <input type="button" id="lockEmployee" value="使用/锁定" ng-click="changeStatus()"> 用户状态：
         <select name="" id="statusSelect" ng-model="statusSelect" ng-change="changeSelect()">
             <option value="使用">使用</option>
@@ -40,9 +40,37 @@
                 <td ng-bind="y.employee_name"></td>
                 <td ng-bind="y.role_name"></td>
                 <td ng-bind="y.employee_status"></td>
-                <td><a href="#">修改</a><a href="#" ng-click="deleteEmployee(y.employee_id, y.role_name)">删除</a></td>
+                <td><a href="#" ng-click="showChangeEmployeeIf(y.employee_id)">修改</a><a href="#" ng-click="deleteEmployee(y.employee_id, y.role_name)">删除</a></td>
+            </tr>
         </table>
+    </div>
 
+    <div id="changeEmployeeIf" ng-show="changeEmployeeIf">
+        <form name="changeEmployeeForm">
+            姓名：<input type="text" name="eName" ng-model="eName" maxlength="5" placeholder="最多五个字" required><br/>
+            <input type="button" value="姓名修改" ng-disabled="changeEmployeeForm.eName.$error.required" ng-click="changeEmployeeName()"><br/>            密码：
+            <input type="text" ng-model="ePwd" maxlength="12" placeholder="最长12位" required><br/>
+            <input type="button" value="重置密码" ng-disabled="changeEmployeeForm.ePwd.$error.required" ng-click="changeEmployeePwd()"><br/>            角色选择：
+            <select ng-model="cRole">
+                <option ng-repeat="x in roleArr" ng-value="x.role_id" ng-bind="x.role_name"></option>
+            </select><br/>
+            <input type="button" value="角色修改" ng-click="changeEmployeeRole()"><br/>
+        </form>
+    </div>
+
+    <div id="addEmployeeIf" ng-show="addEmployeeIf">
+        <form name="addEmployeeForm">
+             账号：<input type="text" name="aId" ng-model="aId" maxlength="10" placeholder="最多10位" required><br/>
+
+             姓名：<input type="text" name="aName" ng-model="aName" maxlength="5" placeholder="最多五个字" required><br/>
+            密码：
+            <input type="text" ng-model="aPwd" maxlength="12" placeholder="最长12位" required><br/>
+            角色选择：
+            <select ng-model="aRole">
+                <option ng-repeat="x in roleArr" ng-value="x.role_id" ng-bind="x.role_name"></option>
+            </select><br/>
+            <input type="button" value="添加" ng-disabled="addEmployeeForm.aId.$error.required || addEmployeeForm.aPwd.$error.required || addEmployeeForm.aName.$error.required" ng-click="addEmployee()"><br/>
+        </form>
     </div>
 
     <script src="./application/views/scripts/employeeManagementAngularJs.js"></script>

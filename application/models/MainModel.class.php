@@ -16,7 +16,7 @@ class MainModel extends Model {
     }
 
     public function getMenu($id) {
-        $query = "select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = {$id}";
+        $query = "select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '{$id}'";
 
         $res = $this -> _link -> select($query);
 
@@ -126,18 +126,74 @@ class MainModel extends Model {
     }
 
     public function changeStatus($id, $status) {
-        $query = "update employee set employee_status = '{$status}' where employee_id = {$id}";
+        $query = "update employee set employee_status = '{$status}' where employee_id = '{$id}'";
 
         $this -> _link -> change($query);
     }
 
     public function deleteEmployee($id) {
-        $query = "delete from employee_role where employee_id = {$id}";
+        $query = "delete from employee_role where employee_id = '{$id}'";
 
         $res = $this -> _link -> change($query);
 
         if ($res) {
-            $query = "delete from employee where employee_id = {$id}";
+            $query = "delete from employee where employee_id = '{$id}'";
+
+            $res = $this -> _link -> change($query);
+
+            return $res;
+        }
+
+        return $res;
+    }
+
+    public function getOneEmployee($id) {
+        $query = "select * from employee, employee_role where employee.employee_id = employee_role.employee_id and employee.employee_id = '{$id}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function changeEmployeeName($id, $name) {
+        $query = "update employee set employee_name = '{$name}' where employee_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
+
+    public function changeEmployeePwd($id, $pwd) {
+        $query = "update employee set employee_pwd = md5('{$pwd}') where employee_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
+
+    public function changeEmployeeRole($id, $roleId) {
+        $query = "update employee_role set role_id = {$roleId} where employee_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
+
+    public function checkEmployeeId($id) {
+        $query = "select * from employee where employee_id = '{$id}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function addEmployee($id, $pwd, $name, $roleId) {
+        $query = "insert into employee values ('{$id}', md5('{$pwd}'), '{$name}', '使用', './application/views/images/default_head_img.jpg')";
+
+        $res = $this -> _link -> change($query);
+
+        if ($res) {
+            $query = "insert into employee_role values ('{$id}', {$roleId})";
 
             $res = $this -> _link -> change($query);
 

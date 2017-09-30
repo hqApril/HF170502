@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>homePage</title>
+    <link rel="stylesheet" href="css/homePage.css" type="text/css">
+    <link rel="stylesheet" href="css/public.css" type="text/css">
+    <script type="text/javascript" src="./scripts/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="scripts/slider.js"></script>
+    <script type="text/javascript" src="scripts/backTime.js"></script>
+    <script type="text/javascript" src="scripts/timeQuantum.js"></script>
+    <script type="text/javascript" src="scripts/safetyBar.js"></script>
+    <script type="text/javascript" src="scripts/chatForUsers.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul id="navMenu">
+            <li class="vertical-head"></li>
+            <li class="vertical-body"><img src="./images/logo.png"></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="homePage.html">首页</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="personalInfo.html">个人中心</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="javascript:sessionStorage.fromMyOrder = 'true';window.location.href = 'personalInfo.html';">我的订单</a></li>
+            <li class="vertical-body"><img src="./images/limit_shopping.png"></li>
+            <li class="vertical-body navAd">限时抢购</li>
+            <li class="vertical-body"><img src="./images/lowest_price.png"></li>
+            <li class="vertical-body navAd">最低价格</li>
+            <li class="vertical-body"><img src="./images/free_shopping.png"></li>
+            <li class="vertical-body navAd">全场包邮</li>
+            <li class="vertical-body "><a class="navA" href="#">登录</a></li>
+            <li class="vertical-body"><span>/</span></li>
+            <li class="vertical-body"><a class="navA" href="#">注册</a></li>
+            <li id="showName"></li>
+        </ul>
+    </nav>
+    <div id="banner">
+        <div id="bannerSlider">
+            <div>
+                <img src="./images/bannerSlider5.png">
+                <img src="./images/bannerSlider1.png">
+                <img src="./images/bannerSlider2.png">
+            </div>
+        </div>
+        <input type="button" value="&lt;" id="previousPageBtn">
+        <input type="button" value="&gt;" id="nextPageBtn">
+        <div id="sliderDot"></div>
+    </div>
+    <div id="timeQuantum"></div>
+    <div id="content">
+        <div id="contentLeft">
+            <div>
+                <ul id="contentLeftHead">
+                    <li class="vertical-head"></li>
+                    <li class="vertical-body">
+                        <div></div>
+                    </li>
+                    <li class="vertical-body">限时限量 疯狂抢购</li>
+                    <li class="vertical-body">距离本场结束：</li>
+                    <li class="vertical-body" id="backTimeClock"></li>
+                </ul>
+            </div>
+            <div></div>
+            <div id="showGoods"></div>
+            <div id="showBtn">
+            </div>
+        </div>
+        <div id="contentRight">
+            <div>
+                <ul id="contentRightHead">
+                    <li class="vertical-head"></li>
+                    <li class="vertical-body">
+                        <div></div>
+                    </li>
+                    <li class="vertical-body">荣誉墙</li>
+                </ul>
+            </div>
+            <div id="showHonorsLimit">
+                <ul id="showHonors"></ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>小何秒杀网</p>
+        <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
+        <p>小何公司 版权所有 小何电商文化经营许可证</p>
+    </footer>
+    <ul id="floatClassify">
+        <li classify_id="all">全部</li>
+    </ul>
+    <div id="floatLogo">
+        <img src="images/floatLogo.gif">
+        <p>联系客服</p>
+    </div>
+    <div id="transMask"></div>
+    <div id="loginInterface">
+        <input type="button" value="X">
+        <input type="text" placeholder="请输入用户名" id="loginId">
+        <div></div>
+        <input type="password" placeholder="请输入密码" id="loginPwd">
+        <div></div>
+        <div id="bar"></div>
+        <div></div>
+        <input type="button" value="登录" id="loginBtn">
+    </div>
+    <div id="registerInterface">
+        <input type="button" value="X">
+        <form>
+            <input type="text" placeholder="请输入用户名" id="registerId">
+            <div></div>
+            <input type="password" placeholder="请输入密码" id="registerPwd">
+            <div></div>
+            <input type="password" placeholder="请再次输入密码" id="confirmPwd">
+            <div></div>
+            <input type="text" placeholder="请输入邮箱" id="mailbox">
+            <div></div>
+            <input type="button" value="注册" id="registerBtn">
+            <input type="reset" value="重置">
+        </form>
+    </div>
+    <div id="chatWithService"></div>
+
+    <script type="text/javascript" src="scripts/public.js"></script>
+    <script type="text/javascript" src="scripts/homePage.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+#chatObj {
+    width: 156px;
+    height: 586px;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    padding: 7px;
+    float: left;
+    margin-right: 10px;
+}
+
+#serviceInfo {
+    width: 146px;
+    height: 140px;
+    border-radius: 3px;
+    background-color: rgb(74, 143, 186);
+    padding: 5px;
+}
+
+#serviceInfo>img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #aaaaaa;
+}
+
+#serviceInfo>p {
+    font-size: 12px;
+    line-height: 30px;
+    color: rgb(46, 46, 46);
+}
+
+#headTitle {
+    width: 136px;
+    height: 30px;
+    padding-left: 20px;
+    background-color: rgb(85, 103, 128);
+    border-radius: 3px;
+    margin-top: 5px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+#chatWith {
+    width: 146px;
+    height: 386px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 3px;
+    overflow-y: scroll;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+#container {
+    width: 616px;
+    height: 602px;
+    float: left;
+    position: relative;
+}
+
+.chatWindow {
+    width: 600px;
+    height: 586px;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    padding: 7px;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.oneUser {
+    width: 119px;
+    height: 30px;
+    padding-left: 10px;
+    background-color: rgb(220, 220, 220);
+    line-height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.chatWithWho {
+    font-size: 12px;
+}
+
+.chatInfo {
+    width: 580px;
+    height: 430px;
+    background-color: rgb(191, 102, 118);
+    margin: 10px;
+    overflow-y: scroll;
+}
+
+.enterInfo {
+    width: 588px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid #aaaaaa;
+    font-size: 12px;
+    padding: 5px;
+    font-family: "宋体";
+}
+
+.expression {
+    position: absolute;
+    bottom: 35px;
+    left: 5px;
+    width: 300px;
+    height: 140px;
+    border: 1px solid #222222;
+    padding: 5px;
+    background-color: white;
+    display: none;
+}
+
+.expression>img:hover {
+    filter: invert(30%);
+    cursor: pointer;
+}
+
+.oneMsg {
+    width: 550px;
+    font-size: 14px;
+    font-family: "宋体";
+    margin-bottom: 10px;
+}
+
+.oneMsg>p {
+    line-height: 25px;
+    font-weight: 700;
+}
+
+.oneMsg>div {
+    word-break: break-all;
+}
+
+input[value="添加表情"], input[value="消息发送"] {
+    font-size: 12px;
+    border: none;
+    background-color: rgb(115, 168, 222);
+    width: 60px;
+    height: 20px;
+    margin-left: 10px;
+}

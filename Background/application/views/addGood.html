@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./application/views/css/addGood.css" type="text/css">
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
     <div id="content">
         <div id="headTitle">发布促销</div>
         <form>
@@ -18,7 +18,7 @@
                 <tr>
                     <td>推广方式：</td>
                     <td>
-                        <select>
+                        <select ng-model="typeSelect">
                             <option value="秒杀">秒杀</option>
                             <option value="普通">普通</option>
                         </select>
@@ -26,23 +26,35 @@
                 </tr>
                 <tr>
                     <td>促销商品名：</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" ng-model="goodName"></td>
                 </tr>
                 <tr>
-                    <td>促销时间：</td>
-                    <td>开始日期:<input type="datetime-local"></td>
+                    <td>促销时间段：</td>
+                    <td>
+                        <select ng-model="timeSelect">
+                            <option value="1">6：00-8:00</option>
+                            <option value="2">8:00-10:00</option>
+                            <option value="3">10:00-12:00</option>
+                            <option value="4">12:00-14:00</option>
+                            <option value="5">14:00-16:00</option>
+                            <option value="6">16:00-18:00</option>
+                            <option value="7">18:00-20:00</option>
+                            <option value="8">20:00-22:00</option>
+                            <option value="9">22:00-24:00</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>促销价：</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" ng-model="discountPrice"></td>
                 </tr>
                 <tr>
                     <td>库存：</td>
-                    <td><input type="number"></td>
+                    <td><input type="number" ng-model="rest"></td>
                 </tr>
                 <tr>
                     <td>限购数量：</td>
-                    <td>每单每个ID最多<input type="number">个</td>
+                    <td>每单每个ID最多<input type="number" ng-model="limit">个</td>
                 </tr>
                 <tr>
                     <td>图片：</td>
@@ -50,9 +62,11 @@
                 </tr>
                 <tr>
                     <td>备注</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" ng-model="summary" id="summary"></td>
                 </tr>
             </table>
+            <input type="button" value="提交" >
+            <input type="reset" value="重置">
         </form>
     </div>
 </body>

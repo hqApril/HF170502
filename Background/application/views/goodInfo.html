@@ -12,8 +12,57 @@
 
 <body ng-app="myApp" ng-controller="myCtrl">
     <div id="content">
-
+        <div id="headTitle">商品列表</div>
+        <div>
+            商品分类：<select ng-model="classifySelect" ng-change="showGood()">
+                <option value="0">全部</option>
+                <option value="1">手表配饰</option>
+                <option value="2">运动户外</option>
+                <option value="3">食品</option>
+                <option value="4">女装</option>
+                <option value="5">家纺</option>
+                <option value="6">男装</option>
+                <option value="7">电子</option>
+                <option value="8">男鞋</option>
+            </select> 商品状态：
+            <select ng-model="statusSelect" ng-change="showGood()">
+                <option value="0">全部</option>
+                <option value="1">在售</option>
+                <option value="2">下架</option>
+            </select> 商品名： <input type="text">
+            <input type="button" name="" value="查询">
+        </div>
     </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.classifySelect = "0";
+            $scope.statusSelect = "0";
+
+            $scope.showGood = function () {
+                $http({
+                        url: "./index.php?c=Main&a=showGood",
+                        method: "post",
+                        data: {
+                            classifyId: $scope.classifySelect,
+                            goodStatus: $scope.statusSelect
+                        }
+                    }
+
+                ).then(
+                    function (res) {
+                        var data = res.data;
+                        console.log(data);
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+        });
+    </script>
 </body>
 
 </html>

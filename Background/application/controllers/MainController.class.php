@@ -273,5 +273,12 @@
   
            echo json_encode($response); 
         }
+
+        public function showGood() {
+            $classifyId = $_POST['classifyId'];
+            $goodStatus = $_POST['goodStatus'];
+
+            if ($classifyId)
+        }
     }
 ?>

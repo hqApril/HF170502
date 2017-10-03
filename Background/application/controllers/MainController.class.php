@@ -237,5 +237,41 @@
                 }
             }
         }
+
+        public function addGood() {
+            $postType = $_POST['postType'];
+            $goodName = $_POST['goodName'];
+            $timeIntervalId = $_POST['timeSelect'];
+            $classifyId = $_POST['classifySelect'];
+            $originalPrice = $_POST['originalPrice'];
+            $discountPrice = $_POST['discountPrice'];
+            $goodRest = $_POST['rest'];
+            $goodLimit = $_POST['limit'];
+            $goodSummary = $_POST['summary'];
+
+            $res = $this -> _model -> addGood($goodName, $goodRest, $goodLimit, $goodSummary, $discountPrice, $originalPrice, $classifyId, $timeIntervalId, $postType);
+
+            echo $res;
+        }
+
+        public function addImg() {
+            $name = isset($_POST['name'])? $_POST['name'] : '';  
+            $gender = isset($_POST['gender'])? $_POST['gender'] : '';  
+  
+            $filename = time().substr($_FILES['images']['name'], strrpos($_FILES['images']['name'],'.'));
+  
+            $response = array();  
+  
+            if(move_uploaded_file($_FILES['images']['tmp_name'], $filename)){  
+                $response['isSuccess'] = true;  
+                $response['name'] = $name;  
+                $response['gender'] = $gender;  
+                $response['images'] = $filename;  
+            }else{  
+                $response['isSuccess'] = false;  
+            }  
+  
+           echo json_encode($response); 
+        }
     }
 ?>

@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="myCtrl">
     <div id="content">
         <div id="headTitle">发布促销</div>
-        <form>
+        <form name="goodForm" enctype="multipart/form-data">
             <table id="goodTb">
                 <tr>
                     <td>推广方式：</td>
@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>促销商品名：</td>
-                    <td><input type="text" ng-model="goodName"></td>
+                    <td><input type="text" ng-model="goodName" name="goodName" required></td>
                 </tr>
                 <tr>
                     <td>促销时间段：</td>
@@ -45,30 +45,55 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>商品分类：</td>
+                    <td>
+                        <select ng-model="classifySelect">
+                            <option value="1">手表配饰</option>
+                            <option value="2">运动户外</option>
+                            <option value="3">食品</option>
+                            <option value="4">女装</option>
+                            <option value="5">家纺</option>
+                            <option value="6">男装</option>
+                            <option value="7">电子</option>
+                            <option value="8">男鞋</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>原价：</td>
+                    <td><input type="number" ng-model="originalPrice" name="originalPrice" required></td>
+                </tr>
+                <tr>
                     <td>促销价：</td>
-                    <td><input type="number" ng-model="discountPrice"></td>
+                    <td><input type="number" ng-model="discountPrice" name="discountPrice" required></td>
                 </tr>
                 <tr>
                     <td>库存：</td>
-                    <td><input type="number" ng-model="rest"></td>
+                    <td><input type="number" ng-model="rest" name="rest" required></td>
                 </tr>
                 <tr>
                     <td>限购数量：</td>
-                    <td>每单每个ID最多<input type="number" ng-model="limit">个</td>
+                    <td>每单每个ID最多<input type="number" ng-model="limit" name="limit" required>个</td>
                 </tr>
                 <tr>
                     <td>图片：</td>
-                    <td><input type="file"></td>
+                    <td><input type="file" name="images" accept="images/*" id="uploadImg" onchange="imagePreview(this)"></td>
                 </tr>
                 <tr>
                     <td>备注</td>
-                    <td><input type="text" ng-model="summary" id="summary"></td>
+                    <td><input type="text" ng-model="summary" id="summary" name="summary" required></td>
                 </tr>
             </table>
-            <input type="button" value="提交" >
+            <input type="button" value="提交" ng-disabled="goodForm.goodName.$error.required || goodForm.originalPrice.$error.required || goodForm.discountPrice.$error.required || goodForm.rest.$error.required || goodForm.limit.$error.required || goodForm.summary.$error.required"
+                ng-click="addGood()" onclick="fsubmit()">
             <input type="reset" value="重置">
         </form>
     </div>
+
+    <div id="imgPreview"></div>
+
+    <script src="./application/views/scripts/addGoodAngularJs.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/addGood.js" type="text/javascript"></script>
 </body>
 
 </html>

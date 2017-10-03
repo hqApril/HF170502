@@ -202,5 +202,13 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function addGood($goodName, $goodRest, $goodLimit, $goodSummary, $discountPrice, $originalPrice, $classifyId, $timeIntervalId, $postType) {
+        $query = "insert into good values (null, '{$goodName}', '{$goodRest}', '{$goodLimit}', '{$goodSummary}', '{$discountPrice}', '{$originalPrice}', '{$classifyId}', '{$timeIntervalId}', '{$postType}', '".date('Y-m-d H:i:s', time())."')";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
 }
 ?>

@@ -210,5 +210,69 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function showGood($classifyId, $goodStatus, $inquireInfo, $start) {
+        if ($classifyId == 0) {
+            if ($goodStatus === "0") {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' limit {$start}, 4";
+            } else {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and good_status = '{$goodStatus}' limit {$start}, 4";
+            }
+        } else {
+            if ($goodStatus === "0") {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' limit {$start}, 4";
+            } else {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' and good_status = '{$goodStatus}' limit {$start}, 4";
+            }
+        }
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getGoodNum($classifyId, $goodStatus, $inquireInfo) {
+        if ($classifyId == 0) {
+            if ($goodStatus === "0") {
+                $query = "select * from good where good_name like '%{$inquireInfo}%'";
+            } else {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and good_status = '{$goodStatus}'";
+            }
+        } else {
+            if ($goodStatus === "0") {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}'";
+            } else {
+                $query = "select * from good where good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' and good_status = '{$goodStatus}'";
+            }
+        }
+
+        $res = $this -> _link -> select($query);
+
+        return count($res);
+    }
+
+    public function getOneGood($id) {
+        $query = "select * from good, classify where good.classify_id = classify.classify_id and good_id = '{$id}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function changeGoodStatus($id, $goodStatus) {
+        $query = "update good set good_status = '{$goodStatus}' where good_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
+
+    public function changeDetail($id, $goodName, $originalPrice, $discountPrice, $goodRest, $goodLimit, $goodSummary) {
+        $query = "update good set good_name = '{$goodName}', original_price = '{$originalPrice}', discount_price = '{$discountPrice}', good_rest = '{$goodRest}', good_limit = '{$goodLimit}', good_summary = '{$goodSummary}' where good_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
 }
 ?>

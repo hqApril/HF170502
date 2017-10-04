@@ -277,8 +277,56 @@
         public function showGood() {
             $classifyId = $_POST['classifyId'];
             $goodStatus = $_POST['goodStatus'];
+            $inquireInfo = isset($_POST['inquireInfo']) ? $_POST['inquireInfo'] : "";
+            $pageNow = $_POST['pageNow'];
 
-            if ($classifyId)
+            $start = $pageNow * 4;
+
+            $res = $this -> _model -> showGood($classifyId, $goodStatus, $inquireInfo,  $start);
+
+            echo json_encode($res);
+        }
+
+        public function getGoodNum() {
+            $classifyId = $_POST['classifyId'];
+            $goodStatus = $_POST['goodStatus'];
+            $inquireInfo = isset($_POST['inquireInfo']) ? $_POST['inquireInfo'] : "";
+
+            $res = $this -> _model -> getGoodNum($classifyId, $goodStatus, $inquireInfo);
+
+            echo $res;
+        }
+
+        public function getOneGood() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> getOneGood($id);
+
+            echo json_encode($res);
+        }
+
+        public function changeGoodStatus() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> getOneGood($id);
+
+            if ($res[0]['good_status'] == '上架') {
+                $res = $this -> _model -> changeGoodStatus($id, '下架');
+            } else {
+                $res = $this -> _model -> changeGoodStatus($id, '上架');
+            }
+        }
+
+        public function changeDetail() {
+            $id = $_POST['id'];
+            $goodName = $_POST['goodName'];
+            $originalPrice = $_POST['originalPrice'];
+            $discountPrice = $_POST['discountPrice'];
+            $goodRest = $_POST['goodRest'];
+            $goodLimit = $_POST['goodLimit'];
+            $goodSummary = $_POST['goodSummary'];
+
+            $res = $this -> _model -> changeDetail($id, $goodName, $originalPrice, $discountPrice, $goodRest, $goodLimit, $goodSummary);
         }
     }
 ?>

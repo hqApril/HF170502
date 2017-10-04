@@ -11,3 +11,124 @@
     line-height: 30px;
     border-bottom: 1px solid grey;
 }
+
+.oneGood {
+    width: 888px;
+    height: 100px;
+    border: 1px solid grey;
+    margin: 10px 0;
+    position: relative;
+}
+
+.oneGood>p {
+    position: absolute;
+    right: 0px;
+    font-size: 14px;
+}
+
+.oneGood>img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid grey;
+    top: 9px;
+    left: 9px;
+}
+
+.oneGood a {
+    color: #03a9d8;
+}
+
+.oneGood>p:nth-child(2) {
+    left: 100px;
+    top: 9px;
+}
+
+.oneGood>p:nth-child(3) {
+    left: 120px;
+    top: 40px;
+}
+
+.oneGood>p:nth-child(4) {
+    left: 120px;
+    top: 65px;
+}
+
+.oneGood>p:nth-child(5) {
+    left: 230px;
+    top: 50px;
+}
+
+.oneGood>p:nth-child(6) {
+    left: 330px;
+    top: 50px;
+}
+
+.oneGood>p:nth-child(7) {
+    left: 460px;
+    top: 50px;
+}
+
+.oneGood>p:nth-child(8) {
+    left: 590px;
+    top: 50px;
+}
+
+.oneGood>p:nth-child(9) {
+    right: 28px;
+    top: 15px;
+}
+
+.oneGood>p:nth-child(10) {
+    right: 15px;
+    top: 40px;
+}
+
+.oneGood>p:nth-child(11) {
+    right: 28px;
+    top: 65px;
+}
+
+#showDetail {
+    position: fixed;
+    top: 100px;
+    left: 324px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#showDetail > div {
+    word-break: break-all;
+    margin: 5px 0;
+}
+
+#changeDetail {
+    position: fixed;
+    top: 100px;
+    left: 324px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#changeDetail textarea {
+    resize: none;
+    vertical-align: top;
+    margin: 5px 0;
+}
+
+#changeDetail input[type="number"] {
+    width: 70px;
+    height: 30px;
+    margin: 5px 0;
+}
+
+#changeDetail input[type="button"] {
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    margin: 5px 110px;
+}

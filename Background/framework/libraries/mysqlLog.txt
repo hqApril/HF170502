@@ -641,3 +641,104 @@
 {"time":"2017-10-04 23:10:31","query":"update good set good_name = '\u65b0\u6b3e\u97e9\u7248\u6b63\u54c1\u60c5\u4fa3\u65f6\u5c1a\u7b80\u7ea6\u5b66\u751f\u9632\u6c34\u94a2\u5e26\u624b\u8868\u7537\u5973\u58eb\u76ae\u5e26', original_price = '98', discount_price = '78', good_rest = '56', good_limit = '1', good_summary = '\u73ab\u7470\u91d1\u8868\u58f3\u642d\u914d\u65f6\u5c1a\u8868\u5e26\uff0c\u5e05\u6c14\u98ce\u3001\u65f6\u5c1a\u98ce\uff0c\u7537\u795e\u4f69\u6234\u5229\u5668\u3002' where good_id = '3'"}
 {"time":"2017-10-04 23:10:33","query":"select * from good where good_name like '%%'"}
 {"time":"2017-10-04 23:10:34","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 15:10:59","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-05 15:10:03","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-05 15:10:03","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-05 15:10:34","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 15:10:34","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 15:10:49","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-05 15:10:49","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-05 15:10:53","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 15:10:54","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 16:10:17","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-05 16:10:21","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-05 16:10:21","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-05 16:10:27","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 16:10:27","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 16:10:48","query":"select * from order_list left join shipped_ol where order_list.order_list_id = shipped_ol.shipped_ol_id"}
+{"time":"2017-10-05 16:10:17","query":"select * from order_list left join shipped_ol where order_list.order_list_id = shipped_ol.shipped_ol_id"}
+{"time":"2017-10-05 16:10:47","query":"select * from order_list left join shipped_ol on order_list.order_list_id = shipped_ol.shipped_ol_id"}
+{"time":"2017-10-05 16:10:02","query":"select * from order_list left join shipped_ol on order_list.order_list_id = shipped_ol.order_list_id"}
+{"time":"2017-10-05 19:10:06","query":"select * from order_list left join shipped_ol on order_list.order_list_id = shipped_ol.order_list_id"}
+{"time":"2017-10-05 19:10:52","query":"select * from order_list"}
+{"time":"2017-10-05 19:10:50","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:59","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:32","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:33","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:50","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:51","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:06","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 19:10:06","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 19:10:10","query":"select * from order_list limit 0, 4"}
+{"time":"2017-10-05 19:10:10","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:16","query":"select * from order_list limit 4, 4"}
+{"time":"2017-10-05 19:10:19","query":"select * from order_list limit 0, 4"}
+{"time":"2017-10-05 19:10:49","query":"select order_list.*, good.discount_price, good.post_style from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:49","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:32","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:32","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:50","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:50","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:59","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 4, 4"}
+{"time":"2017-10-05 19:10:03","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:00","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:01","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:18","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:19","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:59","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:59","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:21","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:22","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:44","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:44","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:07","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:07","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:31","query":"select * from menu"}
+{"time":"2017-10-05 19:10:32","query":"select * from role"}
+{"time":"2017-10-05 19:10:39","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:39","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:49","query":"select * from role"}
+{"time":"2017-10-05 19:10:49","query":"select * from menu"}
+{"time":"2017-10-05 19:10:10","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:10","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:24","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 4"}
+{"time":"2017-10-05 19:10:24","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:40","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 19:10:41","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 19:10:44","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:05","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:06","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:48","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-05 20:10:49","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-05 20:10:52","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 20:10:52","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 20:10:00","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:00","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:48","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:48","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:50","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '2'"}
+{"time":"2017-10-05 20:10:06","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:07","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:10","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '3'"}
+{"time":"2017-10-05 20:10:16","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '4'"}
+{"time":"2017-10-05 20:10:18","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '5'"}
+{"time":"2017-10-05 20:10:32","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-05 20:10:33","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-05 20:10:35","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:35","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:38","query":"update order_list set shipped_status = true where order_list_id = '3'"}
+{"time":"2017-10-05 20:10:41","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id limit 0, 8"}
+{"time":"2017-10-05 20:10:42","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:43","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 20:10:44","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 20:10:46","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 20:10:47","query":"select * from order_list where ol_status = 'payed'"}
+{"time":"2017-10-05 21:10:16","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status != 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 21:10:24","query":"select * from good where good_name like '%%'"}
+{"time":"2017-10-05 21:10:25","query":"select * from good where good_name like '%%' limit 0, 4"}
+{"time":"2017-10-05 21:10:27","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status != 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 21:10:10","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status != 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 21:10:10","query":"select * from order_list where ol_status != 'payed'"}
+{"time":"2017-10-05 21:10:22","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '7'"}
+{"time":"2017-10-05 21:10:25","query":"select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status != 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit 0, 8"}
+{"time":"2017-10-05 21:10:26","query":"select * from order_list where ol_status != 'payed'"}

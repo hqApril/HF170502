@@ -1,1 +1,167 @@
-6
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>addGood</title>
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/payedOrder.css" type="text/css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div id="content">
+        <div>
+            <table id="showOrderList">
+                <tr>
+                    <th>订单号</th>
+                    <th>订单会员</th>
+                    <th>购买类型</th>
+                    <th>支付金额</th>
+                    <th>下单时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="(y, x) in goodArr">
+                    <td>{{x.order_list_id}}</td>
+                    <td>{{x.user_id}}</td>
+                    <td>{{x.post_type}}</td>
+                    <td>￥{{x.discount_price}}</td>
+                    <td>{{x.create_time}}</td>
+                    <td ng-show="x.shipped_status == 1">已发货</td>
+                    <td ng-show="x.shipped_status == 0">已支付</td>
+                    <td ng-show="x.shipped_status == 1"><input type="button" value="查看" ng-click="showOrderDetail(x.order_list_id)"></td>
+                    <td ng-show="x.shipped_status == 0"><input type="button" value="查看" ng-click="showOrderDetail(x.order_list_id)"><input type="button" value="发货"
+                            ng-click="shipment(x.order_list_id)"></td>
+                </tr>
+
+            </table>
+
+            <input type="button" ng-repeat="x in inputArr" ng-value="x+1" ng-click="changePayedPageNow(x)">
+        </div>
+    </div>
+
+    <div id="showDetail" ng-show="showDetailIf">
+        <div>订单号：{{oId}}</div>
+        <div>订单会员：{{oUser}}</div>
+        <div>购买类型：{{oType}}</div>
+        <div>支付金额：￥{{oDiscountPrice}}</div>
+        <div>下单时间：{{oTime}}</div>
+        <div>订单状态：{{oStatus}}</div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.pageNow = 0;
+            $scope.showDetailIf = false;
+
+
+
+            $scope.getPayed = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getPayedOrder",
+                    method: "post",
+                    data: {
+                        pageNow: $scope.pageNow
+                    }
+                }).then(
+                    function (res) {
+                        $scope.goodArr = res.data;
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getPayed();
+
+            $scope.getPayedNum = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getPayedNum",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        var pageNum = Math.ceil(data / 8);
+                        var arr = [];
+
+                        for (var i = 0; i < pageNum; i++) {
+                            arr.push(i);
+                        }
+
+                        $scope.inputArr = arr;
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getPayedNum();
+
+            $scope.changePayedPageNow = function (pageNow) {
+                $scope.pageNow = pageNow;
+
+                $scope.getPayed();
+            }
+
+            $scope.showOrderDetail = function (id) {
+                $scope.showDetailIf = !$scope.showDetailIf;
+
+                if ($scope.showDetailIf) {
+                    $http({
+                        url: "./index.php?c=Main&a=getOrderDetail",
+                        method: "post",
+                        data: {
+                            id: id
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+
+                            $scope.oId = data[0].order_list_id;
+                            $scope.oUser = data[0].user_id;
+                            $scope.oType = data[0].post_type;
+                            $scope.oDiscountPrice = data[0].discount_price;
+                            $scope.oTime = data[0].create_time;
+                            if (data[0].shipped_status == "0") {
+                                $scope.oStatus = "已发货";
+                            } else {
+                                $scope.oStatus = "已支付";
+                            }
+                        },
+                        function () {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.shipment = function (id) {
+                $http({
+                    url: "./index.php?c=Main&a=shipment",
+                    method: "post",
+                    data: {
+                        id: id
+                    }
+                }).then(
+                    function (res) {
+                        alert("发货成功");
+
+                        window.location.reload();
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>

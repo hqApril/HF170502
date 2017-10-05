@@ -327,6 +327,54 @@
             $goodSummary = $_POST['goodSummary'];
 
             $res = $this -> _model -> changeDetail($id, $goodName, $originalPrice, $discountPrice, $goodRest, $goodLimit, $goodSummary);
+
+            return $res;
+        }
+
+        public function getPayedNum() {
+            $res = $this -> _model -> getTotalPayedOrder();
+
+            echo count($res);
+        }
+
+        public function getPayedOrder() {
+            $pageNow = $_POST['pageNow'];
+            $start = $pageNow * 8;
+
+            $res = $this -> _model -> getPayedOrder($start);
+
+            echo json_encode($res);
+        }
+
+        public function getOrderDetail() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> getorderDetail($id);
+
+            echo json_encode($res);
+        }
+
+        public function shipment() {
+            $id = $_POST['id'];
+
+            $res = $this -> _model -> shipment($id);
+
+            echo $res;
+        }
+
+        public function getUnpayedNum() {
+            $res = $this -> _model -> getToalUnpayedNum();
+
+            echo count($res);
+        }
+
+        public function getUnpayedOrder() {
+            $pageNow = $_POST['pageNow'];
+            $start = $pageNow * 8;
+
+            $res = $this -> _model -> getUnpayedOrder($start);
+
+            echo json_encode($res);
         }
     }
 ?>

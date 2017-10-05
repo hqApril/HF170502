@@ -274,5 +274,53 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function getTotalPayedOrder() {
+        $query = "select * from order_list where ol_status = 'payed'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getPayedOrder($start) {
+        $query = "select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status = 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit {$start}, 8";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getorderDetail($id) {
+        $query = "select order_list.*, good.discount_price, good.post_type from order_list, good where order_list.good_id = good.good_id and order_list.order_list_id = '{$id}'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function shipment($id) {
+        $query = "update order_list set shipped_status = true where order_list_id = '{$id}'";
+
+        $res = $this -> _link -> change($query);
+
+        return $res;
+    }
+
+    public function getToalUnpayedNum() {
+        $query = "select * from order_list where ol_status != 'payed'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getUnpayedOrder($start) {
+        $query = "select order_list.*, good.discount_price, good.post_type from order_list, good where ol_status != 'payed' and order_list.good_id = good.good_id order by order_list.create_time desc limit {$start}, 8";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
 }
 ?>

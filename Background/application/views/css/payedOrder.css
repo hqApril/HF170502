@@ -1,0 +1,42 @@
+#body {
+    position: relative;
+}
+
+#content {
+    width: 890px;
+    height: 550px;
+    background: #D9DBD4;
+    padding: 50px;
+}
+
+#showOrderList {
+    width: 888px;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#showOrderList td {
+    border: 1px solid grey;
+    height: 50px;
+    text-align: center;
+}
+
+#showOrderList th {
+    background-color: #6ca074;
+     height: 50px;
+}
+
+#showDetail {
+    position: fixed;
+    top: 100px;
+    left: 324px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#showDetail>div {
+    word-break: break-all;
+    margin: 5px 0;
+}

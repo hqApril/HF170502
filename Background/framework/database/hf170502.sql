@@ -506,3 +506,32 @@ values
 (null, 099,	'./images/goods/detail-099.png', 'detail'),
 (null, 100,	'./images/goods/detail-100.png', 'detail'),
 (null, 101,	'./images/goods/detail-101.png', 'detail');
+
+
+#创建订单表
+create table if not exists order_list
+(
+    order_list_id int unsigned not null auto_increment primary key,
+    user_id varchar(16) not null,
+    good_id int unsigned not null,
+    create_time timestamp not null,
+    past_time timestamp not null,
+    total int unsigned not null,
+    address_id int not null,
+    ol_status enum('payed', 'nopay', 'autoOverDue', 'menualOverDue'),
+    shipped_status boolean not null
+);
+
+#订单表插入数据
+insert into order_list
+values
+(null, 'user', 1, '2017-10-5 12:12:12', '2017-10-5 12:42:42', 1, 1, 'payed', true),
+(null, 'user', 2, '2017-10-5 12:12:13', '2017-10-5 12:42:42', 1, 1, 'payed', true),
+(null, 'user', 3, '2017-10-5 12:12:11', '2017-10-5 12:42:42', 1, 1, 'payed', false),
+(null, 'user', 4, '2017-10-5 12:12:15', '2017-10-5 12:42:42', 1, 1, 'payed', false),
+(null, 'user', 5, '2017-10-5 12:12:16', '2017-10-5 12:42:42', 1, 1, 'payed', false),
+(null, 'user', 7, '2017-10-5 12:12:12', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'user', 8, '2017-10-5 12:12:13', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'user', 9, '2017-10-5 12:12:11', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'user', 10, '2017-10-5 12:12:15', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'user', 11, '2017-10-5 12:12:16', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false);

@@ -64,7 +64,7 @@ create table if not exists menu
     menu_id int unsigned not null primary key,
     menu_name varchar(10) not null,
     menu_fid int unsigned not null,
-    url varchar(80)
+    url varchar(90)
 )ENGINE=INNODB;
 
 #菜单表插入数据
@@ -73,13 +73,16 @@ values
 (1, '系统管理', 0, '#'),
 (2, '商品管理', 0, '#'),
 (3, '订单管理', 0, '#'),
-(4, '用户管理', 1, './index.php?c=Main&a=iframeHtml&n=userManagement'),
-(5, '员工管理', 1, './index.php?c=Main&a=iframeHtml&n=employeeManagement'),
-(6, '角色管理', 1, './index.php?c=Main&a=iframeHtml&n=roleManagement'),
-(7, '商品录入', 2, './index.php?c=Main&a=iframeHtml&n=addGood'),
-(8, '商品信息', 2, './index.php?c=Main&a=iframeHtml&n=goodInfo'),
-(9, '未支付订单', 3, './index.php?c=Main&a=iframeHtml&n=unpayedOrder'),
-(10, '已支付订单', 3, './index.php?c=Main&a=iframeHtml&n=payedOrder');
+(4, '报表统计', 0, '#'),
+(5, '用户管理', 1, './index.php?c=Main&a=iframeHtml&n=userManagement'),
+(6, '员工管理', 1, './index.php?c=Main&a=iframeHtml&n=employeeManagement'),
+(7, '角色管理', 1, './index.php?c=Main&a=iframeHtml&n=roleManagement'),
+(8, '商品录入', 2, './index.php?c=Main&a=iframeHtml&n=addGood'),
+(9, '商品信息', 2, './index.php?c=Main&a=iframeHtml&n=goodInfo'),
+(10, '未支付订单', 3, './index.php?c=Main&a=iframeHtml&n=unpayedOrder'),
+(11, '已支付订单', 3, './index.php?c=Main&a=iframeHtml&n=payedOrder'),
+(12, '用户统计', 4, './index.php?c=Main&a=iframeHtml&n=userStatistics'),
+(13, '营销统计', 4, './index.php?c=Main&a=iframeHtml&n=marketingStatistics');
 
 #角色菜单表
 create table if not exists role_menu
@@ -104,27 +107,33 @@ values
 (1, 8),
 (1, 9),
 (1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
 (2, 1),
 (2, 2),
 (2, 3),
 (2, 4),
 (2, 5),
-(2, 7),
+(2, 6),
 (2, 8),
 (2, 9),
 (2, 10),
+(2, 11),
+(2, 12),
+(2, 13),
 (3, 2),
 (3, 3),
-(3, 7),
 (3, 8),
 (3, 9),
 (3, 10),
+(3, 11),
 (4, 2),
 (4, 3),
-(4, 7),
 (4, 8),
 (4, 9),
-(4, 10);
+(4, 10),
+(4, 11);
 
 #########################################################################################
 #创建商品分类表
@@ -507,6 +516,36 @@ values
 (null, 100,	'./images/goods/detail-100.png', 'detail'),
 (null, 101,	'./images/goods/detail-101.png', 'detail');
 
+##########################################################
+
+#创建用户表
+create table if not exists user
+(
+    user_id varchar(10) not null primary key,
+    user_pwd char(32) not null,
+    nick_name varchar(10),
+    create_time timestamp not null,
+    phone_num varchar(11),
+    mailbox varchar(50),
+    balance int unsigned not null,
+    user_status enum('使用', '锁定')
+);
+
+#用户表插入数据
+insert into user
+values
+('hf170501', '25d55ad283aa400af464c76d713c07ad', '小赵', '20170808120000', '13711111111', 'for01@126.com', 0, '使用'),
+('hf170502', '25d55ad283aa400af464c76d713c07ad', '小钱', '20170808120000', '13722222222', 'for02@126.com', 0, '使用'),
+('hf170503', '25d55ad283aa400af464c76d713c07ad', '小孙', '20170808120000', '13733333333', 'for03@126.com', 0, '使用'),
+('hf170504', '25d55ad283aa400af464c76d713c07ad', '小李', '20170909120000', '13744444444', 'for04@126.com', 0, '使用'),
+('hf170505', '25d55ad283aa400af464c76d713c07ad', '小周', '20170909120000', '13755555555', 'for05@126.com', 0, '使用'),
+('hf170506', '25d55ad283aa400af464c76d713c07ad', '小吴', '20170909120000', '13766666666', 'for06@126.com', 0, '使用'),
+('hf170507', '25d55ad283aa400af464c76d713c07ad', '小郑', '20171010120000', '13777777777', 'for07@126.com', 0, '使用'),
+('hf170508', '25d55ad283aa400af464c76d713c07ad', '小王', '20171010120000', '13788888888', 'for08@126.com', 0, '使用'),
+('hf170509', '25d55ad283aa400af464c76d713c07ad', '小冯', '20171010120000', '13799999999', 'for09@126.com', 0, '使用'),
+('hf170510', '25d55ad283aa400af464c76d713c07ad', '小陈', '20171010120000', '13700000000', 'for00@126.com', 0, '使用');
+
+
 
 #创建订单表
 create table if not exists order_list
@@ -525,13 +564,13 @@ create table if not exists order_list
 #订单表插入数据
 insert into order_list
 values
-(null, 'user', 1, '2017-10-5 12:12:12', '2017-10-5 12:42:42', 1, 1, 'payed', true),
-(null, 'user', 2, '2017-10-5 12:12:13', '2017-10-5 12:42:42', 1, 1, 'payed', true),
-(null, 'user', 3, '2017-10-5 12:12:11', '2017-10-5 12:42:42', 1, 1, 'payed', false),
-(null, 'user', 4, '2017-10-5 12:12:15', '2017-10-5 12:42:42', 1, 1, 'payed', false),
-(null, 'user', 5, '2017-10-5 12:12:16', '2017-10-5 12:42:42', 1, 1, 'payed', false),
-(null, 'user', 7, '2017-10-5 12:12:12', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
-(null, 'user', 8, '2017-10-5 12:12:13', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
-(null, 'user', 9, '2017-10-5 12:12:11', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
-(null, 'user', 10, '2017-10-5 12:12:15', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
-(null, 'user', 11, '2017-10-5 12:12:16', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false);
+(null, 'hf170501', 1, '2017-8-5 12:12:12', '2017-8-5 12:42:42', 1, 1, 'payed', true),
+(null, 'hf170501', 2, '2017-8-5 12:12:13', '2017-8-5 12:42:42', 1, 1, 'payed', true),
+(null, 'hf170501', 3, '2017-8-5 12:12:11', '2017-8-5 12:42:42', 1, 1, 'payed', false),
+(null, 'hf170501', 4, '2017-8-5 12:12:15', '2017-8-5 12:42:42', 1, 1, 'payed', false),
+(null, 'hf170501', 5, '2017-9-5 12:12:16', '2017-9-5 12:42:42', 1, 1, 'payed', false),
+(null, 'hf170501', 7, '2017-9-5 12:12:12', '2017-9-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'hf170501', 8, '2017-9-5 12:12:13', '2017-9-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'hf170501', 9, '2017-9-5 12:12:11', '2017-9-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'hf170501', 10, '2017-10-5 12:12:15', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false),
+(null, 'hf170501', 11, '2017-10-5 12:12:16', '2017-10-5 12:42:42', 1, 1, 'autoOverDue', false);

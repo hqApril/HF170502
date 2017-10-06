@@ -1,0 +1,16 @@
+#body {
+    position: ralative;
+}
+
+#content {
+    width: 890px;
+    height: 550px;
+    background: #D9DBD4;
+    padding: 50px;
+}
+
+#forCanvas {
+    width: 60%;
+    height: 550px;
+    margin: 0 auto;
+}

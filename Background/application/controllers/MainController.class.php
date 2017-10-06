@@ -376,5 +376,48 @@
 
             echo json_encode($res);
         }
+
+        public function getUser() {
+            $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
+            $pageNow = $_POST['pageNow'];
+            $start = $pageNow * 6;
+            
+            $res = $this -> _model -> getUser($userName, $start);
+
+            echo json_encode($res);
+            
+        }
+
+        public function changeUserStatus() {
+            $arr = $_POST['arr'];
+
+            for ($i = 0; $i < count($arr); $i++) {
+                $this -> _model -> changeUserStatus($arr[$i]['id'], $arr[$i]['status']);
+
+                echo $arr[$i]['id'];
+            }
+
+            echo 1;
+        }
+
+        public function getUserNum() {
+            $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
+
+            $res = $this -> _model -> getUserNum($userName);
+
+            echo count($res);
+        }
+
+        public function getUserStatistics() {
+            $res = $this -> _model -> getUserStatistics();
+
+            echo json_encode($res);
+        }
+
+        public function getMarketingStatistics() {
+            $res = $this -> _model -> getMarketingStatistics();
+
+            echo json_encode($res);
+        }
     }
 ?>

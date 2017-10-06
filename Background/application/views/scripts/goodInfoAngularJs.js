@@ -22,7 +22,7 @@ app.controller("myCtrl", function ($scope, $http) {
 
                 $scope.pageNum = Math.ceil(data / 4);
 
-                arr = [];
+                var arr = [];
 
                 for (var i = 0; i < $scope.pageNum; i++) {
                     arr.push(i);

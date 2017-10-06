@@ -14,7 +14,7 @@
     <div id="content">
         <p>当前位置： 系统管理 / 员工管理</p>
         <input type="button" id="addEmployee" value="+添加" ng-click="showAddEmployeeIf()">
-        <input type="button" id="lockEmployee" value="使用/锁定" ng-click="changeStatus()"> 用户状态：
+        <input type="button" id="lockEmployee" value="使用/锁定" ng-click="changeStatus()"> 员工状态：
         <select name="" id="statusSelect" ng-model="statusSelect" ng-change="changeSelect()">
             <option value="使用">使用</option>
             <option value="锁定">锁定</option>
@@ -28,9 +28,9 @@
             <tr>
                 <th><input type="checkbox" ng-model="changeAll" ng-click="changeAllFunc()"></th>
                 <th>账户</th>
-                <th>用户名称</th>
-                <th>用户角色</th>
-                <th>用户状态</th>
+                <th>员工名称</th>
+                <th>员工角色</th>
+                <th>员工状态</th>
                 <th>操作</th>
             </tr>
 

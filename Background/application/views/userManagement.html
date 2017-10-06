@@ -1,12 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/userManagement.css" type="text/css">
 </head>
-<body>
-    <h1>test</h1>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div id="content">
+        <p>当前位置： 系统管理 / 用户管理</p>
+        <input type="button" id="lockUser" value="使用/锁定" ng-click="changeStatus()">
+        <input type="text" placeholder="用户名搜索" id="searchInput" ng-model="sUserName">
+        <input type="button" value="搜索" id="searchBtn" ng-click="changeInfo()">
+        <div id="tbTitle">
+            用户列表
+        </div>
+
+        <table id="userTb">
+            <tr>
+                <th><input type="checkbox" ng-model="changeAll" ng-click="changeAllFunc()"></th>
+                <th>账户</th>
+                <th>用户名称</th>
+                <th>用户角色</th>
+            </tr>
+
+            <tr ng-repeat="(x, y) in userArr">
+                <td><input type="checkbox" ng-model="y.got"></td>
+                <td ng-bind="y.user_id"></td>
+                <td ng-bind="y.nick_name"></td>
+                <td ng-bind="y.user_status"></td>
+            </tr>
+        </table>
+        <div id="pageBtn">
+            <input type="button" ng-repeat="(y, x) in inputArr" ng-value="y+1" ng-click="pageNowFunc(y)">
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.pageNow = 0;
+
+            $scope.getUserNum = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getUserNum",
+                    method: "post",
+                    data: {
+                        userName: $scope.sUserName
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.pageNum = Math.ceil(data / 6);
+
+                        var arr = [];
+
+                        for (var i = 0; i < $scope.pageNum; i++) {
+                            arr.push(i);
+                        }
+
+                        $scope.inputArr = arr;
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getUserNum();
+
+            $scope.getUser = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getUser",
+                    method: "post",
+                    data: {
+                        userName: $scope.sUserName,
+                        pageNow: $scope.pageNow
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        for (var i = 0; i < data.length; i++) {
+                            data[i].got = false;
+                        }
+
+                        $scope.userArr = data;
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getUser();
+
+            $scope.pageNowFunc = function (i) {
+                $scope.pageNow = i;
+
+                $scope.getUser();
+            }
+
+            $scope.changeInfo = function() {
+                $scope.pageNow = 0;
+
+                $scope.getUser();
+
+                $scope.getUserNum();
+            }
+
+            $scope.changeAllFunc = function () {
+                if ($scope.changeAll) {
+                    for (var i = 0; i < $scope.userArr.length; i++) {
+                        $scope.userArr[i].got = true;
+                    }
+                } else {
+                    for (var i = 0; i < $scope.userArr.length; i++) {
+                        $scope.userArr[i].got = false;
+                    }
+                }
+            }
+
+            $scope.changeSelect = function () {
+                $scope.changeAll = false;
+
+                for (var i = 0; i < $scope.userArr.length; i++) {
+                    $scope.userArr[i].got = false;
+                }
+            }
+
+            $scope.changeStatus = function () {
+                var arr = [];
+
+                for (var i = 0; i < $scope.userArr.length; i++) {
+                    if ($scope.userArr[i].got) {
+                        arr.push({
+                            id: $scope.userArr[i].user_id,
+                            status: $scope.userArr[i].user_status == "使用" ? "锁定" : "使用"
+                        });
+                    }
+                }
+
+                $http({
+                    url: "./index.php?c=Main&a=changeUserStatus",
+                    method: "post",
+                    data: {
+                        arr: arr
+                    }
+                }).then(
+                    function (res) {
+                        alert("修改 使用/锁定 成功");
+
+                        window.location.reload();
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+        });
+    </script>
 </body>
+
 </html>

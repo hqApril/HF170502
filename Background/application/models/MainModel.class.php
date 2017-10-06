@@ -322,5 +322,43 @@ class MainModel extends Model {
 
         return $res;
     }
+
+    public function getUser($userName, $start) {
+        $query = "select * from user where nick_name like '%{$userName}%' limit {$start}, 6";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function changeUserStatus($id, $status) {
+        $query = "update user set user_status = '{$status}' where user_id = '{$id}'";
+
+        $this -> _link -> change($query);
+    }
+
+    public function getUserNum($userName) {
+        $query = "select * from user where nick_name like '%{$userName}%'";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+
+    public function getUserStatistics() {
+        $query = "select substr(create_time, 6, 2) as monthly, count(*) as num from user group by substr(create_time, 6, 2) order by substr(create_time, 6, 2)";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
+    
+    public function getMarketingStatistics() {
+        $query = "select substr(create_time, 6, 2) as monthly, count(*) as num from order_list group by substr(create_time, 6, 2) order by substr(create_time, 6, 2)";
+
+        $res = $this -> _link -> select($query);
+
+        return $res;
+    }
 }
 ?>

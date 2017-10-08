@@ -255,23 +255,11 @@
         }
 
         public function addImg() {
-            $name = isset($_POST['name'])? $_POST['name'] : '';  
-            $gender = isset($_POST['gender'])? $_POST['gender'] : '';  
-  
-            $filename = time().substr($_FILES['images']['name'], strrpos($_FILES['images']['name'],'.'));
-  
-            $response = array();  
-  
-            if(move_uploaded_file($_FILES['images']['tmp_name'], $filename)){  
-                $response['isSuccess'] = true;  
-                $response['name'] = $name;  
-                $response['gender'] = $gender;  
-                $response['images'] = $filename;  
-            }else{  
-                $response['isSuccess'] = false;  
-            }  
-  
-           echo json_encode($response); 
+            $file=$_FILES['images'];
+            $name=rand(0,500000).dechex(rand(0,10000)).".jpg";
+            move_uploaded_file($file['tmp_name'],"./".$name);
+
+            echo "123";
         }
 
         public function showGood() {

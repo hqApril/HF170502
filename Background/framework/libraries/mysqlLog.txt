@@ -1122,3 +1122,30 @@
 {"time":"2017-10-06 22:10:09","query":"select substr(create_time, 6, 2) as monthly, count(*) as num from order_list group by substr(create_time, 6, 2) order by substr(create_time, 6, 2)"}
 {"time":"2017-10-06 22:10:13","query":"select substr(create_time, 6, 2) as monthly, count(*) as num from user group by substr(create_time, 6, 2) order by substr(create_time, 6, 2)"}
 {"time":"2017-10-06 22:10:14","query":"select substr(create_time, 6, 2) as monthly, count(*) as num from order_list group by substr(create_time, 6, 2) order by substr(create_time, 6, 2)"}
+{"time":"2017-10-08 21:10:46","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-08 21:10:50","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-08 21:10:51","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-08 21:10:53","query":"select * from user where nick_name like '%%' limit 0, 6"}
+{"time":"2017-10-08 21:10:53","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-08 21:10:06","query":"select * from employee where employee_id = '10004' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-08 22:10:48","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-08 22:10:52","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:53","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:55","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-08 22:10:55","query":"select * from user where nick_name like '%%' limit 0, 6"}
+{"time":"2017-10-08 22:10:19","query":"insert into good values (null, '12313123', '231', '22', '3123123', '111', '123', '1', '1', '\u79d2\u6740', '\u4e0a\u67b6', '2017-10-08 22:42:19')"}
+{"time":"2017-10-08 22:10:47","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:47","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:49","query":"select * from user where nick_name like '%%' limit 0, 6"}
+{"time":"2017-10-08 22:10:50","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-08 22:10:01","query":"insert into good values (null, '13123', '123', '1', '13123', '123', '123', '1', '1', '\u79d2\u6740', '\u4e0a\u67b6', '2017-10-08 22:44:00')"}
+{"time":"2017-10-08 22:10:45","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:46","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:47","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-08 22:10:48","query":"select * from user where nick_name like '%%' limit 0, 6"}
+{"time":"2017-10-08 22:10:36","query":"insert into good values (null, '123', '344', '2', '234234324', '34', '24', '1', '1', '\u79d2\u6740', '\u4e0a\u67b6', '2017-10-08 22:48:36')"}
+{"time":"2017-10-08 22:10:27","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:28","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-08 22:10:30","query":"select * from user where nick_name like '%%' limit 0, 6"}
+{"time":"2017-10-08 22:10:30","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-08 22:10:42","query":"insert into good values (null, '234', '4234', '2', '4234234', '334', '222', '1', '1', '\u79d2\u6740', '\u4e0a\u67b6', '2017-10-08 22:49:42')"}

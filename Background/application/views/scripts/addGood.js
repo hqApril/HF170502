@@ -1,23 +1,16 @@
 function fsubmit() {
-    var data = new FormData($('#goodForm')[0]);
+    var formData = new FormData($('#goodForm')[0]);
 
     $.ajax({
         url: './index.php?c=Main&a=addImg',
         type: 'POST',
-        data: data,
-        dataType: 'text',
+        data: formData,
+        dataType: 'json',
         cache: false,
         processData: false,
         contentType: false,
-        success: function (ret) {
-            if (ret['isSuccess']) {
-                var result = '';
-                result += '<img src="' + ret['images'] + '" width="300">';
-                $('#imgPreview').html(result);
-            } else {
-                //alert('提交失败');
-
-            }
+        success: function (res) {
+            console.log(res);
         },
         error: function (req, res) {
             console.log(res);
@@ -35,6 +28,8 @@ function imagePreview(input) {
         img.classList.add("obj");
         img.file = file;
         img.style.width = "300px";
+
+        preview.empty();
         preview.append(img);
         var reader = new FileReader();
         reader.onload = (function (aImg) {
@@ -42,6 +37,7 @@ function imagePreview(input) {
                 aImg.src = e.target.result;
             };
         })(img);
+        
         reader.readAsDataURL(file);
     }
 }

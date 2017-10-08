@@ -26,11 +26,15 @@ app.controller("myCtrl", function($scope, $http) {
                 if (data == 0) {
                     alert("验证码错误");
                 } else if (data == 1) {
+                    alert("该用户已锁定，无法登录");
+
+                    
+                } else if (data == 2) {
                     alert("登录成功");
 
                     window.location.href = "index.php?c=main&a=toMainView";
-                } else if (data == 2) {
-                    alert("账号或密码不对");
+                } else if (data == 3) {
+                    alert("账户名或密码不对");
                 } else {
                     alert("未知错误");
                 }

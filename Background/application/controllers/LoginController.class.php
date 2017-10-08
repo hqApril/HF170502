@@ -30,11 +30,15 @@ class LoginController extends Controller {
             $res = $this -> _model -> loginValidation($employeeId, $employeePwd);
 
             if (count($res)) {
-                $_SESSION['loginNow'] = $employeeId;
+                if ($res[0]['employee_status'] == '锁定') {
+                    echo 1;
+                } else {
+                    $_SESSION['loginNow'] = $employeeId;
 
-                echo 1;
+                    echo 2;
+                }
             } else {
-                echo 2;
+                echo 3;
             }
         }
     }

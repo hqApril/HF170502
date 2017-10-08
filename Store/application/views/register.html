@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/register.css" type="text/css">
+</head>
+
+<body ng-app="myApp">
+    <img src="./application/views/images/logo_1.png" id="bgLogo">
+    <img src="./application/views/images/logo_5.png" id="bgTitle">
+    <div id="loginBox" ng-controller="myCtrl">
+        <form name="registerForm">
+            <input type="text" placeholder="请输入注册账号" id="registerId" name="registerId" ng-model="registerId" maxlength="10" required
+                ng-blur="checkRegisterName()"><br/>
+
+            <div class="showError" ng-show="checkName == 1">没有输入账号</div>
+            <div class="showError" ng-show="checkName == 2">账号只能由数字、字母及下划线组成</div>
+            <div class="showError" ng-show="checkName == 3">该账号已存在</div>
+            <div class="showError" ng-show="checkName == 4">账号可用</div>
+
+
+            <input autocomplete="new-password" type="password" placeholder="请输入注册密码" id="registerPwd" name="registerPwd" ng-model="registerPwd"
+                maxlength="16" required ng-blur="checkRegisterPwd()"><br/>
+
+            <div class="showError" ng-show="checkPwd == 1">请输入密码</div>
+            <div class="showError" ng-show="checkPwd == 2">密码只能由数字、字母及下划线组成</div>
+
+
+            <input type="password" placeholder="请再次输入密码" id="confirmPwd" name="confirmPwd" ng-model="confirmPwd" maxlength="16" required
+                ng-blur="checkConfirmPwd()"><br/>
+
+            <div class="showError" ng-show="checkConfirm == 1">请再次输入密码</div>
+            <div class="showError" ng-show="checkConfirm == 2">两次密码输入不一致</div>
+
+            <input id="registerEmail" type="text" placeholder="请输入注册邮箱" ng-blur="checkMailBox()" ng-model="registerEmail" name="registerEmail" required>
+
+            <div class="showError" ng-show="checkMail == 1">请输入邮箱</div>
+            <div class="showError" ng-show="checkMail == 2">邮箱格式不对</div>
+
+
+            <input type="reset" value="登&nbsp;录" ng-click="toLogin()" id="toLogin">
+            <input type="button" value="注&nbsp;册" id="registerBtn" ng-disabled="registerForm.registerPwd.$error.required || registerForm.registerId.$error.required || registerForm.registerEmail.$error.required || checkName != 4 || checkPwd != 3 || checkConfirm != 3 || checkMail != 3"
+                ng-click="register()">
+        </form>
+    </div>
+
+    <script src="./application/views/scripts/registerAngularJs.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+/* ------------------登录页面样式-------------------- */
+
+body {
+    background-image: url("../images/login_bg.jpg");
+    background-size: 100%;
+}
+
+#bgLogo {
+    display: block;
+    position: fixed;
+    top: 8%;
+    left: 5%;
+}
+
+#bgTitle {
+    display: block;
+    position: fixed;
+    top: 8%;
+    right: 15%;
+}
+
+#loginBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 270px;
+    height: 294px;
+    padding: 40px;
+    background-color: rgba(40, 40, 40, .6);
+    border-radius: 5px;
+    margin: -187px -175px;
+}
+
+#loginId,
+#loginPwd {
+    width: 248px;
+    height: 40px;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    border: 1px solid #A7A7A7;
+    background-color: white;
+    font-size: 16px;
+}
+
+.showError {
+    width: 270px;
+    height: 40px;
+    margin-top: -40px;
+    text-align: center;
+    color: #98CCD6;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: "黑体";
+}
+
+#loginBox span {
+    color: white;
+    line-height: 40px;
+}
+
+#loginCaptcha {
+    width: 62px;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 18px;
+    border: 1px solid #A7A7A7;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+#captchaImg {
+    width: 90px;
+    height: 44px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 14px;
+}
+
+#toRegister, #loginBtn {
+    width: 105px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(top, #0F530F, #1F962D);
+    background: -moz-linear-gradient(top, #0F530F, #1F962D);
+    background: -o-linear-gradient(top, #0F530F, #1F962D);
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0  8px 2px #222222;
+    -moz-box-shadow: 0 0 8px 2px #222222;
+    -webkit-box-shadow: 0 0 8px 2px #222222;
+    margin: 0 13px;
+}

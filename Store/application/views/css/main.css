@@ -1,99 +1,334 @@
-nav {
-    width: 100%;
-    height: 100px;
-    background-color: rgb(11, 65, 83);
-}
+/*--------------------------homePage.css用来储存主页的样式-----------------------------*/
 
-nav>div {
-    width: 1190px;
-    height: inherit;
+
+/*----------------------------------banner样式------------------------------------------*/
+
+#banner {
+    width: 980px;
+    height: 538px;
     margin: 0 auto;
+    position: relative;
+    margin-top: 20px;
 }
 
-#navLogo {
-    margin-right: 150px;
+#bannerSlider {
+    width: 980px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    font-size: 0;
 }
 
-#headImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 27px;
-    border: 2px solid white;
+#bannerSlider>div {
+    width: 2940px;
+    height: 500px;
+    position: absolute;
+    left: -980px;
+    top: 0;
 }
 
-.hint {
+#bannerSlider>img {
+    display: block;
+    float: left;
+}
+
+#previousPageBtn {
+    position: absolute;
+    top: 220px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 50px;
+    font-weight: 900;
     color: white;
-    font-size: 14px;
-    font-weight: 300;
-    margin-left: 120px;
 }
 
-#userName,
-#userRole {
-    font-size: 18px;
+#nextPageBtn {
+    position: absolute;
+    top: 220px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 50px;
+    font-weight: 900;
     color: white;
-    font-weight: 500;
 }
 
-#exitLogin {
-    color: red;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 30px;
+#sliderDot {
+    padding-top: 10px;
+    padding-left: 410px;
 }
+
+.sliderDotUnselected {
+    width: 12px;
+    height: 12px;
+    border-radius: 9px;
+    border: 2px solid #444444;
+    background-color: white;
+    float: left;
+    margin: 0 5px;
+}
+
+.sliderDotSelected {
+    width: 16px;
+    height: 16px;
+    border-radius: 9px;
+    background-color: #222222;
+    float: left;
+    margin: 0 5px;
+    border: none;
+}
+
+#timeQuantum {
+    margin: 20px auto;
+}
+
+
+/*-------------------------------content样式----------------------------------------------------------*/
 
 #content {
-    width: 1190px;
-    height: 650px;
-    background-color: grey;
+    width: 948px;
+    height: 493px;
+    border: 1px solid rgb(150, 150, 150);
     margin: 0 auto;
-    margin-top: 50px;
+    background-color: #E8E8E8;
+    padding: 15px;
 }
 
 #contentLeft {
+    width: 700px;
+    height: 100%;
     float: left;
-    width: 200px;
-    height: inherit;
-    background-color: rgb(13, 81, 104);
-    
 }
 
-.fMenu {
-    display: block;
-    width: 170px;
-    height: 50px;
-    line-height: 50px;
-    color: white;
-    background-color: rgb(22, 55, 66);
-    padding-left: 30px;
-    font-size: 20px;
+#contentRight {
+    width: 220px;
+    height: 100%;
+    float: left;
+    margin-left: 27px;
+}
+
+#contentLeftHead div {
+    width: 5px;
+    height: 30px;
+    background-color: rgb(185, 0, 0);
+}
+
+#contentLeftHead>li:nth-child(3) {
+    font-size: 22px;
+    margin-left: 5px;
     font-weight: 600;
-    margin-bottom: 5px;
-    cursor: pointer;
-
+    color: #555555;
 }
 
-.sMenu {
-    display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color: #eeeeee;
-    cursor: pointer;
+#contentLeftHead>li:nth-child(4) {
+    margin-left: 250px;
+    font-family: "宋体";
+    font-size: 15px;
+    font-weight: 300;
 }
 
-.fMenu:hover {
-    background-color: rgb(39, 96, 116);
+#contentLeftHead>li:nth-child(5) {
+    margin-left: 20px;
 }
 
-.sMenu:hover {
-    background-color: rgb(39, 96, 116);
+#contentLeft>div:nth-child(2) {
+    padding-top: 30px;
+    font-size: 12px;
+    font-family: "宋体";
+    text-align: right;
 }
 
-iframe {
+#backTimeClock {
+    width: 100px;
+}
+
+#showGoods {
+    width: 700px;
+    height: 360px;
+    margin-top: 10px;
+    background-color: #777777;
+}
+
+.showGoodInfo {
+    margin: 5px;
+    width: 318px;
+    height: 148px;
+    background-color: white;
     float: left;
-    width: 990px;
-    height: inherit;
-    background-color: green;
+    border: 1px solid #777777;
+    padding: 10px;
+}
+
+.showGoodInfo:hover {
+    border: 1px solid rgb(199, 12, 0);
+}
+
+.showGoodInfo>img {
+    display: block;
+    width: 146px;
+    height: 146px;
+    border: 1px solid rgb(62, 62, 62);
+    float: left;
+}
+
+.showGoodInfo>div {
+    float: left;
+    width: 160px;
+    height: 148px;
+    margin-left: 10px;
+}
+
+.showGoodInfo>div>div {
+    width: 100%;
+    height: 74px;
+}
+
+.showGoodInfo>div>div:first-child {
+    font-size: 12px;
+    font-family: "宋体";
+    line-height: 18px;
+}
+
+.showGoodInfo>div>div:nth-child(2) {
+    font-size:
+}
+
+.showGoodInfo>div>div:nth-child(2)>span {
+    line-height: 74px;
+}
+
+.showGoodInfo>div>div:nth-child(2)>span:first-child {
+    font-size: 12px;
+}
+
+.showGoodInfo>div>div:nth-child(2)>span:nth-child(2) {
+    font-size: 22px;
+    color: red;
+}
+
+#showBtn {
+    width: 700px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#showBtn>input {
+    font-size: 16px;
+    padding: 3px 6px;
+    border: none;
+    background: none;
+    margin: 0 5px;
+}
+
+#contentRightHead div {
+    width: 5px;
+    height: 30px;
+    background-color: rgb(185, 0, 0);
+}
+
+#contentRightHead>li:nth-child(3) {
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: 600;
+    color: #555555;
+}
+
+#showHonorsLimit {
+    background-color: #777777;
+    width: 220px;
+    height: 453px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#showHonors {
+    position: absolute;
+}
+
+#showHonors>li {
+    padding-left: 15px;
+    line-height: 40px;
+}
+
+#floatClassify {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    width: 120px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    margin-left: -650px;
+}
+
+#floatClassify>li {
+    width: 120px;
+    height: 45px;
+    background-color: rgb(185, 0, 0);
+    color: white;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    margin: 2px 0;
+    pointer: cursor;
+}
+
+#floatClassify>li:hover {
+    background-color: rgb(105, 0, 0);
+}
+
+
+/*秒杀控件样式*/
+
+.timeQuantum {
+    width: 980px;
+    height: 50px;
+    background-image: url("../images/timeQuantumBg.png");
+    position: relative;
+}
+
+.timeQuantum>input {
+    width: 20px;
+    height: 50px;
+    background-color: #666666;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+}
+
+#timeQuantumDiv1 {
+    width: 940px;
+    height: 40px;
+    float: left;
+    padding: 5px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#timeQuantumDiv1>div {
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.timeQuantumTab {
+    height: 40px;
+    width: 134px;
+    border-right: 1px solid #666666;
+    float: left;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.timeQuantum::after {
+    content: url("../images/little_tri.png");
+    position: absolute;
+    top: 40px;
+    left: 485px;
 }

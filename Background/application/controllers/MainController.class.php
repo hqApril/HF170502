@@ -248,18 +248,23 @@
             $goodRest = $_POST['rest'];
             $goodLimit = $_POST['limit'];
             $goodSummary = $_POST['summary'];
-
+            
             $res = $this -> _model -> addGood($goodName, $goodRest, $goodLimit, $goodSummary, $discountPrice, $originalPrice, $classifyId, $timeIntervalId, $postType);
 
-            echo $res;
+            $res = $this -> _model -> getLastGoodId();
+
+            echo json_encode($res);
         }
 
         public function addImg() {
+            $id = $_GET['id'];
             $file=$_FILES['images'];
             $name=rand(0,500000).dechex(rand(0,10000)).".jpg";
-            move_uploaded_file($file['tmp_name'],"./".$name);
+            move_uploaded_file($file['tmp_name'],"../Upload/".$name);
 
-            echo "123";
+            $res = $this -> _model -> addImg($id, "../Upload/".$name);
+
+            echo $res;
         }
 
         public function showGood() {

@@ -28,7 +28,7 @@
                     <td>促销商品名：</td>
                     <td><input type="text" ng-model="goodName" name="goodName" required></td>
                 </tr>
-                <tr>
+                <tr  ng-show="typeSelect == '秒杀'">
                     <td>促销时间段：</td>
                     <td>
                         <select ng-model="timeSelect">
@@ -85,7 +85,7 @@
                 </tr>
             </table>
             <input type="button" value="提交" ng-disabled="goodForm.goodName.$error.required || goodForm.originalPrice.$error.required || goodForm.discountPrice.$error.required || goodForm.rest.$error.required || goodForm.limit.$error.required || goodForm.summary.$error.required"
-                ng-click="addGood()" onclick="fsubmit()">
+                ng-click="addGood()">
             <input type="reset" value="重置">
         </form>
     </div>

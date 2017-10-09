@@ -1177,3 +1177,4 @@
 {"time":"2017-10-08 14:10:09","query":"insert into user (user_id, user_pwd, create_time, mailbox, balance, user_status) values ('hhhh', md5('123123'), now(), '123@12.com', 0, '\u4f7f\u7528')"}
 {"time":"2017-10-08 14:10:19","query":"select * from user where user_id = '111'"}
 {"time":"2017-10-08 14:10:39","query":"insert into user (user_id, user_pwd, create_time, mailbox, balance, user_status) values ('111', md5('11'), now(), 'for@1123.com', 0, '\u4f7f\u7528')"}
+{"time":"2017-10-09 11:10:56","query":"select * from user where user_id = 'hf170502' and user_pwd = md5('12345678')"}

@@ -34,7 +34,7 @@
         </div>
 
         <div class="oneGood" ng-repeat="x in goodArr">
-            <img src="./application/views/images/default_head_img.jpg">
+            <img ng-src="{{x.img_path}}">
             <p>{{x.good_name}}</p>
             <p>原价：￥{{x.original_price}}</p>
             <p>现价：￥{{x.discount_price}}</p>

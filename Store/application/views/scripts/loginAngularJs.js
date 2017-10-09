@@ -28,7 +28,7 @@ app.controller("myCtrl", function($scope, $http) {
                 } else if (data == 1) {
                     alert("登录成功");
 
-                    //window.location.href = "index.php?c=main&a=toMainView";
+                    window.location.href = "index.php?c=main&a=toMainView";
                 } else if (data == 2) {
                     alert("账号或密码不对");
                 } else {

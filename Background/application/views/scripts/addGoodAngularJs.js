@@ -22,6 +22,8 @@ app.controller("myCtrl", function ($scope, $http) {
             }
         }).then(
             function (res) {
+                fsubmit(res.data[0].last_id);
+
                 alert("商品添加成功");
             },
             function () {

@@ -5,13 +5,13 @@ class LoginController extends Controller {
     public function __construct() {
         session_start();
         $_POST = json_decode(file_get_contents('php://input'),true);
-        //require_once('./application/models/LoginModel.class.php');
+        require_once('./application/models/LoginModel.class.php');
 
         $this -> _model = new LoginModel();
     }
 
     public function toLoginView() {
-        if (isset($_SESSION['loginNow'])) {
+        if (isset($_SESSION['userLogin'])) {
             include_once('./application/views/main.html');
         } else {
             include_once('./application/views/login.html');

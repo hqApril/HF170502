@@ -1,19 +1,19 @@
-function fsubmit() {
+function fsubmit(id) {
     var formData = new FormData($('#goodForm')[0]);
 
     $.ajax({
-        url: './index.php?c=Main&a=addImg',
+        url: './index.php?c=Main&a=addImg&id=' + id,
         type: 'POST',
         data: formData,
-        dataType: 'json',
+        dataType: 'text',
         cache: false,
         processData: false,
         contentType: false,
         success: function (res) {
-            console.log(res);
+           console.log(res);
         },
         error: function (req, res) {
-            console.log(res);
+           consoel.log(req, res);
         }
     });
 }

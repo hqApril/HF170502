@@ -51,6 +51,8 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.goodArr = data;
+
+                console.log($scope.goodArr);
             },
             function () {
                 alert("未知错误");

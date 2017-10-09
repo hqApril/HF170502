@@ -16,6 +16,7 @@ a {
     text-decoration: none;
 }
 
+
 /*--------------------nav的样式------------------------*/
 
 nav {
@@ -70,6 +71,12 @@ nav {
     width: 65px;
 }
 
+.navTitle {
+    font-size: 14px;
+    color: rgb(240, 240, 240);
+    width: 65px;
+}
+
 .navA {
     text-decoration: none;
     color: white;
@@ -89,7 +96,6 @@ nav {
     background-color: rgb(185, 0, 0);
     font-size: 13px;
     color: white;
-    display: none;
 }
 
 
@@ -212,7 +218,8 @@ footer p {
     color: red;
 }
 
-#registerInterface input[value="注册"], input[value="重置"] {
+#registerInterface input[value="注册"],
+input[value="重置"] {
     width: 100px;
     height: 40px;
     color: white;

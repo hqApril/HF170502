@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>main</title>
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="./application/views/css/main.css" type="text/css">
     <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
     <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/slider.js" type="text/javascript"></script>
 </head>
-<body>
+
+<body ng-app="myApp" ng-controller="myCtrl">
     <nav>
         <ul id="navMenu">
             <li class="vertical-head"></li>
@@ -22,34 +25,256 @@
             <li class="vertical-body navAd">最低价格</li>
             <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
             <li class="vertical-body navAd">全场包邮</li>
-            <li class="vertical-body "><a class="navA" href="./">登录</a></li>
+            <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
             <li class="vertical-body"><span>/</span></li>
-            <li class="vertical-body"><a class="navA" href="#">注册</a></li>
-            <li id="showName"></li>
+            <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
+            <li id="showName" ng-show="loginNow != ''">当前登录：{{loginNow}}</li>
         </ul>
     </nav>
     <div id="banner">
         <div id="bannerSlider">
             <div>
-                <img src="./images/bannerSlider5.png">
-                <img src="./images/bannerSlider1.png">
-                <img src="./images/bannerSlider2.png">
+                <img src="#" alt="">
+                <img src="#" alt="">
+                <img src="#" alt="">
             </div>
         </div>
         <input type="button" value="&lt;" id="previousPageBtn">
         <input type="button" value="&gt;" id="nextPageBtn">
         <div id="sliderDot"></div>
     </div>
+
+    <div id="content">
+        <div id="contentLeft">
+            <div>
+                <ul id="contentLeftHead">
+                    <li class="vertical-head"></li>
+                    <li class="vertical-body">
+                        <div></div>
+                    </li>
+                    <li class="vertical-body">火热商品 正在销售</li>
+                </ul>
+            </div>
+            <div></div>
+            <div id="showGoods">
+                <div class='showGoodInfo' ng-repeat="(y, x) in goodArr" ng-click="toGoodDetail(x.good_id)">
+                    <img ng-src="{{x.img_path}}">
+                    <div>
+                        <div ng-bind="x.good_name"></div>
+                        <div>
+                            <span>价格：￥{{x.original_price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="showBtn">
+                <input type="button" ng-repeat="x in inputArr" ng-value="x + 1" ng-click="changePageNow(x)">
+            </div>
+        </div>
+        <div id="contentRight">
+            <div>
+                <ul id="contentRightHead">
+                    <li class="vertical-head"></li>
+                    <li class="vertical-body">
+                        <div></div>
+                    </li>
+                    <li class="vertical-body">荣誉墙</li>
+                </ul>
+            </div>
+            <div id="showHonorsLimit">
+                <ul id="showHonors">
+                    <li ng-repeat="x in honorArr">恭喜用户{{x.user_id}}抢到商品</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
     <footer>
         <p>小何秒杀网</p>
         <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
         <p>小何公司 版权所有 小何电商文化经营许可证</p>
     </footer>
 
+    <ul id="floatClassify">
+        <li ng-click="changeClassify(0)">全部</li>
+        <li ng-repeat="x in classifyArr" ng-bind="x.classify_name" ng-click="changeClassify(x.classify_id)"></li>
+    </ul>
+
 
     <script>
-        var app = 
-    
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.classifyNow = 0;
+            $scope.pageNow = 0;
+
+            $scope.getLoginNow = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getLoginNow",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.loginNow = data;
+                    },
+                    function (res) {
+
+                    }
+                );
+            }
+
+            $scope.getLoginNow();
+
+            $scope.getBannerImg = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getBannerImg",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+                        $scope.sliderImgArr = [];
+
+                        for (var i = 0; i < data.length; i++) {
+                            $scope.sliderImgArr.push(data[i].banner_img_path);
+                        }
+
+                        var slider = new BannerSlider("#bannerSlider", "#previousPageBtn",
+                            "#nextPageBtn", "#sliderDot", 980, $scope.sliderImgArr);
+
+                        slider.addDot(
+                            "sliderDotUnselected", "sliderDotSelected");
+
+                        slider.autoSlider();
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getBannerImg();
+
+            $scope.getClassify = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getClaasify",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.classifyArr = data;
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getClassify();
+
+            $scope.changeClassify = function (classify_id) {
+                $scope.classifyNow = classify_id;
+                $scope.pageNow = 0;
+
+                $scope.getGoodNum();
+
+                $scope.getGood();
+            }
+
+            $scope.getGood = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getGood",
+                    method: "post",
+                    data: {
+                        classifyId: $scope.classifyNow,
+                        pageNow: $scope.pageNow
+                    }
+                }).then(function (res) {
+                    var data = res.data;
+
+                    $scope.goodArr = data;
+                }, function () {
+                    alert("未知错误");
+                });
+            }
+
+            $scope.getGood();
+
+            $scope.getGoodNum = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getGoodNum",
+                    method: "post",
+                    data: {
+                        classifyId: $scope.classifyNow
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        var pageNum = Math.ceil(data / 4);
+
+                        $scope.inputArr = [];
+
+                        for (var i = 0; i < pageNum; i++) {
+                            $scope.inputArr.push(i);
+                        }
+
+
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getGoodNum();
+
+            $scope.changePageNow = function (pageNow) {
+                $scope.pageNow = pageNow;
+
+                $scope.getGood();
+            }
+
+            $scope.getHonor = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getHonor",
+                    method: "get"
+                }).then(function (res) {
+                    var data = res.data;
+
+                    $scope.honorArr = data;
+
+                    setTimeout(function () {
+                        var $showHonors = $("#showHonors");
+
+                        if ($showHonors.children().length > 11) {
+                            $showHonors.children().clone().appendTo($showHonors);
+                            var showHonorsTop = 0;
+                            var timer3 = setInterval(function () {
+                                showHonorsTop -= 1;
+                                if (parseInt($showHonors.css("top")) <= -
+                                    parseInt($showHonors.css("height")) / 2) {
+                                    showHonorsTop = 0;
+                                }
+
+                                $showHonors.css("top", showHonorsTop + "px");
+                            }, 15);
+                        }
+                    }, 100);
+                }, function () {
+                    alert("未知错误");
+                });
+            }
+
+            $scope.getHonor();
+
+            $scope.toGoodDetail = function (good_id) {
+                window.location.href = "./index.php?c=goodDetail&a=toGoodDetailView&g=" + good_id;
+            }
+        });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>goodDetails</title>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/goodDetail.css" type="text/css">
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <nav>
+        <ul id="navMenu">
+            <li class="vertical-head"></li>
+            <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="#">首页</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="#">个人中心</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="javascript:sessionStorage.fromMyOrder = 'true';window.location.href = 'personalInfo.html';">我的订单</a></li>
+            <li class="vertical-body"><img src="./application/views/images/limit_shopping.png"></li>
+            <li class="vertical-body navTitle">限时抢购</li>
+            <li class="vertical-body"><img src="./application/views/images/lowest_price.png"></li>
+            <li class="vertical-body navTitle">最低价格</li>
+            <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
+            <li class="vertical-body navTitle">全场包邮</li>
+            <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
+            <li class="vertical-body"><span>/</span></li>
+            <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
+            <li id="showName" ng-show="loginNow != ''">当前登录：{{loginNow}}</li>
+        </ul>
+    </nav>
+    <div id="content">
+        <div id="showGoodImg">
+            <img ng-src="{{goodDetail.img_path}}">
+        </div>
+        <div id="showDetails">
+            <div id="productName" ng-bind="goodDetail.good_name"></div>
+            <div id="productIntroduction" ng-bind="goodDetail.good_summary"></div>
+            <table id="productPrice">
+
+                <tr>
+                    <td class="title">价格：￥</td>
+                    <td class="boldSize" ng-bind="goodDetail.original_price"></td>
+                </tr>
+                <tr>
+                    <td class="title">库&emsp;&emsp;存：</td>
+                    <td class="lightSize" ng-bind="goodDetail.good_rest"></td>
+                </tr>
+                <tr>
+                    <td class="title">限购数量：</td>
+                    <td class="lightSize" ng-bind="goodDetail.good_limit"></td>
+                </tr>
+            </table>
+
+            <input type="button" value="立即购买" id="seckillBtn">
+        </div>
+        <div id="showSellerInfo">
+            <p>小何电商总店</p>
+            <p>信誉：<img src="./application/views/images/crown.gif">
+                <img src="./application/views/images/crown.gif">
+                <img src="./application/views/images/crown.gif">
+                <img src="./application/views/images/crown.gif">
+                <img src="./application/views/images/crown.gif">
+            </p>
+            <p>掌柜：小何同志</p>
+            <p>联系：<img src="./application/views/images/contactWithMe.gif"></p>
+        </div>
+    </div>
+    <div id="btnList">
+        <input type="button" value="商品详情" class="btnSelected">
+        <input type="button" value="商品记录" class="btnUnselected">
+        <input type="button" value="商品评论" class="btnUnselected">
+    </div>
+    <div id="aboutGoods">
+        <div id="pageDetail">
+            <img ng-src="{{detailImg}}">
+        </div>
+        <div id="pageRecord">
+            <table id="headTable">
+                <tr>
+                    <td>用户名</td>
+                    <td>数量</td>
+                    <td>价格</td>
+                    <td>秒杀时间</td>
+                </tr>
+            </table>
+            <div></div>
+            <p ng-show="showNoRecord">目前还没有用户交易成功(付款成功)</p>
+
+            <table id="bodyTable">
+                <tr ng-repeat="x in recordArr">
+                    <td ng-bind="x.user_id"></td>
+                    <td ng-bind="x.total"></td>
+                    <td ng-bind="x.original_price"></td>
+                    <td ng-bind="x.create_time"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="pageComment">
+            <textarea title="评论在5-180字之间" ng-model="enterComment"></textarea>
+            <input type="button" value="发表评论" ng-click="addComment()">
+            <div></div>
+            <p ng-show="showComment">目前还没有用户发表评论</p>
+            <div id="showComment">
+                <div class="commentObj" ng-repeat="(y, x) in commentArr">
+                    <div ng-bind="x.user_id"></div>
+                    <div>#{{commentLen - y}}</div>
+                    <div ng-bind="x.content"></div>
+                    <div>发表于 {{x.create_time}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>小何秒杀网</p>
+        <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
+        <p>小何公司 版权所有 小何电商文化经营许可证</p>
+    </footer>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.goodId = goodId;
+            $scope.enterComment = "";
+
+            $scope.getLoginNow = function () {
+                $http({
+                    url: "./index.php?c=Main&a=getLoginNow",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.loginNow = data;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getLoginNow();
+
+            $scope.getGoodDetail = function () {
+                $http({
+                    url: "./index.php?c=goodDetail&a=getGoodDetail",
+                    method: "post",
+                    data: {
+                        goodId: $scope.goodId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.goodDetail = data[0];
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getGoodDetail();
+
+            $scope.getDetailImg = function () {
+                $http({
+                    url: "./index.php?c=goodDetail&a=getDetailImg",
+                    method: "post",
+                    data: {
+                        goodId: $scope.goodId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data.length) {
+                            $scope.detailImg = data[0].img_path;
+                        } else {
+                            $scope.detailImg = "./application/views/images/noDetail.png";
+                        }
+
+                        setTimeout(function () {
+                            $("#aboutGoods").css("height", (parseInt($("#pageDetail").height()) +
+                                80) + "px");
+                        }, 100);
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getDetailImg();
+
+            $scope.getBuyedRecord = function () {
+                $http({
+                    url: "./index.php?c=goodDetail&a=getBuyedRecord",
+                    method: "post",
+                    data: {
+                        goodId: $scope.goodId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data.length) {
+                            $scope.showNoRecord = false;
+
+                            $scope.recordArr = data;
+                        } else {
+                            $scope.showNoRecord = true;
+                        }
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                )
+            }
+
+            $scope.getBuyedRecord();
+
+            $scope.getComment = function () {
+                $http({
+                    url: "./index.php?c=goodDetail&a=getComment",
+                    method: "post",
+                    data: {
+                        goodId: $scope.goodId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data.length) {
+                            $scope.showComment = false;
+
+                            $scope.commentLen = data.length;
+                            $scope.commentArr = data;
+                        } else {
+                            $scope.showComment = true;
+                        }
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                )
+            }
+
+            $scope.getComment();
+
+            $scope.addComment = function () {
+                if ($scope.loginNow == "") {
+                    alert("登录后才可使用评论功能");
+                } else if ($scope.enterComment.length < 5 || $scope.enterComment.length > 180) {
+                    alert("评论长度需要5-180字之间");
+                } else {
+                    $http({
+                        url: "./index.php?c=goodDetail&a=addComment",
+                        method: "post",
+                        data: {
+                            goodId: $scope.goodId,
+                            content: $scope.enterComment
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+
+                            console.log(data)
+                            
+                            if (data == 0) {
+                                alert("需要购买（付款后）该商品才可评论");
+                            } else if (data == 1) {
+                                alert("您已评论过该商品，无法重复评论");
+                            } else if (data == 2) {
+                                alert("评论成功");
+
+                                $scope.getComment();
+                            } else {
+                                alert("未知错误");
+                            }
+
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    )
+                }
+            }
+        });
+    </script>
+    <script src="./application/views/scripts/goodDetail.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -24,7 +24,8 @@
             <input type="text" id="loginCaptcha" maxlength="4" ng-model="loginCaptcha"><br/>
             <input type="button" value="注&nbsp;册" id="toRegister" ng-click="toRegister()">
             <input type="button" value="登&nbsp;录" id="loginBtn" ng-disabled="loginForm.loginPwd.$error.required || loginForm.loginId.$error.required"
-                ng-click="login()">
+                ng-click="login()"><br/>
+            <input type="button" id="toStore" value="进入商城" ng-click="toStore()">
         </form>
     </div>
 

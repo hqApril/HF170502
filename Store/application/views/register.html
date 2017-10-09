@@ -37,7 +37,8 @@
             <div class="showError" ng-show="checkConfirm == 1">请再次输入密码</div>
             <div class="showError" ng-show="checkConfirm == 2">两次密码输入不一致</div>
 
-            <input id="registerEmail" type="text" placeholder="请输入注册邮箱" ng-blur="checkMailBox()" ng-model="registerEmail" name="registerEmail" required>
+            <input id="registerEmail" type="text" placeholder="请输入注册邮箱" ng-blur="checkMailBox()" ng-model="registerEmail" name="registerEmail"
+                required>
 
             <div class="showError" ng-show="checkMail == 1">请输入邮箱</div>
             <div class="showError" ng-show="checkMail == 2">邮箱格式不对</div>
@@ -45,7 +46,8 @@
 
             <input type="reset" value="登&nbsp;录" ng-click="toLogin()" id="toLogin">
             <input type="button" value="注&nbsp;册" id="registerBtn" ng-disabled="registerForm.registerPwd.$error.required || registerForm.registerId.$error.required || registerForm.registerEmail.$error.required || checkName != 4 || checkPwd != 3 || checkConfirm != 3 || checkMail != 3"
-                ng-click="register()">
+                ng-click="register()"><br/>
+            <input type="button" id="toStore" value="进入商城" ng-click="toStore()">
         </form>
     </div>
 

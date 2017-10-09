@@ -19,17 +19,8 @@
     font-size: 0;
 }
 
-#bannerSlider>div {
-    width: 2940px;
-    height: 500px;
-    position: absolute;
-    left: -980px;
-    top: 0;
-}
-
 #bannerSlider>img {
     display: block;
-    float: left;
 }
 
 #previousPageBtn {

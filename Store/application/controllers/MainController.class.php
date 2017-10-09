@@ -9,15 +9,41 @@
         }
 
         public function toMainView() {
-            if (isset($_SESSION['userLogin'])) {
-                include_once('./application/views/main.html');
-            } else {
-                echo '<script>alert("非法登录");window.location.href="./index.php";</script>';
-            }
+            include_once('./application/views/main.html');
         }
 
         public function getBannerImg() {
             $res = $this -> _model -> getBannerImg();
+
+            echo json_encode($res);
+        }
+
+        public function getClaasify() {
+            $res = $this -> _model -> getClassify();
+
+            echo json_encode($res);
+        }
+
+        public function getGoodNum() {
+            $classifyId = $_POST['classifyId'];
+
+            $res = $this -> _model -> getGoodNum($classifyId);
+
+            echo count($res);
+        }
+
+        public function getGood() {
+            $classifyId = $_POST['classifyId'];
+            $pageNow = $_POST['pageNow'];
+            $start = $pageNow * 4;
+
+            $res = $this -> _model -> getGood($classifyId, $start);
+
+            echo json_encode($res);
+        }
+
+        public function getHonor() {
+            $res = $this -> _model -> getHonor();
 
             echo json_encode($res);
         }

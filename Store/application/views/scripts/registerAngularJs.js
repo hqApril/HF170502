@@ -119,4 +119,8 @@ app.controller("myCtrl", function ($scope, $http) {
             }
         }
     }
+
+    $scope.toStore = function () {
+        window.location.href = "./index.php?c=Main&a=toMainView";
+    }
 });

@@ -44,6 +44,10 @@ app.controller("myCtrl", function($scope, $http) {
     }
 
     $scope.toRegister = function () {
-        window.location.href = "./index.php?c=Register&a=toRegisterView"
+        window.location.href = "./index.php?c=Register&a=toRegisterView";
+    }
+
+    $scope.toStore = function () {
+        window.location.href = "./index.php?c=Main&a=toMainView";
     }
 });

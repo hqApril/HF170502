@@ -28,7 +28,7 @@
                     <td>促销商品名：</td>
                     <td><input type="text" ng-model="goodName" name="goodName" required></td>
                 </tr>
-                <tr  ng-show="typeSelect == '秒杀'">
+                <tr ng-show="typeSelect == '秒杀'">
                     <td>促销时间段：</td>
                     <td>
                         <select ng-model="timeSelect">
@@ -63,7 +63,7 @@
                     <td>原价：</td>
                     <td><input type="number" ng-model="originalPrice" name="originalPrice" required></td>
                 </tr>
-                <tr>
+                <tr ng-show="typeSelect == '秒杀'">
                     <td>促销价：</td>
                     <td><input type="number" ng-model="discountPrice" name="discountPrice" required></td>
                 </tr>

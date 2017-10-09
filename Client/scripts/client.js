@@ -280,7 +280,7 @@ client.onmessage = function(msg) {
 
         setTimeout(function() {
             $("#aboutGoods").css("height", (parseInt($("#pageDetail").height()) + 80) + "px");
-        }, 10)
+        }, 10);
     } else if (msgObj.type == "secKill") {    //秒杀
         $("#waitingInterface").hide();
         $("#transMask").hide();

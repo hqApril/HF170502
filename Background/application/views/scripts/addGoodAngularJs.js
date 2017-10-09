@@ -4,6 +4,8 @@ app.controller("myCtrl", function ($scope, $http) {
     $scope.typeSelect = "秒杀";
     $scope.timeSelect = "1";
     $scope.classifySelect = "1";
+    $scope.originalPrice = 0;
+    $scope.discountPrice = 0;
 
     $scope.addGood = function () {
         $http({

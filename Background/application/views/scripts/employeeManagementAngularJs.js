@@ -1,12 +1,15 @@
+//新建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http) {
+    //初始化数据
     $scope.changeAll = false;
     $scope.changeEmployeeIf = false;
     $scope.statusSelect = "使用";
     $scope.aRole = "1";
     $scope.addEmployeeIf = false;
 
+    //获取员工列表
     $scope.getEmployee = function () {
         $http({
             url: "./index.php?c=Main&a=getEmployee",
@@ -29,6 +32,7 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.getEmployee();
 
+    //获取角色列表
     $scope.getRole = function () {
         $http({
             url: "./index.php?c=Main&a=getRole",
@@ -43,11 +47,12 @@ app.controller("myCtrl", function ($scope, $http) {
             function () {
                 alert("未知错误");
             }
-            );
+        );
     }
 
     $scope.getRole();
 
+    //复选框状态改变
     $scope.changeAllFunc = function () {
         if ($scope.changeAll) {
             for (var i = 0; i < $scope.employeeArr.length; i++) {
@@ -60,6 +65,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //修改当前选定状态
     $scope.changeSelect = function () {
         $scope.changeAll = false;
 
@@ -68,6 +74,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //修改员工状态
     $scope.changeStatus = function () {
         var arr = [];
 
@@ -96,6 +103,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //删除员工
     $scope.deleteEmployee = function (id) {
         $http({
             url: "./index.php?c=Main&a=deleteEmployee",
@@ -123,6 +131,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //显示员工信息修改界面
     $scope.showChangeEmployeeIf = function (id) {
         $scope.changeEmployeeIf = !$scope.changeEmployeeIf;
 
@@ -148,6 +157,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //员工信息修改
     $scope.changeEmployeeName = function () {
         $http({
             url: "./index.php?c=Main&a=changeEmployeeName",
@@ -176,6 +186,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //修改员工密码
     $scope.changeEmployeePwd = function () {
         $http({
             url: "./index.php?c=Main&a=changeEmployeePwd",
@@ -204,6 +215,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //修改员工角色信息
     $scope.changeEmployeeRole = function () {
         $http({
             url: "./index.php?c=Main&a=changeEmployeeRole",
@@ -232,11 +244,13 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
-    $scope.showAddEmployeeIf = function() {
+    //显示添加员工界面
+    $scope.showAddEmployeeIf = function () {
         $scope.addEmployeeIf = !$scope.addEmployeeIf;
     }
 
-    $scope.addEmployee = function() {
+    //添加员工
+    $scope.addEmployee = function () {
         $http({
             url: "./index.php?c=Main&a=addEmployee",
             method: "post",
@@ -265,6 +279,6 @@ app.controller("myCtrl", function ($scope, $http) {
             function () {
                 alert("未知错误");
             }
-            );
+        );
     }
 });

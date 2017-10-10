@@ -1,4 +1,5 @@
 <?php
+    //登录模型类
     class LoginModel extends Model {
         private $_link;
 
@@ -7,6 +8,7 @@
             $this -> _link = Database::getInstance($this -> _config);
         }
 
+        //登录验证
         public function loginValidation($id, $pwd) {
             $query = "select * from employee where employee_id = '{$id}' and employee_pwd = md5('{$pwd}')";
 

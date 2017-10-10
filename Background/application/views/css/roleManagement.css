@@ -1,3 +1,6 @@
+/* -------------------------角色管理的层叠样式表---------------------------- */
+
+
 #content {
     width: 890px;
     height: 550px;
@@ -90,7 +93,7 @@
     padding: 30px;
 }
 
-#changeRolePowerIf > div {
+#changeRolePowerIf>div {
     margin-left: 15px;
 }
 

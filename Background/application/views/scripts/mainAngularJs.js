@@ -1,6 +1,8 @@
+//新建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http, $element) {
+    //获取用户信息
     $scope.getInfo = function () {
         $http({
             url: "./index.php?c=Main&a=getInfo",
@@ -13,13 +15,14 @@ app.controller("myCtrl", function ($scope, $http, $element) {
                 $scope.srcUrl = data[0].employee_img;
             },
             function (res) {
-                console.log("res");
+                alert("未知错误");
             }
         );
     }
 
     $scope.getInfo();
 
+    //获取菜单列表
     $scope.getMenu = function () {
         $http({
             url: "./index.php?c=Main&a=getMenu",
@@ -38,13 +41,14 @@ app.controller("myCtrl", function ($scope, $http, $element) {
                 $scope.iframeUrl = data[i].url;
             },
             function () {
-
+                alert("未知错误");
             }
         );
     }
 
     $scope.getMenu();
 
+    //退出登录
     $scope.exitLogin = function () {
         $http({
             url: "./index.php?c=Main&a=exitLogin",
@@ -61,10 +65,12 @@ app.controller("myCtrl", function ($scope, $http, $element) {
         );
     }
 
+    //父菜单点击隐藏子菜单
     $scope.fMenuClick = function (event) {
         $(event.target).next().toggle(200);
     }
 
+    //子菜单点击修改iframe地址
     $scope.sMenuClick = function (url) {
         $scope.iframeUrl = url;
     }

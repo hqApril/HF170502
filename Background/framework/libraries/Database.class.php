@@ -1,10 +1,12 @@
 <?php
+    //数据库类
     class Database {
         private static $_instance;
         private $_res;
         private $_link;
         private $_file;
 
+        //构造函数
         private function __construct($config) {
             @ $this -> _link = new mysqli($config['host'], $config['id'], $config['pwd'], $config['dbName']);
 
@@ -17,10 +19,12 @@
             }
         }
 
+        //防止克隆
         public function __clone() {
             trigger_error("Clone is not allowed!", E_USER_ERROR);
         }
 
+        //单例模式
         public static function getInstance($config) {
             if (!(self::$_instance instanceof self)) {
 			    self::$_instance = new self($config);
@@ -29,11 +33,12 @@
 		    return self::$_instance;
         }
 
+        //析构函数
         public function __destruct() {
             $this -> _link -> close();
-            //fclose($this -> _file);
         }
         
+        //query语句处理，记录
         public function dealQuery($query) {
             $this -> _res = $this -> _link -> query($query);
 
@@ -46,6 +51,7 @@
             fwrite($this -> _file, $str);
         }
 
+        //从数据库获取数据
         public function select($query) {
             $this -> dealQuery($query);
 
@@ -62,6 +68,7 @@
             return 'error';
         }
 
+        //修改数据库数据
         public function change($query) {
             $this -> dealQuery($query);
 

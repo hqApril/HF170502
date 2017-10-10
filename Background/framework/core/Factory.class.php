@@ -1,4 +1,5 @@
 <?php
+    //工厂类
     class Factory {
         private static $_instance;
 

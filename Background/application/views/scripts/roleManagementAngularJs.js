@@ -1,10 +1,13 @@
+//新建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http) {
+    //数据初始化
     $scope.addRoleIf = false;
     $scope.changeRoleIf = false;
     $scope.changeRolePowerIf = false;
 
+    //获取角色列表
     $scope.getRole = function () {
         $http({
             url: "./index.php?c=Main&a=getRole",
@@ -22,6 +25,7 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.getRole();
 
+    //获取权限列表
     $scope.getPower = function () {
         $http({
             url: "./index.php?c=Main&a=getPower",
@@ -29,7 +33,6 @@ app.controller("myCtrl", function ($scope, $http) {
         }).then(
             function (res) {
                 var data = res.data;
-
 
                 for (var i = 0; i < data.length; i++) {
                     data[i].got = false;
@@ -45,6 +48,7 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.getPower();
 
+    //添加角色
     $scope.addRole = function () {
         $http({
             url: "./index.php?c=Main&a=addRole",
@@ -73,6 +77,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //删除角色
     $scope.deleteRole = function (id) {
         $http({
             url: "./index.php?c=Main&a=deleteRole",
@@ -100,6 +105,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //显示修改角色页面
     $scope.showChangeRoleIf = function (id, name, describe) {
         $scope.changeRoleId = id;
         $scope.cName = name;
@@ -107,6 +113,7 @@ app.controller("myCtrl", function ($scope, $http) {
         $scope.changeRoleIf = !$scope.changeRoleIf;
     }
 
+    //修改角色信息
     $scope.changeRole = function () {
         $http({
             url: "./index.php?c=Main&a=changeRole",
@@ -136,6 +143,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //显示修改角色权限页面
     $scope.showChangeRolePowerIf = function (id) {
         $scope.changeRolePowerIf = !$scope.changeRolePowerIf;
         $scope.changeRolePowerId = id;
@@ -166,6 +174,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //修改角色权限
     $scope.changeRolePower = function () {
         var arr = [];
 
@@ -185,7 +194,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }).then(
             function (res) {
                 var data = res.data;
-                
+
                 if (data == 1) {
                     alert("修改成功");
 

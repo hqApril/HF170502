@@ -1,7 +1,7 @@
 <?php
 // 验证码插件
 
-class Captcha {
+    class Captcha {
         private $charset = 'abcdefghkmnprstuvwxyz23456789';     //验证码中出现的字符
         private $code;  //当前验证码
         private $codeLen;   //验证码长度

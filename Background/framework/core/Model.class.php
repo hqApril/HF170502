@@ -1,4 +1,5 @@
 <?php
+    //模型类
     abstract class Model {
         protected $_config;
 

@@ -1,12 +1,15 @@
+//新建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http) {
+    //数据初始化
     $scope.classifySelect = "0";
     $scope.statusSelect = "0";
     $scope.pageNow = 0;
     $scope.showDetail = false;
     $scope.changeDetail = false;
 
+    //获取商品数量
     $scope.getGoodNum = function () {
         $http({
             url: "./index.php?c=Main&a=getGoodNum",
@@ -36,6 +39,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //获取当前页商品信息
     $scope.showGood = function () {
         $http({
             url: "./index.php?c=Main&a=showGood",
@@ -51,8 +55,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.goodArr = data;
-
-                console.log($scope.goodArr);
             },
             function () {
                 alert("未知错误");
@@ -60,6 +62,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //当前类别发生改变时获取对应商品
     $scope.infoChange = function () {
         $scope.getGoodNum();
 
@@ -70,11 +73,13 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.infoChange();
 
+    //修改当前页码
     $scope.pageNowFunc = function (i) {
         $scope.pageNow = i;
         $scope.showGood();
     }
 
+    //修改商品状态
     $scope.changeGoodStatus = function (id) {
         $http({
             url: "./index.php?c=Main&a=changeGoodStatus",
@@ -94,6 +99,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //商品详情页面显示
     $scope.showGoodDetail = function (id) {
         $scope.showDetail = !$scope.showDetail;
         $scope.changeDetail = false;
@@ -103,6 +109,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //获取某一商品详情
     $scope.oneGoodDetail = function (id) {
         $http({
             url: "./index.php?c=Main&a=getOneGood",
@@ -132,6 +139,7 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //显示详情页面
     $scope.changeDetailIf = function (id) {
         $scope.changeDetail = !$scope.changeDetail;
         $scope.showDetail = false;
@@ -141,6 +149,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //修改商品信息
     $scope.changeDetailFunc = function () {
         $http({
             url: "./index.php?c=Main&a=changeDetail",

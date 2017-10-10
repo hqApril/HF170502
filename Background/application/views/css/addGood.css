@@ -1,3 +1,5 @@
+/* ---------------添加商品页面的层叠样式表------------------ */
+
 #body {
     position: ralative;
 }
@@ -42,9 +44,9 @@
 }
 
 #imgPreview {
-     display: block;
-     width: 300px;
-     position: absolute;
-     top:150px;
-     right:100px;
+    display: block;
+    width: 300px;
+    position: absolute;
+    top: 150px;
+    right: 100px;
 }

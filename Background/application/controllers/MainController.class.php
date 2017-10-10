@@ -1,13 +1,17 @@
 <?php
+
+    //主页面控制器类
     class MainController extends Controller {
         private $_model;
 
+        //构造函数
         public function __construct() {
             session_start();
             $_POST = json_decode(file_get_contents('php://input'),true);
             $this -> _model = new MainModel();
         }
 
+        //跳转到主页面，做验证
         public function toMainView() {
             if (isset($_SESSION['loginNow'])) {
                 include_once('./application/views/main.html');
@@ -16,6 +20,7 @@
             }
         }
 
+        //获取当前登录的用户的信息
         public function getInfo() {
             $id = $_SESSION['loginNow'];
 
@@ -24,12 +29,14 @@
             echo json_encode($res);
         }
 
+        //退出登录状态
         public function exitLogin() {
             unset($_SESSION['loginNow']);
 
             echo 1;
         }
 
+        //获取菜单信息
         public function getMenu() {
             $id = $_SESSION['loginNow'];
 
@@ -38,6 +45,7 @@
             echo json_encode($res);
         }
 
+        //主页面iframe条状相应的页面
         public function iframeHtml() {
             $u_name = $_GET['n'];
 
@@ -48,12 +56,14 @@
             }
         }
 
+        //获取角色列表
         public function getRole() {
             $res = $this -> _model -> getRole();
 
             echo json_encode($res);
         }
 
+        //添加新角色
         public function addRole() {
             $name = $_POST['name'];
             $describe = $_POST['describe'];
@@ -73,6 +83,7 @@
             }
         }
 
+        //删除角色
         public function deleteRole() {
             $id = $_POST['id'];
 
@@ -91,6 +102,7 @@
             }
         }
 
+        //修改角色相关信息
         public function changeRole() {
             $id = $_POST['id'];
             $name = $_POST['name'];
@@ -111,12 +123,14 @@
             }
         }
 
+        //获取权限列表
         public function getPower() {
             $res = $this -> _model -> getPower();
 
             echo json_encode($res);
         }
 
+        //获取当前角色的权限列表
         public function getRolePower() {
             $id = $_POST['id'];
 
@@ -125,6 +139,7 @@
             echo json_encode($res);
         }
 
+        //修改当前角色的权限
         public function changeRolePower() {
             $id = $_POST['id'];
             $arr = $_POST['arr'];
@@ -141,12 +156,14 @@
             echo 1;
         }
 
+        //获取员工列表
         public function getEmployee() {
             $res = $this -> _model -> getEmployee();
 
             echo json_encode($res);
         }
 
+        //修改员工使用和锁定状态
         public function changeStatus() {
             $arr = $_POST['arr'];
             $status = $_POST['status'];
@@ -158,6 +175,7 @@
             echo 1;
         }
 
+        //删除员工
         public function deleteEmployee() {
             $id = $_POST['id'];
 
@@ -170,6 +188,7 @@
             }
         }
 
+        //获取一个员工的信息
         public function getOneEmployee() {
             $id = $_POST['id'];
 
@@ -178,6 +197,7 @@
             echo json_encode($res);
         }
 
+        //修改员工名字
         public function changeEmployeeName() {
             $id = $_POST['id'];
             $name = $_POST['name'];
@@ -191,6 +211,7 @@
             }
         }
 
+        //修改员工密码
         public function changeEmployeePwd() {
             $id = $_POST['id'];
             $pwd = $_POST['pwd'];
@@ -204,6 +225,7 @@
             }
         }
 
+        //修改员工角色
         public function changeEmployeeRole() {
             $id = $_POST['id'];
             $roleId = $_POST['roleId'];
@@ -217,6 +239,7 @@
             }
         }
 
+        //添加员工
         public function addEmployee() {
             $id = $_POST['id'];
             $pwd = $_POST['pwd'];
@@ -238,6 +261,7 @@
             }
         }
 
+        //添加商品
         public function addGood() {
             $postType = $_POST['postType'];
             $goodName = $_POST['goodName'];
@@ -256,6 +280,7 @@
             echo json_encode($res);
         }
 
+        //添加商品对应的图片
         public function addImg() {
             $id = $_GET['id'];
             $file=$_FILES['images'];
@@ -267,6 +292,7 @@
             echo $res;
         }
 
+        //获取当前页的商品信息
         public function showGood() {
             $classifyId = $_POST['classifyId'];
             $goodStatus = $_POST['goodStatus'];
@@ -280,6 +306,7 @@
             echo json_encode($res);
         }
 
+        //获取某一类商品的数量
         public function getGoodNum() {
             $classifyId = $_POST['classifyId'];
             $goodStatus = $_POST['goodStatus'];
@@ -290,6 +317,7 @@
             echo $res;
         }
 
+        //获取某个商品的信息
         public function getOneGood() {
             $id = $_POST['id'];
 
@@ -298,6 +326,7 @@
             echo json_encode($res);
         }
 
+        //修改某个商品的上架/下架状态
         public function changeGoodStatus() {
             $id = $_POST['id'];
 
@@ -310,6 +339,7 @@
             }
         }
 
+        //修改商品详情
         public function changeDetail() {
             $id = $_POST['id'];
             $goodName = $_POST['goodName'];
@@ -324,12 +354,14 @@
             return $res;
         }
 
+        //获取已支付订单的数量
         public function getPayedNum() {
             $res = $this -> _model -> getTotalPayedOrder();
 
             echo count($res);
         }
 
+        //获取已支付订单的信息
         public function getPayedOrder() {
             $pageNow = $_POST['pageNow'];
             $start = $pageNow * 8;
@@ -339,6 +371,7 @@
             echo json_encode($res);
         }
 
+        //获取订单详情
         public function getOrderDetail() {
             $id = $_POST['id'];
 
@@ -347,6 +380,7 @@
             echo json_encode($res);
         }
 
+        //商品发货
         public function shipment() {
             $id = $_POST['id'];
 
@@ -355,12 +389,14 @@
             echo $res;
         }
 
+        //获取未支付订单的数量
         public function getUnpayedNum() {
             $res = $this -> _model -> getToalUnpayedNum();
 
             echo count($res);
         }
 
+        //获取未支付订单的信息
         public function getUnpayedOrder() {
             $pageNow = $_POST['pageNow'];
             $start = $pageNow * 8;
@@ -370,6 +406,7 @@
             echo json_encode($res);
         }
 
+        //获取当前页的用户的信息
         public function getUser() {
             $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
             $pageNow = $_POST['pageNow'];
@@ -381,6 +418,7 @@
             
         }
 
+        //修改用户的使用/锁定状态
         public function changeUserStatus() {
             $arr = $_POST['arr'];
 
@@ -393,6 +431,7 @@
             echo 1;
         }
 
+        //获取用户的数量
         public function getUserNum() {
             $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
 
@@ -401,12 +440,14 @@
             echo count($res);
         }
 
+        //获取用户的状态信息，作用户统计
         public function getUserStatistics() {
             $res = $this -> _model -> getUserStatistics();
 
             echo json_encode($res);
         }
 
+        //获取订单的状态信息，作营销统计
         public function getMarketingStatistics() {
             $res = $this -> _model -> getMarketingStatistics();
 

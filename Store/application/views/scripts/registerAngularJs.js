@@ -1,13 +1,11 @@
+//创建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function ($scope, $http) {
-
+    //初始化数据
     $scope.srcUrl = "./framework/libraries/Captcha.class.php";
 
-    $scope.flushCode = function () {
-        $scope.srcUrl = "./framework/libraries/Captcha.class.php?c=" + Math.random();
-    }
-
+    //用户注册
     $scope.register = function () {
         $http({
             method: "post",
@@ -35,10 +33,12 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
+    //跳转到登录页面
     $scope.toLogin = function () {
         window.location.href = "./index.php";
     }
 
+    //验证注册重名
     $scope.checkRegisterName = function () {
         $scope.checkName = 0;
 
@@ -75,6 +75,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //验证注册密码
     $scope.checkRegisterPwd = function() {
         $scope.checkPwd = 0;
 
@@ -92,6 +93,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //验证二次密码
     $scope.checkConfirmPwd = function() {
         $scope.checkConfirm = 0;
 
@@ -104,6 +106,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //验证邮箱
     $scope.checkMailBox = function() {
         $scope.checkMail = 0;
 
@@ -120,6 +123,7 @@ app.controller("myCtrl", function ($scope, $http) {
         }
     }
 
+    //跳转到商城
     $scope.toStore = function () {
         window.location.href = "./index.php?c=Main&a=toMainView";
     }

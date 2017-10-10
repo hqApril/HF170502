@@ -1,7 +1,9 @@
 <?php
+    //商品详情控制器类
     class goodDetailController extends Controller {
         private $_model;
 
+        //构造函数
         public function __construct() {
             session_start();
             $_POST = json_decode(file_get_contents('php://input'),true);
@@ -10,6 +12,7 @@
             $this -> _model = new GoodDetailModel();
         }
 
+        //转到商品详情页面
         public function toGoodDetailView() {
             $goodId = $_GET['g'];
 
@@ -18,6 +21,7 @@
             include_once('./application/views/goodDetail.html');
         }
 
+        //获取商品详情
         public function getGoodDetail() {
             $goodId = $_POST['goodId'];
 
@@ -26,6 +30,7 @@
             echo json_encode($res);
         }
 
+        //获取商品详情图片
         public function getDetailImg() {
             $goodId = $_POST['goodId'];
 
@@ -34,6 +39,7 @@
             echo json_encode($res);
         }
 
+        //获取已购买的记录
         public function getBuyedRecord() {
             $goodId = $_POST['goodId'];
 
@@ -42,6 +48,7 @@
             echo json_encode($res);
         }
 
+        //获取评论列表
         public function getComment() {
             $goodId = $_POST['goodId'];
 
@@ -50,6 +57,7 @@
             echo json_encode($res);
         }
 
+        //添加评论
         public function addComment() {
             $goodId = $_POST['goodId'];
             $content = $_POST['content'];

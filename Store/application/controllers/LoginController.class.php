@@ -1,7 +1,9 @@
 <?php
+    //登录控制器类
     class LoginController extends Controller {
         private $_model;
 
+        //构造函数
         public function __construct() {
             session_start();
             $_POST = json_decode(file_get_contents('php://input'),true);
@@ -10,6 +12,7 @@
             $this -> _model = new LoginModel();
         }
 
+        //跳转到登录页面
         public function toLoginView() {
             if (isset($_SESSION['userLogin'])) {
                 include_once('./application/views/main.html');
@@ -18,6 +21,7 @@
             }
         }
 
+        //用户登录
         public function login() {
             $userId = isset($_POST['userId']) ? $_POST['userId'] : '';
             $userPwd = isset($_POST['userPwd']) ? $_POST['userPwd'] : '';

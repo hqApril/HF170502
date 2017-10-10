@@ -1,12 +1,15 @@
 <?php
+    //商品详情模型
     class GoodDetailModel extends Model {
         private $_link;
 
+        //构造函数
         public function __construct() {
             parent::__construct();
             $this -> _link = Database::getInstance($this -> _config);
         }
 
+        //获取商品详情
         public function getGoodDetail($goodId) {
             $query = "select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '{$goodId}'";
 
@@ -15,6 +18,7 @@
             return $res;
         }
 
+        //获取详情图片
         public function getDetailImg($goodId) {
             $query = "select * from img where img_type = 'detail' and good_id = '{$goodId}'";
 
@@ -23,6 +27,7 @@
             return $res;
         }
 
+        //获取已购买记录
         public function getBuyedRecord($goodId) {
             $query = "select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '{$goodId}' and order_list.ol_status = 'payed'";
 
@@ -31,6 +36,7 @@
             return $res;
         }
 
+        //获取评论列表
         public function getComment($goodId) {
             $query = "select * from comment where good_id ='{$goodId}' order by create_time desc";
 
@@ -39,6 +45,7 @@
             return $res;
         }
 
+        //获取某个商品已购买的记录
         public function checkPayed($goodId, $userLogin) {
             $query = "select * from order_list where good_id = '{$goodId}' and user_id = '{$userLogin}' and ol_status = 'payed'";
 
@@ -47,6 +54,7 @@
             return $res;
         }
 
+        //检查是否已评论过
         public function checkComment($goodId, $userLogin) {
             $query = "select * from comment where good_id = '{$goodId}' and user_id = '{$userLogin}'";
 
@@ -55,6 +63,7 @@
             return $res;
         }
 
+        //添加评论
         public function addComment($goodId, $userLogin, $content) {
             $query = "insert into comment values (null, '{$userLogin}', '{$goodId}', now(), '{$content}')";
 

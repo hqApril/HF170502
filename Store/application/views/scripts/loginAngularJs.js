@@ -1,15 +1,18 @@
+//创建angularJs应用程序
 var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function($scope, $http) {
+    //初始化数据
     $scope.loginId = "hf170502";
     $scope.loginPwd = "12345678";
-
     $scope.srcUrl = "./framework/libraries/Captcha.class.php";
 
+    //验证码刷新
     $scope.flushCode = function() {
         $scope.srcUrl = "./framework/libraries/Captcha.class.php?c=" + Math.random();
     }
 
+    //用户登录
     $scope.login = function() {
         $http({
             method: "post",
@@ -43,10 +46,12 @@ app.controller("myCtrl", function($scope, $http) {
         );
     }
 
+    //跳转到注册页面
     $scope.toRegister = function () {
         window.location.href = "./index.php?c=Register&a=toRegisterView";
     }
 
+    //跳转到商城
     $scope.toStore = function () {
         window.location.href = "./index.php?c=Main&a=toMainView";
     }

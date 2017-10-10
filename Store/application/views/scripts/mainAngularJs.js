@@ -1,71 +1,180 @@
+//创建angularJs应用程序
 var app = angular.module("myApp", []);
 
-app.controller("myCtrl", function ($scope, $http, $element) {
-    $scope.getInfo = function () {
+app.controller("myCtrl", function ($scope, $http) {
+    //初始化数据
+    $scope.classifyNow = 0;
+    $scope.pageNow = 0;
+
+    //获取当前登录用户信息
+    $scope.getLoginNow = function () {
         $http({
-            url: "./index.php?c=Main&a=getInfo",
+            url: "./index.php?c=Main&a=getLoginNow",
             method: "get"
         }).then(
             function (res) {
                 var data = res.data;
-                $scope.userName = data[0].employee_name;
-                $scope.userRole = data[0].role_name;
-                $scope.srcUrl = data[0].employee_img;
+
+                $scope.loginNow = data;
             },
             function (res) {
-                console.log("res");
+                alert("未知错误");
             }
         );
     }
 
-    $scope.getInfo();
+    $scope.getLoginNow();
 
-    $scope.getMenu = function () {
+    //获取banner图片
+    $scope.getBannerImg = function () {
         $http({
-            url: "./index.php?c=Main&a=getMenu",
+            url: "./index.php?c=Main&a=getBannerImg",
             method: "get"
         }).then(
             function (res) {
                 var data = res.data;
-                $scope.menuArr = data;
+                $scope.sliderImgArr = [];
 
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].menu_fid != 0) {
-                        break;
-                    }
+                    $scope.sliderImgArr.push(data[i].banner_img_path);
                 }
 
-                $scope.iframeUrl = data[i].url;
+                var slider = new BannerSlider("#bannerSlider", "#previousPageBtn",
+                    "#nextPageBtn", "#sliderDot", 980, $scope.sliderImgArr);
+
+                slider.addDot(
+                    "sliderDotUnselected", "sliderDotSelected");
+
+                slider.autoSlider();
             },
             function () {
-
+                alert("未知错误");
             }
         );
     }
 
-    $scope.getMenu();
+    $scope.getBannerImg();
 
-    $scope.exitLogin = function () {
+    //获取分类信息
+    $scope.getClassify = function () {
         $http({
-            url: "./index.php?c=Main&a=exitLogin",
+            url: "./index.php?c=Main&a=getClaasify",
             method: "get"
         }).then(
             function (res) {
-                alert("成功退出");
+                var data = res.data;
 
-                window.location.href = "./index.php";
+                $scope.classifyArr = data;
             },
             function () {
-                alert("退出发生未知错误");
+                alert("未知错误");
             }
         );
     }
 
-    $scope.fMenuClick = function (event) {
-        $(event.target).next().toggle(200);
+    $scope.getClassify();
+
+    //修改当前分类
+    $scope.changeClassify = function (classify_id) {
+        $scope.classifyNow = classify_id;
+        $scope.pageNow = 0;
+
+        $scope.getGoodNum();
+
+        $scope.getGood();
     }
 
-    $scope.sMenuClick = function (url) {
-        $scope.iframeUrl = url;
+    //获取商品信息
+    $scope.getGood = function () {
+        $http({
+            url: "./index.php?c=Main&a=getGood",
+            method: "post",
+            data: {
+                classifyId: $scope.classifyNow,
+                pageNow: $scope.pageNow
+            }
+        }).then(function (res) {
+            var data = res.data;
+
+            $scope.goodArr = data;
+        }, function () {
+            alert("未知错误");
+        });
+    }
+
+    $scope.getGood();
+
+    //获取商品数量
+    $scope.getGoodNum = function () {
+        $http({
+            url: "./index.php?c=Main&a=getGoodNum",
+            method: "post",
+            data: {
+                classifyId: $scope.classifyNow
+            }
+        }).then(
+            function (res) {
+                var data = res.data;
+
+                var pageNum = Math.ceil(data / 4);
+
+                $scope.inputArr = [];
+
+                for (var i = 0; i < pageNum; i++) {
+                    $scope.inputArr.push(i);
+                }
+            },
+            function () {
+                alert("未知错误");
+            }
+        );
+    }
+
+    $scope.getGoodNum();
+
+    //修改当前页
+    $scope.changePageNow = function (pageNow) {
+        $scope.pageNow = pageNow;
+
+        $scope.getGood();
+    }
+
+    //获取荣誉墙信息
+    $scope.getHonor = function () {
+        $http({
+            url: "./index.php?c=Main&a=getHonor",
+            method: "get"
+        }).then(function (res) {
+            var data = res.data;
+
+            $scope.honorArr = data;
+
+            setTimeout(function () {
+                var $showHonors = $("#showHonors");
+
+                if ($showHonors.children().length > 11) {
+                    $showHonors.children().clone().appendTo($showHonors);
+                    var showHonorsTop = 0;
+                    var timer3 = setInterval(function () {
+                        showHonorsTop -= 1;
+                        if (parseInt($showHonors.css("top")) <= -
+                            parseInt($showHonors.css("height")) / 2) {
+                            showHonorsTop = 0;
+                        }
+
+                        $showHonors.css("top", showHonorsTop + "px");
+                    }, 15);
+                }
+            }, 100);
+        }, function () {
+            alert("未知错误");
+        });
+    }
+
+    $scope.getHonor();
+
+    //跳转到详情页面
+    $scope.toGoodDetail = function (good_id) {
+        window.location.href = "./index.php?c=goodDetail&a=toGoodDetailView&g=" + good_id;
     }
 });

@@ -18,7 +18,7 @@
     border-right: none;
 }
 
-#showGoodImg > img {
+#showGoodImg>img {
     display: block;
     width: inherit;
 }
@@ -229,7 +229,7 @@ tr:nth-child(4) {
     display: none;
 }
 
-#pageComment > textarea {
+#pageComment>textarea {
     width: 1040px;
     height: 150px;
     border: 1px solid #222222;
@@ -313,4 +313,3 @@ tr:nth-child(4) {
     font-size: 14px;
     color: rgb(115, 115, 115);
 }
-

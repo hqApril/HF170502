@@ -26,6 +26,8 @@ app.controller("myCtrl", function($scope, $http) {
             function(res) {
                 var data = res.data;
 
+                console.log(data)
+
                 if (data == 0) {
                     alert("验证码错误");
                 } else if (data == 1) {
@@ -33,6 +35,8 @@ app.controller("myCtrl", function($scope, $http) {
 
                     window.location.href = "index.php?c=main&a=toMainView";
                 } else if (data == 2) {
+                    alert("账号已锁定，无法登录");
+                } else if (data == 3) {
                     alert("账号或密码不对");
                 } else {
                     alert("未知错误");

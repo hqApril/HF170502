@@ -71,5 +71,23 @@
 
             return $res;
         }
+
+        //添加商品至购物车
+        public function addToSc($goodId, $userId) {
+            $query = "insert into shopping_car values (null, '{$userId}', '{$goodId}')";
+
+            $res = $this -> _link -> change($query);
+
+            return $res;
+        }
+
+        //添加商品至订单
+        public function addToOl($goodId, $userId) {
+            $query = "insert into order_list values (null, '{$userId}', '{$goodId}', now(), date_add(now(), interval 30 minute), 1, 1, 'nopay', 0)";
+
+            $res = $this -> _link -> change($query);
+
+            return $res;
+        }
     }
 ?>

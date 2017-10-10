@@ -79,5 +79,33 @@
                 echo 0;
             }
         }
+
+        //添加商品至购物车
+        public function addToSc() {
+            $goodId = $_POST['goodId'];
+            $userId = $_SESSION['userLogin'];
+
+            $res = $this -> _model -> addToSc($goodId, $userId);
+
+            if ($res) {
+                echo 1;
+            } else {
+                echo 2;
+            }
+        }
+
+        //添加商品至订单
+        public function addToOl() {
+            $goodId = $_POST['goodId'];
+            $userId = $_SESSION['userLogin'];
+
+            $res = $this -> _model -> addToOl($goodId, $userId);
+
+            if ($res) {
+                echo 1;
+            } else {
+                echo 2;
+            }
+        }
     }
 ?>

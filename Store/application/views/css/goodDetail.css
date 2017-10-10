@@ -32,14 +32,15 @@
     border-bottom: 1px solid #eeeeee;
 }
 
-#seckillBtn {
+#seckillBtn,
+#addToScBtn {
     width: 136px;
     height: 40px;
     border: 1px solid #f0cab6;
     background-color: #ffe4d0;
     border-radius: 3px;
     margin-top: 20px;
-    margin-left: 176px;
+    margin-left: 60px;
 }
 
 #showSellerInfo {

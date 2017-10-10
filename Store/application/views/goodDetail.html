@@ -15,8 +15,8 @@
         <ul id="navMenu">
             <li class="vertical-head"></li>
             <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="#">首页</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="#">个人中心</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">首页</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a></li>
             <li class="vertical-body"><a class="nvaAWithBg" href="javascript:sessionStorage.fromMyOrder = 'true';window.location.href = 'personalInfo.html';">我的订单</a></li>
             <li class="vertical-body"><img src="./application/views/images/limit_shopping.png"></li>
             <li class="vertical-body navTitle">限时抢购</li>
@@ -52,8 +52,8 @@
                     <td class="lightSize" ng-bind="goodDetail.good_limit"></td>
                 </tr>
             </table>
-
-            <input type="button" value="立即购买" id="seckillBtn">
+            <input type="button" value="加入购物车" id="addToScBtn" ng-click="addToSc()">
+            <input type="button" value="立即购买" id="seckillBtn" ng-click="addToOl()">
         </div>
         <div id="showSellerInfo">
             <p>小何电商总店</p>
@@ -267,8 +267,6 @@
                         function (res) {
                             var data = res.data;
 
-                            console.log(data)
-                            
                             if (data == 0) {
                                 alert("需要购买（付款后）该商品才可评论");
                             } else if (data == 1) {
@@ -286,6 +284,61 @@
                             alert("未知错误");
                         }
                     )
+                }
+            }
+
+            $scope.addToSc = function () {
+                if ($scope.loginNow == "") {
+                    alert("登录后才可购买商品");
+                } else {
+                    $http({
+                        url: "./index.php?c=GoodDetail&a=addToSc",
+                        method: "post",
+                        data: {
+                            goodId: $scope.goodId
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+
+                            if (data == 1) {
+                                alert("添加成功");
+                            } else {
+                                alert("添加失败");
+                            }
+                        },
+                        function () {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.addToOl = function () {
+                if ($scope.loginNow == "") {
+                    alert("登录后才可购买商品");
+                } else {
+                    $http({
+                        url: "./index.php?c=GoodDetail&a=addToOl",
+                        method: "post",
+                        data: {
+                            goodId: $scope.goodId
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+                            console.log(data)
+
+                            if (data == 1) {
+                                alert("添加成功");
+                            } else {
+                                alert("添加失败");
+                            }
+                        },
+                        function () {
+                            alert("未知错误");
+                        }
+                    );
                 }
             }
         });

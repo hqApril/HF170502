@@ -551,7 +551,7 @@ create table if not exists user
 insert into user
 values
 ('hf170501', '25d55ad283aa400af464c76d713c07ad', '小赵', '20170808120000', '13711111111', 'for01@126.com', 0, '使用'),
-('hf170502', '25d55ad283aa400af464c76d713c07ad', '小钱', '20170808120000', '13722222222', 'for02@126.com', 0, '使用'),
+('hf170502', '25d55ad283aa400af464c76d713c07ad', '小钱', '20170808120000', '13722222222', 'for02@126.com', 10000, '使用'),
 ('hf170503', '25d55ad283aa400af464c76d713c07ad', '小孙', '20170808120000', '13733333333', 'for03@126.com', 0, '使用'),
 ('hf170504', '25d55ad283aa400af464c76d713c07ad', '小李', '20170909120000', '13744444444', 'for04@126.com', 0, '使用'),
 ('hf170505', '25d55ad283aa400af464c76d713c07ad', '小周', '20170909120000', '13755555555', 'for05@126.com', 0, '使用'),
@@ -603,3 +603,54 @@ create table if not exists comment
 insert into comment
 values
 (null, 'hf170501', 1, '2017-10-9 10:10:10', 'testing');
+
+#创建购物车表
+create table if not exists shopping_car
+(
+    sc_id int not null primary key auto_increment,
+    user_id varchar(10) not null,
+    good_id int unsigned not null
+);
+
+#创建地址表
+create table if not exists address
+(
+    address_id int unsigned not null auto_increment primary key,
+    user_id varchar(10) not null,
+    addr varchar(50) not null,
+    is_default boolean not null
+);
+
+#地址表插入数据
+insert into address
+values
+(null, 'hf170501', '福州市台江区工业路71号庭芳苑9号楼17号店面', true),
+(null, 'hf170501', '福建省 福州市 闽清县区/县 桔林乡镇/街道 邮政局对面', false),
+(null, 'hf170501', '闽清县梅城镇西大路33号', false),
+(null, 'hf170502', '福州市连江县潘渡乡潘渡村安置房26号店面', true),
+(null, 'hf170502', '潭城镇新世纪学校斜对面', false),
+(null, 'hf170502', '湖畔路15号鑫高新苑6', false),
+(null, 'hf170503', '西洪路西郊坑里60号', true),
+(null, 'hf170503', '福新东路茶会小区晋安汽配城公交车站后', false),
+(null, 'hf170503', '西环北路58号天赐良园小区圆通速递', false),
+(null, 'hf170504', '丹凤花园3区31座', true),
+(null, 'hf170504', '金山碧水三期夏沁苑3号楼12店圆通速递', false),
+(null, 'hf170504', '仓山万达写字楼C区斜对面锦绣闽江小区10', false),
+(null, 'hf170505', '建星路56号君竹明居1号楼4号店', true),
+(null, 'hf170505', '万宝东路汉阳房地产往南100米沙厂厂房	', false),
+(null, 'hf170505', '花园街小区门口5-9店（县医院旧前门对面）', false),
+(null, 'hf170506', '青口镇村里村村里新村2巷3号', true),
+(null, 'hf170506', '凤山镇东外路16号东方星城D区6楼09号', false),
+(null, 'hf170506', '橘园洲工业区仓山园30号一层店面', false),
+(null, 'hf170507', '工业路宁化街道275号', true),
+(null, 'hf170507', '新店镇东浦路100号怡馨苑4栋04-05店面', false),
+(null, 'hf170507', '福州市鼓楼区工业路523号福大怡园西路东边2号店', false),
+(null, 'hf170508', '三八路16号(汉唐脑力联盟内)', true),
+(null, 'hf170508', '潭城镇龙里路湧鑫城2号楼4号', false),
+(null, 'hf170508', '华林路福寿巷19号福圆花园e座一楼15号店面', false),
+(null, 'hf170509', '桔园洲工业区仓山工业园30号一层店面', true),
+(null, 'hf170509', '五一南路139号（电业局）新港道42号仓库内', false),
+(null, 'hf170509', '航城镇上湖城南新村a4栋1楼', false),
+(null, 'hf170510', '广达路恒升大厦停车场', true),
+(null, 'hf170510', '工业路422号中利佳园3号店', false),
+(null, 'hf170510', '鼓楼区道山西路小柳社区海锦公寓10号店', false);

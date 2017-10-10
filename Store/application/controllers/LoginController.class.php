@@ -34,11 +34,15 @@
                 $res = $this -> _model -> loginValidation($userId, $userPwd);
 
                 if (count($res)) {
-                    $_SESSION['userLogin'] = $userId;
-
-                    echo 1;
+                    if ($res[0]['user_status'] == '使用') {
+                        $_SESSION['userLogin'] = $userId;
+                         
+                        echo 1;
+                    } else {
+                        echo 2;
+                    }
                 } else {
-                    echo 2;
+                    echo 3;
                 }
             }
         }

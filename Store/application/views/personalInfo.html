@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>personalInfo</title>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/personalInfo.css" type="text/css">
+    <script type="text/javascript" src="./application/views/scripts/jquery.js"></script>
+    <script type="text/javascript" src="./application/views/scripts/angular.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <nav>
+        <ul id="navMenu">
+            <li class="vertical-head"></li>
+            <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">首页</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="javascript:sessionStorage.fromMyOrder = 'true';window.location.href = 'personalInfo.html';">我的订单</a></li>
+            <li class="vertical-body"><img src="./application/views/images/limit_shopping.png"></li>
+            <li class="vertical-body navAd">限时抢购</li>
+            <li class="vertical-body"><img src="./application/views/images/lowest_price.png"></li>
+            <li class="vertical-body navAd">最低价格</li>
+            <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
+            <li class="vertical-body navAd">全场包邮</li>
+            <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
+            <li class="vertical-body"><span>/</span></li>
+            <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
+            <li id="showName" ng-show="loginNow != ''">当前登录：{{loginNow}}</li>
+        </ul>
+    </nav>
+    <div id="content">
+        <ul id="menu">
+            <li class="menuSelected">个人信息</li>
+            <li class="menuUnselected">我的消息</li>
+            <li class="menuUnselected">我的购物车</li>
+            <li class="menuUnselected">我的订单</li>
+            <li class="menuUnselected">我的钱包</li>
+        </ul>
+        <div id="menuDetails">
+            <div id="myInfo">
+                <table id="myInfoTab">
+                    <tr>
+                        <td>账号：</td>
+                        <td ng-bind="userId"></td>
+                    </tr>
+                    <tr>
+                        <td>昵称：</td>
+                        <td><input type="text" placeholder="请输入昵称" ng-model="nickname"></td>
+                        <td><input type="button" value="*修改" ng-click="changeNickname()"></td>
+                    </tr>
+                    <tr>
+                        <td>电话号码：</td>
+                        <td><input type="text" placeholder="请输入电话号码" ng-model="phoneNum"></td>
+                        <td><input type="button" value="*修改" ng-click="changePhoneNum()"></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱：</td>
+                        <td><input type="text" placeholder="请输入邮箱地址" ng-model="mailbox"></td>
+                        <td><input type="button" value="*修改" ng-click="changeMailbox()"></td>
+                    </tr>
+                </table>
+                <table id="myInfoTab1">
+                    <tr>
+                        <td>默认地址：</td>
+                        <td ng-bind="defaultAdd"></td>
+                    </tr>
+                    <tr>
+                        <td>其它地址：</td>
+                        <td>
+                            <select id="restAddress" ng-model="addSelect">
+                                <option ng-repeat="(y, x) in addArr" ng-value="x.address_id" ng-bind="x.addr"></option>
+                            </select>
+                            <input type="button" value="*设置为默认地址" ng-click="changeDefaultAdd()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" placeholder="请输入地址" id="addNewAdd" ng-model="newAdd"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" value="新增地址" ng-click="addAdd()"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="myChatRecord">
+                <p>收到的客服消息</p>
+                <div></div>
+                <div id="showMyChatRecord">
+                    <P>暂时还没有收到客服的消息</P>
+                </div>
+                <div id="chatRecordBtn"></div>
+            </div>
+            <div id="mySc">
+                <input type="button" value="购物车">
+                <div></div>
+                <div id="showSc">
+                    <div class="olObj" ng-repeat="(y, x) in scArr">
+                        <img ng-src="{{x.img_path}}">
+                        <div>
+                            <div ng-bind="x.good_name"></div>
+                            <div>
+                                <div>价格： ￥{{x.original_price}}</div>
+                                <div>需支付： ￥{{x.original_price}}</div>
+                                <div>数量： 1</div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="button" value="生成订单" ng-click="addToOl(x.sc_id, x.good_id)">
+                            <input type="button" value="从购物车删除" ng-click="deleteFromSc(x.sc_id)">
+                        </div>
+                    </div>
+                </div>
+                <div id="showScB">
+                    <input type="button" ng-repeat="(y, x) in scBtnArr" ng-value="x + 1" ng-click="changeScPageNow(x)">
+                </div>
+            </div>
+            <div id="myOl">
+                <input type="button" value="未支付">
+                <input type="button" value="已支付"><br/>
+                <div></div>
+                <div id="showOlF">
+                    <div id="noPayOl">
+                        <p ng-show="noPayArr.length == 0">您还没有未支付的订单</p>
+                        <div class="olObj" ng-repeat="(y, x) in noPayArr">
+                            <img ng-src="{{x.img_path}}">
+                            <div>
+                                <div ng-bind="x.good_name"></div>
+                                <div>
+                                    <div ng-show="x.post_type == '普通'">价格： ￥{{x.original_price}}</div>
+                                    <div ng-show="x.post_type == '秒杀'">秒杀价： ￥{{x.discount_price}}</div>
+                                    <div>订单类型: {{x.post_type}}</div>
+                                    <div>数量： 1</div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="button" value="订单支付" ng-click="payOl(x.order_list_id, x.post_type)">
+                                <input type="button" value="取消订单" ng-click="deleteOl(x.order_list_id)">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="payedOl">
+                        <p ng-show="payedArr.length == 0">您还没有已支付的订单</p>
+                        <div class="olObj" ng-repeat="(y, x) in payedArr">
+                            <img ng-src="{{x.img_path}}">
+                            <div>
+                                <div ng-bind="x.good_name"></div>
+                                <div>
+                                    <div ng-show="x.post_type == '普通'">价格： ￥{{x.original_price}}</div>
+                                    <div ng-show="x.post_type == '秒杀'">秒杀价： ￥{{x.discount_price}}</div>
+                                    <div>订单类型: {{x.post_type}}</div>
+                                    <div>数量： 1</div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="button" value="继续购物" ng-click="toMainView()">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="showOlB">
+                    <div id="olNoPayPageBtn">
+                        <input type="button" ng-repeat="(y, x) in npBtnArr" ng-value="x + 1" ng-click="changeNpPageNow(x)">
+                    </div>
+                    <div id="olPayedPageBtn">
+                        <input type="button" ng-repeat="(y, x) in pdBtnArr" ng-value="x + 1" ng-click="changePdPageNow(x)">
+                    </div>
+                </div>
+            </div>
+            <div id="myPurse">
+                <p>当前钱包余额： ￥{{balance}}</p>
+                <input type="button" value="账户充值">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>小何秒杀网</p>
+        <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
+        <p>小何公司 版权所有 小何电商文化经营许可证</p>
+    </footer>
+    <div id="transMask"></div>
+    <div id="recharge">
+        <input type="button" value="X">
+        <input type="number" placeholder="请输入充值金额" id="rechargeAmount" ng-model="recharge">
+        <div></div>
+        <input type="button" value="充值" id="rechargeBtn" ng-click="addRecharge()">
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $scope.newAdd = '';
+            $scope.scPageNow = 0;
+            $scope.npPageNow = 0;
+            $scope.pdPageNow = 0;
+            $scope.recharge = 0;
+
+            $scope.getLoginNow = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getLoginNow",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.loginNow = data;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getLoginNow();
+
+            $scope.getloginNowInfo = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getLoginNowInfo",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data[0];
+
+                        $scope.userId = data.user_id;
+                        $scope.nickname = data.nick_name;
+                        $scope.phoneNum = data.phone_num;
+                        $scope.mailbox = data.mailbox;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getloginNowInfo();
+
+            $scope.getAddress = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getAddress",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+                        var arr = [];
+
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].is_default == 1) {
+                                $scope.defaultAdd = data[i].addr;
+                            } else {
+                                arr.push(data[i]);
+                            }
+                        }
+
+                        $scope.addArr = arr;
+
+                        if (arr.length != 0) {
+                            $scope.addSelect = arr[0].address_id;
+                        }
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getAddress();
+
+            $scope.getSc = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getSc",
+                    method: "post",
+                    data: {
+                        scPageNow: $scope.scPageNow
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.scArr = data;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getSc();
+
+            $scope.getScNum = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getScNum",
+                    method: "get"
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        var pageNum = Math.ceil(data / 3);
+
+                        var arr = [];
+
+                        for (var i = 0; i < pageNum; i++) {
+                            arr.push(i);
+                        }
+
+                        $scope.scBtnArr = arr;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getScNum();
+
+            $scope.changeScPageNow = function (x) {
+                $scope.scPageNow = x;
+
+                $scope.getSc();
+            }
+
+            $scope.changeDefaultAdd = function () {
+                if ($scope.addArr.length == 0) {
+                    alert("请先添加地址");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=changeDefaultAdd",
+                        method: "post",
+                        data: {
+                            addressId: $scope.addSelect
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+
+                            if (data) {
+                                alert("修改成功");
+
+                                $scope.getAddress();
+                            } else {
+                                alert("修改失败");
+                            }
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.addAdd = function () {
+                if ($scope.newAdd.length == 0) {
+                    alert("请输入地址");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=addAdd",
+                        method: "post",
+                        data: {
+                            addr: $scope.newAdd
+                        }
+                    }).then(
+                        function (res) {
+                            var data = res.data;
+
+                            if (data) {
+                                alert("添加成功");
+
+                                $scope.newAdd = "";
+
+                                $scope.getAddress();
+                            } else {
+                                alert("添加失败");
+                            }
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.changeNickname = function () {
+                if ($scope.nickname.length == 0 || $scope.nickname.length > 5) {
+                    alert("昵称需在1-5个字之间");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=changeNickname",
+                        method: "post",
+                        data: {
+                            nickname: $scope.nickname
+                        }
+                    }).then(
+                        function (res) {
+                            alert("修改成功");
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.changePhoneNum = function () {
+                var pattern = /^[0-9]*$/;
+
+                if ($scope.phoneNum.length != 11 || !pattern.test($scope.phoneNum)) {
+                    alert("电话号码格式不对");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=changePhoneNum",
+                        method: "post",
+                        data: {
+                            phoneNum: $scope.phoneNum
+                        }
+                    }).then(
+                        function (res) {
+                            alert("修改成功");
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.changeMailbox = function () {
+                var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+
+                if (!pattern.test($scope.mailbox)) {
+                    alert("邮箱格式不对");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=changeMailbox",
+                        method: "post",
+                        data: {
+                            mailbox: $scope.mailbox
+                        }
+                    }).then(
+                        function (res) {
+                            alert("修改成功");
+                        },
+                        function (res) {
+                            alert("未知错误");
+                        }
+                    );
+                }
+            }
+
+            $scope.addToOl = function (scId, goodId) {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=addToOl",
+                    method: "post",
+                    data: {
+                        scId: scId,
+                        goodId: goodId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data == 1) {
+                            alert("请先去添加地址，才可建立订单");
+                        } else if (data == 2) {
+                            alert("订单生成成功");
+
+                            $scope.scPageNow = 0;
+
+                            $scope.getSc();
+                        } else if (data == 3) {
+                            alert("订单生成失败");
+                        }
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.deleteFromSc = function (scId) {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=deleteFromSc",
+                    method: "post",
+                    data: {
+                        scId: scId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data == 1) {
+                            alert("删除成功");
+
+                            $scope.scPageNow = 0;
+
+                            $scope.getSc();
+                        } else if (data == 2) {
+                            alert("删除失败");
+                        } else {
+                            alert("未知错误");
+                        }
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getNoPayOl = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getNoPayOl",
+                    method: "post",
+                    data: {
+                        npPageNow: $scope.npPageNow
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        $scope.noPayArr = data;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getNoPayOl();
+
+            $scope.getNoPayOlNum = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getNoPayOlNum",
+                    method: "get"
+                }).then(function (res) {
+                    var data = res.data;
+                    var pageNum = Math.ceil(data / 3);
+                    var arr = [];
+
+                    for (var i = 0; i < pageNum; i++) {
+                        arr.push(i);
+                    }
+
+                    $scope.npBtnArr = arr;
+                }, function (res) {
+                    alert("未知错误");
+                });
+            }
+
+            $scope.getNoPayOlNum();
+
+            $scope.changeNpPageNow = function (x) {
+                $scope.npPageNow = x;
+
+                $scope.getNoPayOl();
+            }
+
+            $scope.payOl = function (orderListId, postType) {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=payOl",
+                    method: "post",
+                    data: {
+                        orderListId: orderListId,
+                        postType: postType
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data == 1) {
+                            alert("余额不足 请充值");
+                        } else if (data == 2) {
+                            alert("支付成功");
+
+                            $scope.npPageNow = 0;
+
+                            $scope.getNoPayOl();
+                        }
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.deleteOl = function (orderListId) {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=deleteOl",
+                    method: "post",
+                    data: {
+                        orderListId: orderListId
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+
+                        if (data) {
+                            alert("订单取消成功");
+
+                            $scope.npPageNow = 0;
+
+                            $scope.getNoPayOl();
+                        } else {
+                            alert("订单取消失败");
+                        }
+                    },
+                    function () {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getPayedOl = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getPayedOl",
+                    method: "post",
+                    data: {
+                        pdPageNow: $scope.pdPageNow
+                    }
+                }).then(
+                    function (res) {
+                        var data = res.data;
+                        console.log(data)
+
+                        $scope.payedArr = data;
+                    },
+                    function (res) {
+                        alert("未知错误");
+                    }
+                );
+            }
+
+            $scope.getPayedOl();
+
+            $scope.getPayedOlNum = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getPayedOlNum",
+                    method: "get"
+                }).then(function (res) {
+                    var data = res.data;
+                    var pageNum = Math.ceil(data / 3);
+                    var arr = [];
+
+                    for (var i = 0; i < pageNum; i++) {
+                        arr.push(i);
+                    }
+
+                    $scope.pdBtnArr = arr;
+                }, function (res) {
+                    alert("未知错误");
+                });
+            }
+
+            $scope.getPayedOlNum();
+
+            $scope.changePdPageNow = function (x) {
+                $scope.pdPageNow = x;
+
+                $scope.getPayedOl();
+            }
+
+            $scope.toMainView = function () {
+                window.location.href = "./index.php?c=Main&a=toMainView";
+            }
+
+            $scope.getBalance = function () {
+                $http({
+                    url: "./index.php?c=PersonalInfo&a=getBalance",
+                    method: "get"
+                }).then(function (res) {
+                    var data = res.data;
+
+                    $scope.balance = data;
+                }, function (res) {
+                    alert("未知错误");
+                });
+            }
+
+            $scope.getBalance();
+
+            $scope.addRecharge = function () {
+                if ($scope.recharge < 0) {
+                    alert("需要输入大于0的数");
+                } else {
+                    $http({
+                        url: "./index.php?c=PersonalInfo&a=addRecharge",
+                        method: "post",
+                        data: {
+                            recharge: $scope.recharge
+                        }
+                    }).then(function (res) {
+                        var data = res.data;
+
+                        if (data == 1) {
+                            alert("充值成功");
+
+                            $scope.getBalance();
+                        } else {
+                            alert("充值失败");
+                        }
+                    }, function (res) {
+                        alert("未知错误");
+                    });
+                }
+            }
+        });
+    </script>
+    <script src="./application/views/scripts/personalInfo.js" type="text/javascript"></script>
+</body>
+
+</html>

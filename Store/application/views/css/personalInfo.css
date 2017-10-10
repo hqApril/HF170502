@@ -1,0 +1,503 @@
+/*---------------------------content样式---------------------------------*/
+
+#content {
+    width: 980px;
+    height: 600px;
+    margin: 30px auto;
+    border: 1px solid #eeeeee;
+}
+
+#menu {
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(107, 157, 205);
+}
+
+.menuUnselected {
+    height: 70px;
+    line-height: 70px;
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(185, 0, 0);
+    color: white;
+    margin: 4px 0;
+    cursor: pointer;
+}
+
+.menuSelected {
+    height: 70px;
+    line-height: 70px;
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(137, 147, 146);
+    color: black;
+    margin: 4px 0;
+    cursor: pointer;
+}
+
+#menuDetails {
+    float: left;
+    height: 100%;
+    width: 780px;
+    position: relative;
+}
+
+#myInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 580px;
+    height: 760px;
+    padding-left: 100px;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+#myInfoTab tr {
+    height: 45px;
+}
+
+#myInfoTab input[type="text"] {
+    height: 25px;
+    width: 180px;
+}
+
+#myInfoTab input[type="button"] {
+    border: none;
+    background: none;
+    color: rgb(0, 114, 207);
+    margin-left: 30px;
+}
+
+#myInfoTab1 {
+    margin-top: 50px;
+}
+
+#myInfoTab1 tr:not(:first-child) {
+    height: 45px;
+}
+
+#myInfoTab1 tr:first-child>td:first-child {
+    width: 90px;
+    vertical-align: top;
+}
+
+#myInfoTab1 select {
+    width: 310px;
+    height: 30px;
+}
+
+#myInfoTab1 input[type="button"][value="*设置为默认地址"] {
+    border: none;
+    background: none;
+    color: rgb(0, 114, 207);
+    margin-left: 30px;
+}
+
+#myInfoTab1 input[type="text"] {
+    height: 25px;
+    width: 400px;
+}
+
+#myInfoTab1 input[type="button"][value="新增地址"],
+input[type="button"][value="账户充值"] {
+    border: none;
+    background-color: rgb(185, 0, 0);
+    width: 80px;
+    height: 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+#myInfoTab1 tr>td:nth-child(2) {
+    width: 450px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#menuDetails>div:not(:first-child) {
+    display: none;
+}
+
+#myChatRecord {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 740px;
+    height: 559px;
+    padding: 20px;
+    font-size: 18px;
+    background-color: white;
+}
+
+#myChatRecord>div:nth-child(2) {
+    width: 740px;
+    height: 2px;
+    background-color: rgb(185, 0, 0);
+}
+
+#myChatRecord>p {
+    line-height: 35px;
+}
+
+#showMyChatRecord {
+    width: 740px;
+    height: 420px;
+    margin-top: 20px;
+}
+
+#showMyChatRecord>div:first-child,
+#showMyChatRecord>div:nth-child(2) {
+    margin-bottom: 15px;
+}
+
+.chatRecordObj {
+    width: 738px;
+    height: 128px;
+    border: 1px solid #222222;
+    position: relative;
+}
+
+.chatRecordObj>div:first-child {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 16px;
+}
+
+.chatRecordObj>div:nth-child(2) {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    word-break: break-all;
+    width: 708px;
+    font-size: 14px;
+    font-family: "宋体";
+}
+
+.chatRecordObj>div:nth-child(3) {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    font-size: 16px;
+    font-family: "宋体";
+}
+
+#chatRecordBtn {
+    width: 740px;
+    height: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#chatRecordBtn>input {
+    font-size: 16px;
+    padding: 3px 6px;
+    border: none;
+    background: none;
+    margin: 0 5px;
+}
+
+#myPurse {
+    width: 550px;
+    height: 460px;
+    padding-left: 230px;
+    padding-top: 140px;
+}
+
+#myPurse>p {
+    line-height: 150px;
+    font-size: 25px;
+}
+
+#myPurse>input {
+    margin-left: 80px;
+}
+
+#mySc {
+    width: 740px;
+    height: 560px;
+    padding: 20px;
+}
+
+#mySc>input {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px 20px;
+    cursor: pointer;
+}
+
+#mySc>div:nth-child(2) {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(185, 0, 0);
+}
+
+#myOl {
+    width: 740px;
+    height: 560px;
+    padding: 20px;
+}
+
+#myOl>input {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px 20px;
+    cursor: pointer;
+}
+
+#myOl>div:nth-child(4) {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(185, 0, 0);
+}
+
+#showOlF,
+#showSc {
+    width: 740px;
+    height: 420px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#noPayOl,
+#payedOl {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+#noPayOl>div:nth-child(2),
+#noPayOl>div:nth-child(3) {
+    margin-bottom: 15px;
+}
+
+#payedOl>div:nth-child(2),
+#noPayOl>div:nth-child(3) {
+    margin-bottom: 15px;
+}
+
+#payedOl {
+    display: none;
+}
+
+.olObj {
+    width: 722px;
+    height: 112px;
+    border: 1px solid #222222;
+    padding: 8px;
+}
+
+.olObj>img {
+    display: block;
+    width: 110px;
+    height: 110px;
+    float: left;
+    border: 1px solid #222222;
+    margin-right: 20px;
+}
+
+.olObj>div:nth-child(2) {
+    width: 480px;
+    height: 112px;
+    float: left;
+    margin-right: 15px;
+}
+
+.olObj>div:nth-child(2)>div:first-child {
+    word-break: break-all;
+    height: 56px;
+    line-height: 28px;
+    font-family: "宋体";
+    font-size: 16px;
+}
+
+.olObj>div:nth-child(2)>div:nth-child(2) {
+    height: 36px;
+    padding-top: 20px;
+}
+
+.olObj>div:nth-child(2)>div:nth-child(2)>div {
+    float: left;
+    font-family: "宋体";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 140px;
+}
+
+.olObj>div:nth-child(3) {
+    width: 86px;
+    height: 112px;
+    float: left;
+    border-left: 1px solid #222222;
+    padding-left: 8px;
+}
+
+.olObj input {
+    border: none;
+    background: none;
+    color: rgb(74, 91, 256);
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.olObj1 {
+    width: 722px;
+    height: 112px;
+    border: 1px solid #222222;
+    padding: 8px;
+}
+
+.olObj1>img {
+    display: block;
+    width: 110px;
+    height: 110px;
+    float: left;
+    border: 1px solid #222222;
+    margin-right: 20px;
+}
+
+.olObj1>div:nth-child(2) {
+    width: 480px;
+    height: 112px;
+    float: left;
+    margin-right: 15px;
+}
+
+.olObj1>div:nth-child(2)>div:first-child {
+    word-break: break-all;
+    height: 56px;
+    line-height: 28px;
+    font-family: "宋体";
+    font-size: 16px;
+}
+
+.olObj1>div:nth-child(2)>div:nth-child(2) {
+    height: 36px;
+    padding-top: 20px;
+}
+
+.olObj1>div:nth-child(2)>div:nth-child(2)>div {
+    float: left;
+    font-family: "宋体";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 140px;
+}
+
+.olObj1>div:nth-child(3) {
+    width: 86px;
+    height: 112px;
+    float: left;
+    border-left: 1px solid #222222;
+    padding-left: 8px;
+}
+
+.olObj1 input {
+    border: none;
+    background: none;
+    color: rgb(74, 91, 256);
+    font-size: 15px;
+    margin-top: 45px;
+}
+
+#showOlB,
+#showScB {
+    width: 740px;
+    text-align: center;
+    margin-top: 40px;
+    height: 50px;
+    position: relative;
+}
+
+#olNoPayPageBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 740px;
+}
+
+#olPayedPageBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 740px;
+    display: none;
+}
+
+#olNoPayPageBtn>input,
+#olPayedPageBtn>input,
+#showScB>input {
+    font-size: 16px;
+    padding: 3px 6px;
+    border: none;
+    background: none;
+    margin: 0 5px;
+}
+
+#recharge {
+    width: 216px;
+    height: 110px;
+    border: 2px solid #222222;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -128px;
+    padding: 40px;
+    text-align: center;
+    display: none;
+    z-index: 10;
+}
+
+#recharge>input:not([type="button"]) {
+    width: 204px;
+    height: 38px;
+    border: 1px solid #e2e2e2;
+    padding-left: 10px;
+}
+
+#recharge>div {
+    width: 216px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+    color: red;
+}
+
+#recharge>input[value="充值"] {
+    border: none;
+    background-color: rgb(185, 0, 0);
+    width: 80px;
+    height: 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+#recharge>input[value="X"] {
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    background: none;
+    float: right;
+    margin-top: -40px;
+    margin-right: -35px;
+}
+
+
+/**/

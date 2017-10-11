@@ -14,7 +14,15 @@
 
         //跳转到个人中心页面
         public function toPersonalInfoView() {
+            
+
             if (isset($_SESSION['userLogin'])) {
+                $f = isset($_GET['f']) ? $_GET['f'] : '';
+
+                    if ($f == 'myOrder') {
+                        echo '<script>window.onload = function(){$("#menu").children().eq(3).click();}</script>';
+                    }
+
                 include_once('./application/views/personalInfo.html');
             } else {
                 echo '<script>alert("未登录无法进入个人中心");window.location.href="./index.php"</script>';

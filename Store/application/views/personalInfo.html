@@ -17,13 +17,12 @@
             <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
             <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">首页</a></li>
             <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="javascript:sessionStorage.fromMyOrder = 'true';window.location.href = 'personalInfo.html';">我的订单</a></li>
-            <li class="vertical-body"><img src="./application/views/images/limit_shopping.png"></li>
-            <li class="vertical-body navAd">限时抢购</li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">我的订单</a></li>
+            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">秒杀商城</a></li>
             <li class="vertical-body"><img src="./application/views/images/lowest_price.png"></li>
-            <li class="vertical-body navAd">最低价格</li>
+            <li class="vertical-body navTitle">最低价格</li>
             <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
-            <li class="vertical-body navAd">全场包邮</li>
+            <li class="vertical-body navTitle">全场包邮</li>
             <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
             <li class="vertical-body"><span>/</span></li>
             <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
@@ -89,7 +88,7 @@
                 <p>收到的客服消息</p>
                 <div></div>
                 <div id="showMyChatRecord">
-                    <P>暂时还没有收到客服的消息</P>
+                    <p>暂时还没有收到客服的消息</p>
                 </div>
                 <div id="chatRecordBtn"></div>
             </div>

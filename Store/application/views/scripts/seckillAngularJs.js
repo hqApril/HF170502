@@ -5,6 +5,37 @@ app.controller("myCtrl", function ($scope, $http) {
     //初始化数据
     $scope.classifyNow = 0;
     $scope.pageNow = 0;
+    $scope.timeQuantumNow = 4;
+    $scope.timeSelectNow = 3;
+    $scope.backTime = new BackTime("#backTimeClock", new Date().getTime(), new Date().getTime());
+    //加载用户聊天窗口
+    $scope.chatForUsers = new ChatForUsers("#chatWithService");
+
+    $scope.chatForUsers.sendMsg(function (msg) {
+        if ($scope.loginNow == "") {
+            var obj = {
+                type: "sendMsgToService",
+                sender: "tourist",
+                receiver: "service",
+                content: {
+                    content: msg.html()
+                }
+            }
+
+            client.send(JSON.stringify(obj));
+        } else {
+            var obj = {
+                type: "sendMsgToService",
+                sender: $scope.loginNow,
+                receiver: "service",
+                content: {
+                    content: msg.html()
+                }
+            }
+
+            client.send(JSON.stringify(obj));
+        }
+    });
 
     //获取当前登录用户信息
     $scope.getLoginNow = function () {
@@ -16,6 +47,10 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.loginNow = data;
+
+                if ($scope.loginNow != "") {
+                    $scope.chatForUsers.changeWho(data);
+                }
             },
             function (res) {
                 alert("未知错误");
@@ -80,18 +115,18 @@ app.controller("myCtrl", function ($scope, $http) {
         $scope.pageNow = 0;
 
         $scope.getGoodNum();
-
         $scope.getGood();
     }
 
     //获取商品信息
     $scope.getGood = function () {
         $http({
-            url: "./index.php?c=Main&a=getGood",
+            url: "./index.php?c=Seckill&a=getGood",
             method: "post",
             data: {
                 classifyId: $scope.classifyNow,
-                pageNow: $scope.pageNow
+                pageNow: $scope.pageNow,
+                timeIntervalId: $scope.timeQuantumNow
             }
         }).then(function (res) {
             var data = res.data;
@@ -102,15 +137,14 @@ app.controller("myCtrl", function ($scope, $http) {
         });
     }
 
-    $scope.getGood();
-
     //获取商品数量
     $scope.getGoodNum = function () {
         $http({
-            url: "./index.php?c=Main&a=getGoodNum",
+            url: "./index.php?c=Seckill&a=getGoodNum",
             method: "post",
             data: {
-                classifyId: $scope.classifyNow
+                classifyId: $scope.classifyNow,
+                timeIntervalId: $scope.timeQuantumNow
             }
         }).then(
             function (res) {
@@ -129,8 +163,6 @@ app.controller("myCtrl", function ($scope, $http) {
             }
         );
     }
-
-    $scope.getGoodNum();
 
     //修改当前页
     $scope.changePageNow = function (pageNow) {
@@ -174,28 +206,14 @@ app.controller("myCtrl", function ($scope, $http) {
     $scope.getHonor();
 
     //跳转到详情页面
-    $scope.toGoodDetail = function (good_id) {
-        window.location.href = "./index.php?c=goodDetail&a=toGoodDetailView&g=" + good_id;
+    $scope.toSeckillGoodDetail = function (good_id) {
+        window.location.href = "./index.php?c=SeckillGoodDetail&a=toSeckillGoodDetailView&g=" + good_id;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    $scope.timeQuantumNow = 4;
-    $scope.timeSelectNow = 3;
 
     $scope.getTimeInterval = function () {
         $http({
             url: "./index.php?c=Seckill&a=getTimeInterval",
+            method: "get"
         }).then(
             function (res) {
                 var data = res.data;
@@ -209,14 +227,18 @@ app.controller("myCtrl", function ($scope, $http) {
 
                         if ($scope.timeSelectNow > 0) {
                             $scope.timeSelectNow--;
-                            $scope.timeQuantumNow = $scope.timeSelectNow + 1;
+                            $scope.timeQuantumNow = parseInt($scope.timeSelectNow) + 1;
+
+                            $scope.timeSelectChange();
                         }
                     })
 
                     $(".timeQuantumTab").each(function () {
                         $(this).click(function () {
                             $scope.timeSelectNow = $(this).attr("idx");
-                            $scope.timeQuantumNow = $scope.timeSelectNow + 1;
+                            $scope.timeQuantumNow = parseInt($scope.timeSelectNow) + 1;
+
+                            $scope.timeSelectChange();
                         });
                     });
 
@@ -224,7 +246,9 @@ app.controller("myCtrl", function ($scope, $http) {
 
                         if ($scope.timeSelectNow < 8) {
                             $scope.timeSelectNow++;
-                            $scope.timeQuantumNow = $scope.timeSelectNow + 1;
+                            $scope.timeQuantumNow = parseInt($scope.timeSelectNow) + 1;
+
+                            $scope.timeSelectChange();
                         }
                     })
                 });
@@ -235,11 +259,12 @@ app.controller("myCtrl", function ($scope, $http) {
         );
     }
 
-    $scope.getTimeIntervalNow = function() {
+    $scope.getTimeIntervalNow = function () {
         $http({
             url: "./index.php?c=Seckill&a=getTimeIntervalNow",
+            method: "get"
         }).then(
-            function(res) {
+            function (res) {
                 var data = res.data;
 
                 if (data == "noSeckill") {
@@ -247,12 +272,13 @@ app.controller("myCtrl", function ($scope, $http) {
                     $scope.timeQuantumNow = 1;
                 } else {
                     $scope.timeSelectNow = data;
-                    $scope.timeQuantumNow = data + 1; 
+                    $scope.timeQuantumNow = parseInt(data) + 1;
                 }
-                
+
                 $scope.getTimeInterval();
+                $scope.timeSelectChange();
             },
-            function() {
+            function () {
 
             }
         );
@@ -260,7 +286,32 @@ app.controller("myCtrl", function ($scope, $http) {
 
     $scope.getTimeIntervalNow();
 
-    $scope.getBackTime = function() {
-        a
+    $scope.getBackTime = function () {
+        $http({
+            url: "./index.php?c=Seckill&a=getBackTime",
+            method: "post",
+            data: {
+                timeQuantumNow: $scope.timeQuantumNow
+            }
+        }).then(
+            function (res) {
+                var data = res.data;
+
+                $scope.btRes = data;
+
+                $scope.backTime.changeTime(data.time);
+            },
+            function () {
+
+            }
+        );
+    }
+
+    $scope.timeSelectChange = function () {
+        $scope.pageNow = 0;
+
+        $scope.getBackTime();
+        $scope.getGoodNum();
+        $scope.getGood();
     }
 });

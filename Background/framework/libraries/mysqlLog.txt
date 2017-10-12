@@ -1,1 +1,5 @@
-﻿
+﻿{"time":"2017-10-11 22:10:31","query":"select * from employee where employee_id = '10001' and employee_pwd = md5('12345678')"}
+{"time":"2017-10-11 22:10:35","query":"select * from employee_role, role_menu, menu where employee_role.role_id = role_menu.role_id and role_menu.menu_id = menu.menu_id and employee_role.employee_id = '10001'"}
+{"time":"2017-10-11 22:10:35","query":"select employee_name, role_name, employee_img from employee, role, employee_role where employee.employee_id = employee_role.employee_id and role.role_id = employee_role.role_id and employee.employee_id = '10001'"}
+{"time":"2017-10-11 22:10:37","query":"select * from user where nick_name like '%%'"}
+{"time":"2017-10-11 22:10:38","query":"select * from user where nick_name like '%%' limit 0, 6"}

@@ -654,3 +654,29 @@ values
 (null, 'hf170510', '广达路恒升大厦停车场', true),
 (null, 'hf170510', '工业路422号中利佳园3号店', false),
 (null, 'hf170510', '鼓楼区道山西路小柳社区海锦公寓10号店', false);
+
+#创建客服表
+create table if not exists service
+(
+    service_id varchar(10) not null primary key,
+    service_pwd char(32) not null,
+    nick_name varchar(10)
+);
+
+#客服表插入数据
+insert into service
+values
+('s10001', '25d55ad283aa400af464c76d713c07ad', '小小赵'),
+('s10002', '25d55ad283aa400af464c76d713c07ad', '小小钱'),
+('s10003', '25d55ad283aa400af464c76d713c07ad', '小小孙'),
+('s10004', '25d55ad283aa400af464c76d713c07ad', '小小李');
+
+#创建聊天记录表
+create table if not exists chat_record
+(
+    chat_record_id int unsigned not null auto_increment primary key,
+    user_id varchar(10) not null,
+    content varchar(100) not null,
+    create_time timestamp not null,
+    source enum ('to', 'from')
+);

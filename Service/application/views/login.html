@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="./application/views/scripts/jquery.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/angular.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./application/views/css/public.css" type="text/css">
+    <link rel="stylesheet" href="./application/views/css/login.css" type="text/css">
+    <script src="./application/views/scripts/client.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <img src="./application/views/images/logo_1.png" id="bgLogo">
+    <img src="./application/views/images/logo_2.png" id="bgTitle">
+    <div id="loginBox" ng-controller="myCtrl">
+        <form name="loginForm">
+            <input type="text" placeholder="请输入账号" id="loginId" name="loginId" ng-model="loginId" maxlength="20" required>
+            <br/>
+            <div class="showError" ng-show="loginForm.loginId.$error.required && loginForm.loginId.$dirty">*您尚未输入账号</div>
+            <input autocomplete="new-password" type="password" placeholder="请输入密码" id="loginPwd" name="loginPwd" ng-model="loginPwd"
+                maxlength="16" required>
+            <br/>
+            <div class="showError" ng-show="loginForm.loginPwd.$error.required && loginForm.loginPwd.$dirty">*您尚未输入密码</div>
+            <span>验证码：</span><img ng-src="{{srcUrl}}" ng-click="flushCode()" id="captchaImg">
+            <input type="text" id="loginCaptcha" maxlength="4" ng-model="loginCaptcha">
+            <br/>
+            <input type="reset" value="重&nbsp;置">
+            <input type="button" value="登&nbsp;录" id="loginBtn" ng-disabled="loginForm.loginPwd.$error.required || loginForm.loginId.$error.required"
+                ng-click="login()">
+        </form>
+    </div>
+
+    <script src="./application/views/scripts/loginAngularJs.js" type="text/javascript"></script>
+</body>
+
+</html>

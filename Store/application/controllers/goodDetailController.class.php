@@ -1,6 +1,6 @@
 <?php
     //商品详情控制器类
-    class goodDetailController extends Controller {
+    class GoodDetailController extends Controller {
         private $_model;
 
         //构造函数

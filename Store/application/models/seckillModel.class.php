@@ -28,11 +28,11 @@
         }
 
         //获取商品数量
-        public function getGoodNum($classifyId) {
+        public function getGoodNum($classifyId, $timeIntervalId) {
             if ($classifyId == 0) {
-                $query = "select * from good where post_type = '普通'";
+                $query = "select * from good where post_type = '秒杀' and time_interval_id = '{$timeIntervalId}'";
             } else {
-                $query = "select * from good where post_type = '普通' and classify_id = '{$classifyId}'";
+                $query = "select * from good where post_type = '秒杀' and classify_id = '{$classifyId}' and time_interval_id = '{$timeIntervalId}'";
             }
 
             $res = $this -> _link -> select($query);
@@ -41,11 +41,11 @@
         }
 
         //获取商品信息
-        public function getGood($classifyId, $start) {
+        public function getGood($classifyId, $timeIntervalId, $start) {
             if ($classifyId == 0) {
-                $query = "select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '普通' limit {$start}, 4";
+                $query = "select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '秒杀' and time_interval_id = '{$timeIntervalId}' limit {$start}, 4";
             } else {
-                $query = "select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '普通' and classify_id = '{$classifyId}' limit {$start}, 4";
+                $query = "select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '秒杀' and classify_id = '{$classifyId}' and time_interval_id = '{$timeIntervalId}' limit {$start}, 4";
             }
 
             $res = $this -> _link -> select($query);
@@ -67,6 +67,14 @@
 
         public function getTimeInterval() {
             $query = "select * from time_interval";
+
+            $res = $this -> _link -> select($query);
+
+            return $res;
+        }
+
+        public function getStartAndEnd($timeIntervalId) {
+            $query = "select * from time_interval where time_interval_id = '{$timeIntervalId}'";
 
             $res = $this -> _link -> select($query);
 

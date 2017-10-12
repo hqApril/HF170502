@@ -11,24 +11,46 @@
     <script src="./application/views/scripts/slider.js" type="text/javascript"></script>
     <script src="./application/views/scripts/backTime.js" type="text/javascript"></script>
     <script src="./application/views/scripts/timeQuantum.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./application/views/scripts/chatForUsers.js"></script>
+    <script src="./application/views/scripts/client.js" type="text/javascript"></script>
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
     <nav>
         <ul id="navMenu">
             <li class="vertical-head"></li>
-            <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Seckill&a=toSeckillView">首页</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">我的订单</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">普通商城</a></li>
-            <li class="vertical-body"><img src="./application/views/images/lowest_price.png"></li>
+            <li class="vertical-body">
+                <img src="./application/views/images/logo.png">
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=Seckill&a=toSeckillView">首页</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">我的订单</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">普通商城</a>
+            </li>
+            <li class="vertical-body">
+                <img src="./application/views/images/lowest_price.png">
+            </li>
             <li class="vertical-body navTitle">最低价格</li>
-            <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
+            <li class="vertical-body">
+                <img src="./application/views/images/free_shopping.png">
+            </li>
             <li class="vertical-body navTitle">全场包邮</li>
-            <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
-            <li class="vertical-body"><span>/</span></li>
-            <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
+            <li class="vertical-body ">
+                <a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a>
+            </li>
+            <li class="vertical-body">
+                <span>/</span>
+            </li>
+            <li class="vertical-body">
+                <a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a>
+            </li>
             <li id="showName" ng-show="loginNow != ''">当前登录：{{loginNow}}</li>
         </ul>
     </nav>
@@ -44,27 +66,16 @@
         <input type="button" value="&gt;" id="nextPageBtn">
         <div id="sliderDot"></div>
     </div>
-
-
-
-
-
     <div id="timeQuantum">
         <ul>
-            <li ng-repeat="(y, x) in tiArr" ng-click="changeTimeSelectNow(x.time_id)">{{x.time_start}}:00<br/><span ng-if="y == timeSelectNow">正在开抢</span><span ng-if="y < timeSelectNow">已经结束</span><span ng-if="y > timeSelectNow">尚未开始</span></li>
+            <li ng-repeat="(y, x) in tiArr" ng-click="changeTimeSelectNow(x.time_id)">{{x.time_start}}:00
+                <br/>
+                <span ng-if="y == timeSelectNow">正在开抢</span>
+                <span ng-if="y < timeSelectNow">已经结束</span>
+                <span ng-if="y > timeSelectNow">尚未开始</span>
+            </li>
         </ul>
     </div>
-
-
-
-
-
-
-
-
-
-
-
     <div id="content">
         <div id="contentLeft">
             <div>
@@ -73,17 +84,21 @@
                     <li class="vertical-body">
                         <div></div>
                     </li>
-                    <li class="vertical-body">火热商品 正在销售</li>
+                    <li class="vertical-body">限时限量 疯狂抢购</li>
+                    <li class="vertical-body" ng-if="btRes.status == 'right'">距离本场开始：</li>
+                    <li class="vertical-body" ng-if="btRes.status == 'in'">距离本场结束：</li>
+                    <li class="vertical-body" ng-if="btRes.status == 'left'">本场秒杀已结束</li>
+                    <li class="vertical-body" id="backTimeClock"></li>
                 </ul>
             </div>
             <div></div>
             <div id="showGoods">
-                <div class='showGoodInfo' ng-repeat="(y, x) in goodArr" ng-click="toGoodDetail(x.good_id)">
+                <div class='showGoodInfo' ng-repeat="(y, x) in goodArr" ng-click="toSeckillGoodDetail(x.good_id)">
                     <img ng-src="{{x.img_path}}">
                     <div>
                         <div ng-bind="x.good_name"></div>
                         <div>
-                            <span>价格：￥{{x.original_price}}</span>
+                            <span>价格：￥{{x.discount_price}}</span>
                         </div>
                     </div>
                 </div>
@@ -110,7 +125,6 @@
         </div>
     </div>
 
-
     <footer>
         <p>小何秒杀网</p>
         <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
@@ -121,9 +135,15 @@
         <li ng-click="changeClassify(0)">全部</li>
         <li ng-repeat="x in classifyArr" ng-bind="x.classify_name" ng-click="changeClassify(x.classify_id)"></li>
     </ul>
+    <div id="floatLogo">
+        <img src="./application/views/images/floatLogo.gif">
+        <p>联系客服</p>
+    </div>
+    <div id="chatWithService"></div>
 
 
     <script src="./application/views/scripts/seckillAngularJs.js" type="text/javascript"></script>
+    <script src="./application/views/scripts/public.js" type="text/javascript"></script>
 </body>
 
 </html>

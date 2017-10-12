@@ -1,0 +1,330 @@
+/*-------------------------goodDetails.css用以存储商品详情样式---------------------------------*/
+
+
+/*-------------------------content样式---------------------------------*/
+
+#content {
+    width: 1140px;
+    height: 634px;
+    margin: 20px auto 0;
+}
+
+#showGoodImg {
+    width: 400px;
+    height: 600px;
+    padding: 16px 15px;
+    float: left;
+    border: 1px solid #eeeeee;
+    border-right: none;
+}
+
+#showGoodImg>img {
+    display: block;
+    width: inherit;
+}
+
+#showDetails {
+    float: left;
+    width: 492px;
+    height: 600px;
+    padding: 16px 18px 16px 0;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#showSellerInfo {
+    float: left;
+    width: 176px;
+    height: 582px;
+    border: 1px solid rgb(255, 241, 116);
+    background-image: url("../images/bg1.png");
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+#showSellerInfo>p:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "宋体";
+    line-height: 35px;
+}
+
+#showSellerInfo>p:nth-child(2),
+p:nth-child(3),
+p:nth-child(4) {
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "宋体";
+}
+
+#showSellerInfo>p:nth-child(4)>img {
+    height: 20px;
+    margin-bottom: -4px;
+}
+
+#productName {
+    width: 490px;
+    height: 42px;
+    font-size: 16px;
+    font-family: "宋体";
+    font-weight: bold;
+    line-height: 21px;
+}
+
+#productIntroduction {
+    margin-top: 3px;
+    width: 100%;
+    height: 72px;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: 200;
+    line-height: 18px;
+}
+
+#productPrice {
+    margin: 10px 0;
+    width: 470px;
+    background-color: #FFF2E8;
+    padding-left: 20px;
+}
+
+#productPrice tr:first-child,
+tr:nth-child(3),
+tr:nth-child(4) {
+    height: 20px;
+}
+
+#productPrice tr:nth-child(2) {
+    height: 30px;
+}
+
+.addLine {
+    text-decoration: line-through;
+}
+
+.title {
+    font-size: 12px;
+    width: 100px;
+}
+
+.lightSize {
+    font-size: 14px;
+    font-family: "宋体";
+}
+
+.boldSize {
+    font-size: 22px;
+    color: red;
+    font-weight: 600;
+}
+
+#aboutGoods {
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#btnList {
+    width: 1058px;
+    margin-bottom: 40px;
+    border: 1px solid #eeeeee;
+    padding: 40px;
+    margin: 20px auto 0;
+    border-bottom: none;
+}
+
+.btnUnselected {
+    width: 120px;
+    height: 60px;
+    font-size: 18px;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid #eeeeee;
+}
+
+.btnSelected {
+    width: 120px;
+    height: 60px;
+    font-size: 18px;
+    background-color: rgb(92, 92, 92);
+    border: 1px solid #eeeeee;
+    color: white;
+}
+
+#pageDetail,
+#pageRecord,
+#pageComment {
+    position: absolute;
+    width: 1058px;
+    border: 1px solid #eeeeee;
+    border-top: none;
+    padding: 40px;
+    top: 0;
+    left: 0;
+}
+
+#pageDetail>img {
+    width: 1058px;
+}
+
+#pageRecord {
+    background-color: white;
+    display: none;
+}
+
+#pageRecord>div:nth-child(2) {
+    width: 1058px;
+    height: 2px;
+    background-color: rgb(185, 0, 0);
+}
+
+#headTable {
+    height: 30px;
+    width: 1058px;
+    text-align: center;
+}
+
+#bodyTable {
+    width: 1058px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#bodyTable tr {
+    height: 50px;
+    border-bottom: 1px solid #dddddd;
+}
+
+#bodyTable tr>td:first-child {
+    width: 280px;
+}
+
+#bodyTable tr>td:nth-child(2) {
+    width: 200px;
+}
+
+#bodyTable tr>td:nth-child(3) {
+    width: 183px;
+}
+
+#bodyTable tr>td:nth-child(4) {
+    width: 385px;
+}
+
+#pageRecord>P {
+    line-height: 30px;
+}
+
+#pageComment {
+    background-color: white;
+    display: none;
+}
+
+#pageComment>textarea {
+    width: 1040px;
+    height: 150px;
+    border: 1px solid #222222;
+    line-height: 30px;
+    font-size: 18px;
+    padding: 8px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+#pageComment>input[value="发表评论"] {
+    border: none;
+    background-color: rgb(185, 0, 0);
+    width: 80px;
+    height: 30px;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+#pageComment>div:nth-child(3) {
+    width: 1058px;
+    height: 2px;
+    background-color: rgb(185, 0, 0);
+    margin: 10px 0;
+}
+
+#pageCommentBtn {
+    width: 1058px;
+    height: 27px;
+    text-align: center;
+    margin-top: 23px;
+    m
+}
+
+#pageCommentBtn>input {
+    font-size: 18px;
+    padding: 3px 4px;
+    border: none;
+    background: none;
+    margin: 0 5px;
+}
+
+.commentObj {
+    width: 1056px;
+    height: 150px;
+    border: 1px solid #222222;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.commentObj>div:first-child {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.commentObj>div:nth-child(2) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.commentObj>div:nth-child(3) {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    width: 1016px;
+    word-break: break-all;
+    font-family: "宋体";
+}
+
+.commentObj>div:nth-child(4) {
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    font-size: 14px;
+    color: rgb(115, 115, 115);
+}
+
+/*------下面五个为防暴力刷新条所需要的样式-------*/
+
+#safetyBar {
+    width: 448px;
+    height: 260px;
+    border: 1px solid #e2e2e2;
+    padding: 20px;
+}
+
+#safetyBar>p {
+    font-family: "宋体";
+    font-size: 14px;
+    line-height: 30px;
+}
+
+#seckillBtn {
+    width: 136px;
+    height: 40px;
+    border: 1px solid #f0cab6;
+    background-color: #ffe4d0;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-left: 176px;
+}

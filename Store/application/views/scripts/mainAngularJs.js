@@ -5,6 +5,33 @@ app.controller("myCtrl", function ($scope, $http) {
     //初始化数据
     $scope.classifyNow = 0;
     $scope.pageNow = 0;
+    $scope.chatForUsers = new ChatForUsers("#chatWithService");
+
+    $scope.chatForUsers.sendMsg(function (msg) {
+        if ($scope.loginNow == "") {
+            var obj = {
+                type: "sendMsgToService",
+                sender: "tourist",
+                receiver: "service",
+                content: {
+                    content: msg.html()
+                }
+            }
+
+            client.send(JSON.stringify(obj));
+        } else {
+            var obj = {
+                type: "sendMsgToService",
+                sender: $scope.loginNow,
+                receiver: "service",
+                content: {
+                    content: msg.html()
+                }
+            }
+
+            client.send(JSON.stringify(obj));
+        }
+    });
 
     //获取当前登录用户信息
     $scope.getLoginNow = function () {
@@ -16,6 +43,9 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.loginNow = data;
+                if ($scope.loginNow != "") {
+                    $scope.chatForUsers.changeWho(data);
+                }
             },
             function (res) {
                 alert("未知错误");

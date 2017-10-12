@@ -1,7 +1,0 @@
-{
-    "name": "redisAdapter",
-    "version" : "1.0.0",
-    "author": "HF170502",
-    "main": "redisAdapter.js",
-    "keyword": "nonthing"
-}

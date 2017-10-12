@@ -16,7 +16,7 @@ function SafetyBar(id, btn, length) {
     $fdiv.width((this.length + 50) + "px");
 
     $sdiv2.mousedown(function(e) {
-        $(this).css("background-image", "url('images/btn_bd2.png')");
+        $(this).css("background-image", "url('./application/views/images/btn_bd2.png')");
         isDown = true;
         startX = e.offsetX;
         e.preventDefault();
@@ -40,12 +40,12 @@ function SafetyBar(id, btn, length) {
     }.bind(this))
 
     $sdiv2.mouseup(function() {
-        $(this).css("background-image", "url('images/btn_bd1.png')");
+        $(this).css("background-image", "url('./application/views/images/btn_bd1.png')");
         isDown = false;
     });
 
     $sdiv2.mouseleave(function() {
-        $(this).css("background-image", "url('images/btn_bd1.png')");
+        $(this).css("background-image", "url('./application/views/images/btn_bd1.png')");
         isDown = false;
     });
 

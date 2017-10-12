@@ -23,9 +23,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 }
 
                 $scope.employeeArr = data;
-            },
-            function () {
-
             }
         );
     }
@@ -42,10 +39,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.roleArr = data;
-
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -96,9 +89,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 alert("修改 使用/锁定 成功");
 
                 window.location.reload();
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -124,9 +114,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("未知错误");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -149,9 +136,6 @@ app.controller("myCtrl", function ($scope, $http) {
                     $scope.eId = data[0].employee_id;
                     $scope.eName = data[0].employee_name;
                     $scope.cRole = data[0].role_id;
-                },
-                function () {
-                    alert("未知错误");
                 }
             );
         }
@@ -179,9 +163,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("未知错误");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -208,9 +189,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("未知错误");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -237,9 +215,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("未知错误");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -275,9 +250,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("未知错误");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }

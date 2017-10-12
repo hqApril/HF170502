@@ -62,9 +62,7 @@
             return $res;
         }
 
-        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+        //获取时间段信息
         public function getTimeInterval() {
             $query = "select * from time_interval";
 
@@ -73,6 +71,7 @@
             return $res;
         }
 
+        //获取某个时间段的开始与结束时间
         public function getStartAndEnd($timeIntervalId) {
             $query = "select * from time_interval where time_interval_id = '{$timeIntervalId}'";
 

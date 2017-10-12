@@ -9,13 +9,7 @@ function fsubmit(id) {
         dataType: 'text',
         cache: false,
         processData: false,
-        contentType: false,
-        success: function (res) {
-
-        },
-        error: function (req, res) {
-
-        }
+        contentType: false
     });
 }
 

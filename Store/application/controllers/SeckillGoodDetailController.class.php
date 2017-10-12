@@ -1,5 +1,5 @@
 <?php
-    //商品详情控制器类
+    //秒杀商品详情控制器类
     class SeckillGoodDetailController extends Controller {
         private $_model;
 

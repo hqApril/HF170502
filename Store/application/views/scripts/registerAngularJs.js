@@ -26,9 +26,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("注册失败");
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -63,9 +60,6 @@ app.controller("myCtrl", function ($scope, $http) {
                         } else {
                             $scope.checkName = 4;
                         }
-                    },
-                    function (res) {
-
                     }
                 );
             } else {
@@ -76,7 +70,7 @@ app.controller("myCtrl", function ($scope, $http) {
     }
 
     //验证注册密码
-    $scope.checkRegisterPwd = function() {
+    $scope.checkRegisterPwd = function () {
         $scope.checkPwd = 0;
 
         if ($scope.registerPwd == null) {
@@ -94,11 +88,11 @@ app.controller("myCtrl", function ($scope, $http) {
     }
 
     //验证二次密码
-    $scope.checkConfirmPwd = function() {
+    $scope.checkConfirmPwd = function () {
         $scope.checkConfirm = 0;
 
         if ($scope.checkConfirmPwd == null) {
-            $scope.checkConfirm = 1; 
+            $scope.checkConfirm = 1;
         } else if ($scope.registerPwd != $scope.confirmPwd) {
             $scope.checkConfirm = 2;
         } else {
@@ -107,12 +101,12 @@ app.controller("myCtrl", function ($scope, $http) {
     }
 
     //验证邮箱
-    $scope.checkMailBox = function() {
+    $scope.checkMailBox = function () {
         $scope.checkMail = 0;
 
         if ($scope.registerEmail == null) {
             $scope.checkMail = 1;
-        } else{
+        } else {
             var pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
             if (pattern.test($scope.registerEmail)) {

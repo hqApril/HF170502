@@ -26,8 +26,6 @@ app.controller("myCtrl", function($scope, $http) {
             function(res) {
                 var data = res.data;
 
-                console.log(data)
-
                 if (data == 0) {
                     alert("验证码错误");
                 } else if (data == 1) {
@@ -43,9 +41,6 @@ app.controller("myCtrl", function($scope, $http) {
                 }
 
                 $scope.flushCode();
-            },
-            function() {
-                alert("未知错误");
             }
         );
     }

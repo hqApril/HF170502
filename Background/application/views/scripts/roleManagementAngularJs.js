@@ -16,9 +16,6 @@ app.controller("myCtrl", function ($scope, $http) {
             function (res) {
                 var data = res.data;
                 $scope.roleArr = data;
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -39,9 +36,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 }
 
                 $scope.powerArr = data;
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -70,9 +64,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else if (data == 2) {
                     alert("插入失败");
                 }
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -98,9 +89,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else if (data == 2) {
                     alert("删除失败");
                 }
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -136,9 +124,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else if (data == 2) {
                     alert("更改失败");
                 }
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -166,9 +151,6 @@ app.controller("myCtrl", function ($scope, $http) {
                     for (var i = 0; i < data.length; i++) {
                         $scope.powerArr[data[i].menu_id - 1].got = true;
                     }
-                },
-                function (res) {
-                    alert("未知错误");
                 }
             );
         }
@@ -202,9 +184,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 } else {
                     alert("修改失败");
                 }
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }

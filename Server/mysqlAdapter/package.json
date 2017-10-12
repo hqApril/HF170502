@@ -1,0 +1,7 @@
+{
+    "name": "mysqlAdapter",
+    "version" : "1.0.0",
+    "author": "HF170502",
+    "main": "mysqlAdapter.js",
+    "keyword": "nonthing"
+}

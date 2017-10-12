@@ -51,9 +51,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 if ($scope.loginNow != "") {
                     $scope.chatForUsers.changeWho(data);
                 }
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -81,9 +78,6 @@ app.controller("myCtrl", function ($scope, $http) {
                     "sliderDotUnselected", "sliderDotSelected");
 
                 slider.autoSlider();
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -100,9 +94,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.classifyArr = data;
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -128,13 +119,13 @@ app.controller("myCtrl", function ($scope, $http) {
                 pageNow: $scope.pageNow,
                 timeIntervalId: $scope.timeQuantumNow
             }
-        }).then(function (res) {
-            var data = res.data;
+        }).then(
+            function (res) {
+                var data = res.data;
 
-            $scope.goodArr = data;
-        }, function () {
-            alert("未知错误");
-        });
+                $scope.goodArr = data;
+            }
+        );
     }
 
     //获取商品数量
@@ -157,9 +148,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 for (var i = 0; i < pageNum; i++) {
                     $scope.inputArr.push(i);
                 }
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -176,31 +164,31 @@ app.controller("myCtrl", function ($scope, $http) {
         $http({
             url: "./index.php?c=Main&a=getHonor",
             method: "get"
-        }).then(function (res) {
-            var data = res.data;
+        }).then(
+            function (res) {
+                var data = res.data;
 
-            $scope.honorArr = data;
+                $scope.honorArr = data;
 
-            setTimeout(function () {
-                var $showHonors = $("#showHonors");
+                setTimeout(function () {
+                    var $showHonors = $("#showHonors");
 
-                if ($showHonors.children().length > 11) {
-                    $showHonors.children().clone().appendTo($showHonors);
-                    var showHonorsTop = 0;
-                    var timer3 = setInterval(function () {
-                        showHonorsTop -= 1;
-                        if (parseInt($showHonors.css("top")) <= -
-                            parseInt($showHonors.css("height")) / 2) {
-                            showHonorsTop = 0;
-                        }
+                    if ($showHonors.children().length > 11) {
+                        $showHonors.children().clone().appendTo($showHonors);
+                        var showHonorsTop = 0;
+                        var timer3 = setInterval(function () {
+                            showHonorsTop -= 1;
+                            if (parseInt($showHonors.css("top")) <= -
+                                parseInt($showHonors.css("height")) / 2) {
+                                showHonorsTop = 0;
+                            }
 
-                        $showHonors.css("top", showHonorsTop + "px");
-                    }, 15);
-                }
-            }, 100);
-        }, function () {
-            alert("未知错误");
-        });
+                            $showHonors.css("top", showHonorsTop + "px");
+                        }, 15);
+                    }
+                }, 100);
+            }
+        );
     }
 
     $scope.getHonor();
@@ -252,9 +240,6 @@ app.controller("myCtrl", function ($scope, $http) {
                         }
                     })
                 });
-            },
-            function () {
-
             }
         );
     }
@@ -277,9 +262,6 @@ app.controller("myCtrl", function ($scope, $http) {
 
                 $scope.getTimeInterval();
                 $scope.timeSelectChange();
-            },
-            function () {
-
             }
         );
     }
@@ -300,9 +282,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 $scope.btRes = data;
 
                 $scope.backTime.changeTime(data.time);
-            },
-            function () {
-
             }
         );
     }

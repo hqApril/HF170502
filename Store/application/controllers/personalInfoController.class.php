@@ -29,6 +29,7 @@
             }
         }
 
+        //获取当前登录用户信息
         public function getLoginNowInfo() {
             $userId = $_SESSION['userLogin'];
 
@@ -37,6 +38,7 @@
             echo json_encode($res);
         }
 
+        //获取地址信息
         public function getAddress() {
             $userId = $_SESSION['userLogin'];
 
@@ -45,6 +47,7 @@
             echo json_encode($res);
         }
 
+        //获取购物车信息
         public function getSc() {
             $userId = $_SESSION['userLogin'];
             $scPageNow = $_POST['scPageNow'];
@@ -55,6 +58,7 @@
             echo json_encode($res);
         }
 
+        //获取购物车数量
         public function getScNum() {
             $userId = $_SESSION['userLogin'];
 
@@ -63,6 +67,7 @@
             echo count($res);
         }
 
+        //修改默认地址
         public function changeDefaultAdd() {
             $addressId = $_POST['addressId'];
             $userId = $_SESSION['userLogin'];
@@ -72,6 +77,7 @@
             echo $res;
         }
 
+        //添加地址
         public function addAdd() {
             $addr = $_POST['addr'];
             $userId = $_SESSION['userLogin'];
@@ -87,6 +93,7 @@
             echo $res;
         }
 
+        //修改昵称
         public function changeNickname() {
             $nickname = $_POST['nickname'];
             $userId = $_SESSION['userLogin'];
@@ -96,6 +103,7 @@
             echo $res;
         }
 
+        //修改电话号码
         public function changePhoneNum() {
             $phoneNum = $_POST['phoneNum'];
             $userId = $_SESSION['userLogin'];
@@ -105,6 +113,7 @@
             echo $res;
         }
 
+        //修改邮箱
         public function changeMailbox() {
             $mailbox = $_POST['mailbox'];
             $userId = $_SESSION['userLogin'];
@@ -114,6 +123,7 @@
             echo $res;
         }
 
+        //添加至订单
         public function addToOl() {
             $scId = $_POST['scId'];
             $goodId = $_POST['goodId'];
@@ -138,6 +148,7 @@
             }
         }
 
+        //从购物车中删除
         public function deleteFromSc() {
             $scId = $_POST['scId'];
  
@@ -150,6 +161,7 @@
             }
         }
 
+        //获取未支付订单
         public function getNoPayOl() {
             $userId = $_SESSION['userLogin'];
             $npPageNow = $_POST['npPageNow'];
@@ -160,6 +172,7 @@
             echo json_encode($res);
         }
 
+        //获取未支付订单数量
         public function getNoPayOlNum() {
             $userId = $_SESSION['userLogin'];
 
@@ -168,6 +181,7 @@
             echo count($res);
         }
 
+        //删除订单
         public function deleteOl() {
             $orderListId = $_POST['orderListId'];
 
@@ -176,6 +190,7 @@
             echo $res;
         }
 
+        //支付订单
         public function payOl() {
             $orderListId = $_POST['orderListId'];
             $postType = $_POST['postType'];
@@ -183,7 +198,6 @@
             $ol = $this -> _model -> getOneOl($orderListId);
             $loginNowInfo = $this -> _model -> getLoginNowInfo($userId);
             
-
             if ($postType == '普通') {
                 if ($ol[0]['original_price'] > $loginNowInfo[0]['balance']) {
                     echo 1;
@@ -205,6 +219,7 @@
             }
         }
 
+        //获取已支付订单
         public function getPayedOl() {
             $userId = $_SESSION['userLogin'];
             $pdPageNow = $_POST['pdPageNow'];
@@ -215,6 +230,7 @@
             echo json_encode($res);
         }
 
+        //获取已支付订单数量
         public function getPayedOlNum() {
             $userId = $_SESSION['userLogin'];
 
@@ -223,6 +239,7 @@
             echo count($res);
         }
 
+        //获取余额
         public function getBalance() {
             $userId = $_SESSION['userLogin'];
 
@@ -231,6 +248,7 @@
             echo $res[0]['balance'];
         }
 
+        //钱包充值
         public function addRecharge() {
             $userId = $_SESSION['userLogin'];
             $recharge = $_POST['recharge'];

@@ -2326,3 +2326,31 @@
 {"time":"2017-10-12 00:10:32","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed' limit 0, 3"}
 {"time":"2017-10-12 00:10:33","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed'"}
 {"time":"2017-10-12 00:10:34","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-12 11:10:45","query":"select * from user where user_id = 'hf170502' and user_pwd = md5('12345678')"}
+{"time":"2017-10-12 11:10:49","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 11:10:50","query":"select * from classify"}
+{"time":"2017-10-12 11:10:50","query":"select * from banner_img"}
+{"time":"2017-10-12 11:10:51","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 11:10:51","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 12:10:02","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '1' and order_list.ol_status = 'payed'"}
+{"time":"2017-10-12 12:10:02","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '1'"}
+{"time":"2017-10-12 12:10:02","query":"select * from comment where good_id ='1' order by create_time desc"}
+{"time":"2017-10-12 12:10:03","query":"select * from img where img_type = 'detail' and good_id = '1'"}
+{"time":"2017-10-12 12:10:09","query":"select * from address where user_id = 'hf170502'"}
+{"time":"2017-10-12 12:10:10","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-12 12:10:10","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502'"}
+{"time":"2017-10-12 12:10:11","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay' limit 0, 3"}
+{"time":"2017-10-12 12:10:11","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' limit 0, 3"}
+{"time":"2017-10-12 12:10:12","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay'"}
+{"time":"2017-10-12 12:10:12","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed' limit 0, 3"}
+{"time":"2017-10-12 12:10:12","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed'"}
+{"time":"2017-10-12 12:10:13","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-12 12:10:53","query":"select * from banner_img"}
+{"time":"2017-10-12 12:10:54","query":"select * from classify"}
+{"time":"2017-10-12 12:10:55","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 12:10:55","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 12:10:56","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 12:10:06","query":"select * from img where img_type = 'detail' and good_id = '1'"}
+{"time":"2017-10-12 12:10:06","query":"select * from comment where good_id ='1' order by create_time desc"}
+{"time":"2017-10-12 12:10:07","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '1'"}
+{"time":"2017-10-12 12:10:07","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '1' and order_list.ol_status = 'payed'"}

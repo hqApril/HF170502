@@ -6,7 +6,7 @@ var client = new WebSocket("ws://localhost:8181");
 client.onmessage = function (msg) {
     var msgObj = JSON.parse(msg.data);
 
-    if (msgObj.type == "seckill") {
+    if (msgObj.type == "seckill") { //商品秒杀
         if (msgObj.content.res == 0) {
             alert("请先添加默认地址");
         } else if (msgObj.content.res == 1) {
@@ -21,15 +21,12 @@ client.onmessage = function (msg) {
             $.ajax({
                 url: "./index.php?c=SeckillGoodDetail&a=addToOl&goodId=" + msgObj.content.goodId,
                 type: "get",
-                dataType: "text",
-                success: function (res) {
-                    console.log(res);
-                }
+                dataType: "text"
             });
         }
-    } else if (msgObj.type == "noService") {
+    } else if (msgObj.type == "noService") { //无客服在线
         alert("暂无客服在线");
-    } else if (msgObj.type == "sendMsgToClient") {
+    } else if (msgObj.type == "sendMsgToClient") { //接受信息
         var $div = $("<div class='oneMsg'></div>");
         var $p = $("<p>客服" + msgObj.sender + "</p>");
         var $sdiv1 = $("<div>" + msgObj.content.content + "</div>");

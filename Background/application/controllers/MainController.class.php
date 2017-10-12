@@ -1,5 +1,4 @@
 <?php
-
     //主页面控制器类
     class MainController extends Controller {
         private $_model;

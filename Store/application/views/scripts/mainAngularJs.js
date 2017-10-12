@@ -196,8 +196,6 @@ app.controller("myCtrl", function ($scope, $http) {
                     }, 15);
                 }
             }, 100);
-        }, function () {
-            alert("未知错误");
         });
     }
 

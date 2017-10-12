@@ -13,9 +13,6 @@ app.controller("myCtrl", function ($scope, $http, $element) {
                 $scope.userName = data[0].employee_name;
                 $scope.userRole = data[0].role_name;
                 $scope.srcUrl = data[0].employee_img;
-            },
-            function (res) {
-                alert("未知错误");
             }
         );
     }
@@ -39,9 +36,6 @@ app.controller("myCtrl", function ($scope, $http, $element) {
                 }
 
                 $scope.iframeUrl = data[i].url;
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }

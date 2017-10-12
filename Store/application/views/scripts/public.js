@@ -2,5 +2,3 @@
 $("#floatLogo").click(function () {
     $("#chatWithService").toggle();
 });
-
-//发送消息挂事件

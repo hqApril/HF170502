@@ -32,9 +32,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 }
 
                 $scope.inputArr = arr;
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -55,9 +52,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 var data = res.data;
 
                 $scope.goodArr = data;
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -92,9 +86,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 alert("状态修改成功");
 
                 $scope.infoChange();
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -132,9 +123,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 $scope.gClassifyName = data.classify_name;
                 $scope.gSummary = data.good_summary;
                 $scope.gPostTime = data.post_time;
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }
@@ -170,9 +158,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 alert("修改成功");
 
                 $scope.infoChange();
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }

@@ -14,55 +14,7 @@
 <body ng-app="myApp" ng-controller="myCtrl">
     <div id="content"></div>
 
-    <script>
-        //客服聊天页面插件
-        var chatForService = new ChatForService("#content");
-
-        //正则验证表达式
-        function isNull(str) { //检验输入是否为空
-            if (str == "") return true;
-            var regu = "^[ ]+$";
-            var re = new RegExp(regu);
-            return re.test(str);
-        }
-
-        var app = angular.module("myApp", []);
-
-        app.controller("myCtrl", function ($scope, $http) {
-            $scope.getServiceNow = function () {
-                $http({
-                    method: "get",
-                    url: "index.php?c=Main&a=getServiceNow"
-                }).then(
-                    function (res) {
-                        var data = res.data;
-
-                        $scope.serviceNow = data;
-
-                        $scope.flashServiceLogin();
-                    },
-                    function () {
-                        alert("未知错误");
-                    }
-                );
-            }
-
-            $scope.getServiceNow();
-
-            $scope.flashServiceLogin = function () {
-                var obj = {
-                    type: "flashServiceLogin",
-                    sender: "service",
-                    receiver: "server",
-                    content: {
-                        id: $scope.serviceNow
-                    }
-                }
-
-                client.send(JSON.stringify(obj));
-            }
-        })
-    </script>
+    <script src="./application/views/scripts/mainAngularJs.js" type="text/javascript"></script>
 </body>
 
 </html>

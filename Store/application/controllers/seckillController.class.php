@@ -58,8 +58,6 @@
             echo json_encode($res);
         }
 
-        // ---------------------------------------------------------------------------
-
         //获取时间段信息
         public function getTimeInterval() {
             $res = $this -> _model -> getTimeInterval();

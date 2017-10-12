@@ -551,7 +551,7 @@ create table if not exists user
 insert into user
 values
 ('hf170501', '25d55ad283aa400af464c76d713c07ad', '小赵', '20170808120000', '13711111111', 'for01@126.com', 0, '使用'),
-('hf170502', '25d55ad283aa400af464c76d713c07ad', '小钱', '20170808120000', '13722222222', 'for02@126.com', 10000, '使用'),
+('hf170502', '25d55ad283aa400af464c76d713c07ad', '小钱', '20170808120000', '13722222222', 'for02@126.com', 0, '使用'),
 ('hf170503', '25d55ad283aa400af464c76d713c07ad', '小孙', '20170808120000', '13733333333', 'for03@126.com', 0, '使用'),
 ('hf170504', '25d55ad283aa400af464c76d713c07ad', '小李', '20170909120000', '13744444444', 'for04@126.com', 0, '使用'),
 ('hf170505', '25d55ad283aa400af464c76d713c07ad', '小周', '20170909120000', '13755555555', 'for05@126.com', 0, '使用'),
@@ -610,7 +610,7 @@ create table if not exists shopping_car
     sc_id int not null primary key auto_increment,
     user_id varchar(10) not null,
     good_id int unsigned not null
-);
+)ENGINE=INNODB;
 
 #创建地址表
 create table if not exists address
@@ -619,7 +619,7 @@ create table if not exists address
     user_id varchar(10) not null,
     addr varchar(50) not null,
     is_default boolean not null
-);
+)ENGINE=INNODB;
 
 #地址表插入数据
 insert into address
@@ -661,7 +661,7 @@ create table if not exists service
     service_id varchar(10) not null primary key,
     service_pwd char(32) not null,
     nick_name varchar(10)
-);
+)ENGINE=INNODB;
 
 #客服表插入数据
 insert into service
@@ -679,4 +679,4 @@ create table if not exists chat_record
     content varchar(100) not null,
     create_time timestamp not null,
     source enum ('to', 'from')
-);
+)ENGINE=INNODB;

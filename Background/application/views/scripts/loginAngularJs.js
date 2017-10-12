@@ -41,9 +41,6 @@ app.controller("myCtrl", function ($scope, $http) {
                 }
 
                 $scope.flushCode();
-            },
-            function () {
-                alert("未知错误");
             }
         );
     }

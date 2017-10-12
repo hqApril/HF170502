@@ -1,5 +1,5 @@
 <?php
-    //商品详情模型
+    //秒杀商品详情模型
     class SeckillGoodDetailModel extends Model {
         private $_link;
 

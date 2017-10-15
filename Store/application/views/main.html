@@ -17,18 +17,38 @@
     <nav>
         <ul id="navMenu">
             <li class="vertical-head"></li>
-            <li class="vertical-body"><img src="./application/views/images/logo.png"></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">首页</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">我的订单</a></li>
-            <li class="vertical-body"><a class="nvaAWithBg" href="./index.php?c=Seckill&a=toSeckillView">秒杀商城</a></li>
-            <li class="vertical-body"><img src="./application/views/images/lowest_price.png"></li>
+            <li class="vertical-body">
+                <img src="./application/views/images/logo.png">
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=Main&a=toMainView">首页</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoView">个人中心</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=PersonalInfo&a=toPersonalInfoview&f=myOrder">我的订单</a>
+            </li>
+            <li class="vertical-body">
+                <a class="nvaAWithBg" href="./index.php?c=Seckill&a=toSeckillView">秒杀商城</a>
+            </li>
+            <li class="vertical-body">
+                <img src="./application/views/images/lowest_price.png">
+            </li>
             <li class="vertical-body navTitle">最低价格</li>
-            <li class="vertical-body"><img src="./application/views/images/free_shopping.png"></li>
+            <li class="vertical-body">
+                <img src="./application/views/images/free_shopping.png">
+            </li>
             <li class="vertical-body navTitle">全场包邮</li>
-            <li class="vertical-body "><a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a></li>
-            <li class="vertical-body"><span>/</span></li>
-            <li class="vertical-body"><a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a></li>
+            <li class="vertical-body ">
+                <a class="navA" href="./index.php?c=Login&a=toLoginView">登录</a>
+            </li>
+            <li class="vertical-body">
+                <span>/</span>
+            </li>
+            <li class="vertical-body">
+                <a class="navA" href="./index.php?c=Register&a=toRegisterView">注册</a>
+            </li>
             <li id="showName" ng-show="loginNow != ''">当前登录：{{loginNow}}</li>
         </ul>
     </nav>
@@ -95,13 +115,19 @@
         <p>小何秒杀网</p>
         <p>Copyright © 1998 - 2017 April. All Rights Reserved.</p>
         <p>小何公司 版权所有 小何电商文化经营许可证</p>
+        <p>联系网站管理员：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=467576403&site=qq&menu=yes">
+            <img border="0" src="http://wpa.qq.com/pa?p=2:467576403:41" alt="联系管理员" title="联系管理员" /></a></p>
     </footer>
 
     <ul id="floatClassify">
         <li ng-click="changeClassify(0)">全部</li>
         <li ng-repeat="x in classifyArr" ng-bind="x.classify_name" ng-click="changeClassify(x.classify_id)"></li>
     </ul>
-
+    <div id="floatLogo">
+        <img src="./application/views/images/floatLogo.gif">
+        <p>联系客服</p>
+    </div>
+    <div id="chatWithService"></div>
 
     <script src="./application/views/scripts/mainAngularJs.js" type="text/javascript"></script>
     <script src="./application/views/scripts/public.js" type="text/javascript"></script>

@@ -2354,3 +2354,185 @@
 {"time":"2017-10-12 12:10:06","query":"select * from comment where good_id ='1' order by create_time desc"}
 {"time":"2017-10-12 12:10:07","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '1'"}
 {"time":"2017-10-12 12:10:07","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '1' and order_list.ol_status = 'payed'"}
+{"time":"2017-10-12 20:10:40","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:40","query":"select * from classify"}
+{"time":"2017-10-12 20:10:41","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:41","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:42","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:35","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:36","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:37","query":"select * from classify"}
+{"time":"2017-10-12 20:10:37","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:37","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:40","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:40","query":"select * from classify"}
+{"time":"2017-10-12 20:10:41","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:41","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:42","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:42","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:43","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:43","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:45","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:46","query":"select * from classify"}
+{"time":"2017-10-12 20:10:47","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:47","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:48","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:14","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:15","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:15","query":"select * from classify"}
+{"time":"2017-10-12 20:10:16","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:16","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:17","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:17","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:18","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:22","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:23","query":"select * from classify"}
+{"time":"2017-10-12 20:10:23","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:23","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:24","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:25","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:25","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:26","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:04","query":"select * from classify"}
+{"time":"2017-10-12 20:10:04","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:05","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:06","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:06","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:07","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:07","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:08","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:15","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:16","query":"select * from classify"}
+{"time":"2017-10-12 20:10:16","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:17","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:18","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:18","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:18","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:19","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:02","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:02","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:03","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:03","query":"select * from classify"}
+{"time":"2017-10-12 20:10:04","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:04","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:05","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:05","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:17","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:17","query":"select * from classify"}
+{"time":"2017-10-12 20:10:18","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:18","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:19","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:19","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:20","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:20","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:31","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:32","query":"select * from classify"}
+{"time":"2017-10-12 20:10:32","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:32","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:33","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:49","query":"select * from classify"}
+{"time":"2017-10-12 20:10:49","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:50","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:50","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:51","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:46","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:47","query":"select * from classify"}
+{"time":"2017-10-12 20:10:48","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:48","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:49","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:27","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:27","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:28","query":"select * from classify"}
+{"time":"2017-10-12 20:10:28","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:29","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:52","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:53","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:53","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:54","query":"select * from classify"}
+{"time":"2017-10-12 20:10:54","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:57","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:57","query":"select * from classify"}
+{"time":"2017-10-12 20:10:57","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:58","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:58","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:30","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:31","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:31","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:31","query":"select * from classify"}
+{"time":"2017-10-12 20:10:32","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:48","query":"select * from classify"}
+{"time":"2017-10-12 20:10:48","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-12 20:10:48","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:49","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-12 20:10:49","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:09","query":"select * from classify"}
+{"time":"2017-10-12 20:10:10","query":"select * from banner_img"}
+{"time":"2017-10-12 20:10:11","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-12 20:10:11","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:12","query":"select * from time_interval"}
+{"time":"2017-10-12 20:10:12","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-12 20:10:13","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-12 20:10:13","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-15 21:10:06","query":"select * from user where user_id = 'asfsa'"}
+{"time":"2017-10-15 21:10:27","query":"insert into user (user_id, user_pwd, create_time, mailbox, balance, user_status) values ('asfsa', md5('123123'), now(), 'forhyj@126.com', 0, '\u4f7f\u7528')"}
+{"time":"2017-10-15 21:10:28","query":"select * from user where user_id = 'hf170502' and user_pwd = md5('12345678')"}
+{"time":"2017-10-15 21:10:36","query":"select * from banner_img"}
+{"time":"2017-10-15 21:10:37","query":"select * from classify"}
+{"time":"2017-10-15 21:10:38","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-15 21:10:38","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-15 21:10:38","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-15 21:10:16","query":"select * from classify"}
+{"time":"2017-10-15 21:10:17","query":"select * from good where post_type = '\u666e\u901a'"}
+{"time":"2017-10-15 21:10:18","query":"select * from banner_img"}
+{"time":"2017-10-15 21:10:18","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u666e\u901a' limit 0, 4"}
+{"time":"2017-10-15 21:10:19","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-15 21:10:32","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '13'"}
+{"time":"2017-10-15 21:10:33","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '13' and order_list.ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:33","query":"select * from img where img_type = 'detail' and good_id = '13'"}
+{"time":"2017-10-15 21:10:34","query":"select * from comment where good_id ='13' order by create_time desc"}
+{"time":"2017-10-15 21:10:51","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '13' and order_list.ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:51","query":"select * from img where img_type = 'detail' and good_id = '13'"}
+{"time":"2017-10-15 21:10:52","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '13'"}
+{"time":"2017-10-15 21:10:52","query":"select * from comment where good_id ='13' order by create_time desc"}
+{"time":"2017-10-15 21:10:22","query":"select user_id from order_list order by create_time desc"}
+{"time":"2017-10-15 21:10:23","query":"select * from classify"}
+{"time":"2017-10-15 21:10:24","query":"select * from banner_img"}
+{"time":"2017-10-15 21:10:24","query":"select * from time_interval"}
+{"time":"2017-10-15 21:10:25","query":"select * from time_interval"}
+{"time":"2017-10-15 21:10:26","query":"select * from time_interval where time_interval_id = '8'"}
+{"time":"2017-10-15 21:10:26","query":"select * from good where post_type = '\u79d2\u6740' and time_interval_id = '8'"}
+{"time":"2017-10-15 21:10:27","query":"select good.*, img.img_path from good, img where good.good_id = img.good_id and img.img_type = 'common' and post_type = '\u79d2\u6740' and time_interval_id = '8' limit 0, 4"}
+{"time":"2017-10-15 21:10:08","query":"select * from good, img where good.good_id = img.good_id and img.img_type = 'common' and good.good_id = '35'"}
+{"time":"2017-10-15 21:10:08","query":"select order_list.user_id, order_list.total, good.original_price, order_list.create_time from order_list, good where order_list.good_id = good.good_id and order_list.good_id = '35' and order_list.ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:09","query":"select * from comment where good_id ='35' order by create_time desc"}
+{"time":"2017-10-15 21:10:09","query":"select * from img where img_type = 'detail' and good_id = '35'"}
+{"time":"2017-10-15 21:10:43","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:44","query":"select * from address where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:45","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:45","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' limit 0, 3"}
+{"time":"2017-10-15 21:10:46","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay' limit 0, 3"}
+{"time":"2017-10-15 21:10:46","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay'"}
+{"time":"2017-10-15 21:10:46","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed' limit 0, 3"}
+{"time":"2017-10-15 21:10:47","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:47","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:08","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:08","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' limit 0, 3"}
+{"time":"2017-10-15 21:10:09","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay' limit 0, 3"}
+{"time":"2017-10-15 21:10:09","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:10","query":"select * from address where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:10","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed' limit 0, 3"}
+{"time":"2017-10-15 21:10:11","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay'"}
+{"time":"2017-10-15 21:10:11","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:11","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:10","query":"select * from address where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:11","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay' limit 0, 3"}
+{"time":"2017-10-15 21:10:11","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' limit 0, 3"}
+{"time":"2017-10-15 21:10:12","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:12","query":"select shopping_car.*, good.good_name, good.original_price, img.img_path from shopping_car, good, img where shopping_car.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:12","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'nopay'"}
+{"time":"2017-10-15 21:10:13","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed' limit 0, 3"}
+{"time":"2017-10-15 21:10:13","query":"select * from order_list, good, img where order_list.good_id = good.good_id and good.good_id = img.good_id and img.img_type = 'common' and user_id = 'hf170502' and ol_status = 'payed'"}
+{"time":"2017-10-15 21:10:14","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:01","query":"select * from user where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:02","query":"update user set balance = '100' where user_id = 'hf170502'"}
+{"time":"2017-10-15 21:10:03","query":"select * from user where user_id = 'hf170502'"}

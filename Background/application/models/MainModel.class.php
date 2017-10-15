@@ -261,13 +261,13 @@
                 if ($goodStatus === "0") {
                     $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' and good_name like '%{$inquireInfo}%' limit {$start}, 4";
                 } else {
-                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' good_name like '%{$inquireInfo}%' and good_status = '{$goodStatus}' limit {$start}, 4";
+                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' and good_name like '%{$inquireInfo}%' and good_status = '{$goodStatus}' limit {$start}, 4";
                 }
             } else {
                 if ($goodStatus === "0") {
-                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' limit {$start}, 4";
+                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' and good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' limit {$start}, 4";
                 } else {
-                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' and good_status = '{$goodStatus}' limit {$start}, 4";
+                    $query = "select * from good, img where img.good_id =good.good_id and img.img_type = 'common' and good_name like '%{$inquireInfo}%' and classify_id = '{$classifyId}' and good_status = '{$goodStatus}' limit {$start}, 4";
                 }
             }
 
